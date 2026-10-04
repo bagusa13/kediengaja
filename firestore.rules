@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Admin only rule (assuming admin logic will be implemented via custom claims or specific uid)
+    match /{document=**} {
+      allow read: if true; // Public read
+      allow write: if request.auth != null; // Only authenticated users (admins) can write
+    }
+  }
+}

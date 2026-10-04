@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+
+  ::selection {
+    background: rgb(156 61 28 / 0.22);
+    color: #1c1917;
+  }
+
+  :focus-visible {
+    outline: 2px solid #9c3d1c;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .field {
+    @apply w-full min-h-[44px] rounded-md border border-stone-300 bg-white px-3 py-2.5 text-sm text-ink outline-none transition;
+  }
+
+  .field:focus {
+    @apply border-clay ring-2 ring-clay/30;
+  }
+}
