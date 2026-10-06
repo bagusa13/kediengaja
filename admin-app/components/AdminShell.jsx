@@ -91,7 +91,7 @@ function ShellInner({ children }) {
           )}
 
           <a
-            href="http://localhost:3000"
+            href="/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-stone-400 hover:text-white hover:bg-stone-800 rounded-lg transition"
