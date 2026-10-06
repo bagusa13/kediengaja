@@ -49,7 +49,7 @@ export default function Testimonials() {
                   ))}
                 </div>
                 <p className="text-sm leading-relaxed text-stone-700 italic">
-                  "{rev.text}"
+                  &ldquo;{rev.text}&rdquo;
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-stone-200/60 flex items-center justify-between">
