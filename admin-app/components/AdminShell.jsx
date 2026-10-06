@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
   Home,
@@ -24,12 +25,34 @@ const NAV_LINKS = [
 
 function ShellInner({ children }) {
   const pathname = usePathname();
+  const router = useRouter();
   const { user, logout, loading } = useAuth();
 
   const isLoginPage = pathname === '/login';
 
+  useEffect(() => {
+    if (!loading && !user && !isLoginPage) {
+      router.push('/login');
+    }
+  }, [loading, user, isLoginPage, router]);
+
   if (isLoginPage) {
     return <main className="min-h-screen bg-stone-900">{children}</main>;
+  }
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-stone-900 text-stone-300">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-emerald-500 border-t-transparent" />
+          <p className="text-xs text-stone-400">Memuat panel admin...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null;
   }
 
   const isActive = (href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));

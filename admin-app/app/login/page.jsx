@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Lock, Mail, AlertCircle, ArrowRight, ShieldCheck } from 'lucide-react';
 import { useAuth } from '@/lib/auth';
@@ -9,7 +9,13 @@ function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams.get('from') || '/';
-  const { login } = useAuth();
+  const { user, login } = useAuth();
+
+  useEffect(() => {
+    if (user) {
+      router.push(from);
+    }
+  }, [user, router, from]);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
