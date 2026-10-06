@@ -85,30 +85,58 @@ export default function ImageUploader({
       // 1. Client-side compression to WebP
       const compressedBlob = await compressImageClient(file);
 
-      // 2. Upload to Firebase Storage
-      const storage = getFirebaseStorage();
-      if (!storage) {
-        throw new Error('Firebase Storage instance belum aktif.');
+      const cloudinaryCloud = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+      const cloudinaryPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+
+      // 2A. Jika Cloudinary terkonfigurasi (Opsi Bebas Kartu Kredit)
+      if (cloudinaryCloud && cloudinaryPreset) {
+        const formData = new FormData();
+        formData.append('file', compressedBlob, `${Date.now()}.webp`);
+        formData.append('upload_preset', cloudinaryPreset);
+        formData.append('folder', `kediengaja/${folder}`);
+
+        const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudinaryCloud}/image/upload`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData?.error?.message || 'Gagal mengunggah foto ke Cloudinary.');
+        }
+
+        const data = await res.json();
+        const imageUrl = data.secure_url || data.url;
+        setPreview(imageUrl);
+        onChange(imageUrl);
+        return;
       }
 
-      const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_').replace(/\.[^/.]+$/, '');
-      const storagePath = `uploads/${folder}/${Date.now()}_${safeName}.webp`;
-      const storageRef = ref(storage, storagePath);
+      // 2B. Fallback ke Firebase Storage (Jika aktif)
+      const storage = getFirebaseStorage();
+      if (storage) {
+        const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_').replace(/\.[^/.]+$/, '');
+        const storagePath = `uploads/${folder}/${Date.now()}_${safeName}.webp`;
+        const storageRef = ref(storage, storagePath);
 
-      await uploadBytes(storageRef, compressedBlob, {
-        contentType: 'image/webp',
-        customMetadata: {
-          originalName: file.name,
-          compressedAt: new Date().toISOString(),
-        },
-      });
+        await uploadBytes(storageRef, compressedBlob, {
+          contentType: 'image/webp',
+          customMetadata: {
+            originalName: file.name,
+            compressedAt: new Date().toISOString(),
+          },
+        });
 
-      const downloadUrl = await getDownloadURL(storageRef);
-      setPreview(downloadUrl);
-      onChange(downloadUrl);
+        const downloadUrl = await getDownloadURL(storageRef);
+        setPreview(downloadUrl);
+        onChange(downloadUrl);
+        return;
+      }
+
+      throw new Error('Penyimpanan cloud belum aktif. Silakan masukkan Cloudinary di .env atau tempel URL gambar manual di bawah.');
     } catch (err) {
-      console.warn('Storage upload error (fallback active):', err);
-      setError('Upload ke Cloud Storage gagal. Anda tetap dapat memasukkan URL gambar secara manual.');
+      console.warn('Media upload notice:', err);
+      setError(err.message || 'Gagal mengunggah foto. Anda tetap dapat memasukkan URL gambar secara manual di bawah.');
     } finally {
       setUploading(false);
     }
