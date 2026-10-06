@@ -72,7 +72,7 @@ export function AuthProvider({ children }) {
     }
     setSessionCookie(null);
     if (typeof window !== 'undefined') {
-      window.location.href = '/login';
+      window.location.href = '/admin/login';
     }
   }
 
