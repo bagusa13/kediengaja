@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
+import { uploadToCloudinary } from '@/lib/uploader';
 
 const DEFAULT_SLIDES = [
   { id: '1', title: 'Sunrise Sikunir', image: '/images/dokumentasi/tamu-1.jpg' },
@@ -34,7 +35,24 @@ export default function GalleryManagerPage() {
   const [slides, setSlides] = useState(DEFAULT_SLIDES);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [uploadingIdx, setUploadingIdx] = useState(null);
   const [msg, setMsg] = useState({ text: '', type: '' });
+
+  async function handleSlotUpload(idx, e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingIdx(idx);
+    setMsg({ text: '', type: '' });
+    try {
+      const url = await uploadToCloudinary(file, 'gallery');
+      handleChange(idx, 'image', url);
+      setMsg({ text: `Foto #${idx + 1} berhasil diunggah ke Cloudinary! Jangan lupa klik "Simpan Perubahan".`, type: 'info' });
+    } catch (err) {
+      alert(err.message || 'Gagal mengunggah foto.');
+    } finally {
+      setUploadingIdx(null);
+    }
+  }
 
   useEffect(() => {
     async function load() {
@@ -238,15 +256,41 @@ export default function GalleryManagerPage() {
                   <p className="text-[11px] text-gray-400 mt-0.5">Maks. 30 karakter, tampil di bawah polaroid.</p>
                 </div>
 
+                {/* File Upload Button to Cloudinary */}
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 mb-1">
-                    URL Gambar / Path File:
+                    Unggah Foto Polaroid (Otomatis ke Cloudinary):
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <label className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 bg-gray-50 hover:bg-emerald-50 hover:border-emerald-500 text-xs font-semibold text-gray-700 cursor-pointer transition">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        disabled={uploadingIdx === idx}
+                        onChange={(e) => handleSlotUpload(idx, e)}
+                        className="hidden"
+                      />
+                      {uploadingIdx === idx ? (
+                        <span className="text-emerald-600 font-bold animate-pulse">⏳ Mengompresi &amp; Mengunggah...</span>
+                      ) : (
+                        <span>📷 Pilih Foto dari HP / PC</span>
+                      )}
+                    </label>
+                    <span className="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      Rasio 1:1 / 4:5
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                    URL Gambar / CDN Link:
                   </label>
                   <input
                     type="text"
                     value={slide.image || ''}
                     onChange={(e) => handleChange(idx, 'image', e.target.value)}
-                    placeholder="/images/dokumentasi/tamu-1.jpg atau https://..."
+                    placeholder="URL otomatis terisi saat upload atau masukkan manual..."
                     className="w-full p-2 border border-gray-300 rounded-lg text-xs font-mono text-gray-800 focus:outline-emerald-500"
                   />
                 </div>
