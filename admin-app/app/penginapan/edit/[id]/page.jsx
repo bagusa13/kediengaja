@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
+import ImageUploader from '@/components/ImageUploader';
 
 export default function EditPenginapan({ params }) {
   const { id } = params;
@@ -154,17 +155,12 @@ export default function EditPenginapan({ params }) {
           </div>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">URL Foto Penginapan</label>
-          <input
-            type="url"
-            name="gambar"
-            value={formData.gambar}
-            onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-nature-secondary focus:outline-none"
-            placeholder="https://..."
-          />
-        </div>
+        <ImageUploader
+          value={formData.gambar}
+          onChange={(url) => setFormData((prev) => ({ ...prev, gambar: url }))}
+          folder="penginapan"
+          label="Foto Utama Penginapan"
+        />
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Deskripsi Singkat</label>

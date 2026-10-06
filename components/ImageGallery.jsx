@@ -1,14 +1,25 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function ImageGallery({ images = [], alt = "Foto Kediengaja" }) {
+export default function ImageGallery({ images = [], alt = 'Foto Kediengaja' }) {
   const [activeIdx, setActiveIdx] = useState(0);
+  const total = images.length;
 
-  if (!images || images.length === 0) {
+  useEffect(() => {
+    if (total < 2) return undefined;
+    function onKey(e) {
+      if (e.key === 'ArrowRight') setActiveIdx((i) => (i + 1) % total);
+      if (e.key === 'ArrowLeft') setActiveIdx((i) => (i - 1 + total) % total);
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [total]);
+
+  if (!total) {
     return (
-      <div className="flex h-64 w-full items-center justify-center rounded-xl bg-stone-100 text-stone-400">
-        Tidak ada foto tersedia
+      <div className="flex h-64 w-full items-center justify-center rounded-md bg-stone-100 text-sm text-stone-600">
+        Foto belum diunggah
       </div>
     );
   }
@@ -17,43 +28,37 @@ export default function ImageGallery({ images = [], alt = "Foto Kediengaja" }) {
 
   return (
     <div className="space-y-3">
-      {/* Main Image */}
-      <div className="relative overflow-hidden rounded-xl bg-stone-100 border border-stone-200">
+      <div className="relative overflow-hidden rounded-md bg-stone-100">
         <img
           src={activeImage}
-          alt={`${alt} - Foto ${activeIdx + 1}`}
-          className="h-72 w-full object-cover sm:h-96 lg:h-[28rem] transition-all duration-300"
+          alt={`${alt}, foto ${activeIdx + 1} dari ${total}`}
+          className="h-72 w-full object-cover sm:h-96 lg:h-[28rem]"
         />
-        {images.length > 1 && (
-          <span className="absolute bottom-3 right-3 rounded-full bg-ink/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-            {activeIdx + 1} / {images.length}
+        {total > 1 ? (
+          <span className="absolute bottom-3 right-3 rounded bg-ink/80 px-2.5 py-1 text-xs font-medium text-white">
+            {activeIdx + 1} / {total}
           </span>
-        )}
+        ) : null}
       </div>
 
-      {/* Thumbnail Strip */}
-      {images.length > 1 && (
+      {total > 1 ? (
         <div className="flex gap-2 overflow-x-auto pb-1">
           {images.map((img, idx) => (
             <button
-              key={idx}
+              key={`${img}-${idx}`}
               type="button"
               onClick={() => setActiveIdx(idx)}
-              className={`relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
-                activeIdx === idx
-                  ? 'border-clay shadow-sm scale-95'
-                  : 'border-transparent opacity-70 hover:opacity-100'
+              aria-pressed={activeIdx === idx}
+              aria-label={`Lihat foto ${idx + 1}`}
+              className={`relative h-16 w-20 shrink-0 overflow-hidden rounded-md ${
+                activeIdx === idx ? 'ring-2 ring-clay ring-offset-2' : 'opacity-70 hover:opacity-100'
               }`}
             >
-              <img
-                src={img}
-                alt={`${alt} thumbnail ${idx + 1}`}
-                className="h-full w-full object-cover"
-              />
+              <img src={img} alt="" className="h-full w-full object-cover" />
             </button>
           ))}
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

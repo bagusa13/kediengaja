@@ -1,193 +1,129 @@
-import Link from 'next/link';
-import FeaturedListings from '@/components/FeaturedListings';
-import Testimonials from '@/components/Testimonials';
+import { MessageCircle } from 'lucide-react';
+import LiveWeatherDieng from '@/components/LiveWeatherDieng';
+import ParallaxJourneyLine, { ParallaxSectionLine } from '@/components/ParallaxJourneyLine';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import AccommodationSection from '@/components/AccommodationSection';
+import DestinationSection from '@/components/DestinationSection';
+import LocalExperience from '@/components/LocalExperience';
+import GuestDocumentation from '@/components/GuestDocumentation';
+import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 import FAQSection from '@/components/FAQSection';
-import { Home, Mountain, MessageCircle } from 'lucide-react';
-import { waLink } from '@/lib/site';
+import FinalCTA from '@/components/FinalCTA';
+import { SITE, waLink } from '@/lib/site';
 
 export default function HomePage() {
   const directChat = waLink('Halo Admin Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="relative isolate overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80"
-          alt="Lanskap perbukitan kabut Dieng Plateau"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/30" />
-        <div className="relative mx-auto flex min-h-[30rem] max-w-6xl flex-col justify-end px-4 py-16 sm:min-h-[34rem] sm:px-6 lg:px-8 lg:py-24">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-200">
-            <span>Kediengaja</span>
-            <span>•</span>
-            <span>Guest House, Trip &amp; Tour</span>
+    <main className="relative">
+      {/* 0. AMBIENT PARALLAX ELEVATION JOURNEY LINE (Visual Signature) */}
+      <ParallaxJourneyLine />
+
+      {/* 1. HERO SECTION: PHOTOGRAPHY AS PRIMARY HERO */}
+      <section className="relative isolate min-h-[92vh] sm:min-h-screen flex items-end overflow-hidden bg-slate-950">
+        {/* Responsive Landscape Photography with Priority Loading */}
+        <picture>
+          {/* Mobile: 4:5 vertical framing centered on Gunung Sindoro & village terraces */}
+          <source
+            media="(max-width: 640px)"
+            srcSet="/images/hero/dieng-hero-mobile.webp"
+            type="image/webp"
+          />
+          {/* Desktop & Tablet: Full 2560px cinematic master */}
+          <source
+            srcSet="/images/hero/dieng-hero.webp"
+            type="image/webp"
+          />
+          {/* High-fidelity fallback */}
+          <img
+            src="/images/hero/dieng-hero.jpg"
+            alt="Pemandangan megah Gunung Sindoro dan perkampungan dataran tinggi Dieng saat fajar"
+            className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
+
+        {/* Subtle, Non-Destructive CSS Overlay: Leaves mountain summit & sunlight terraces open */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/45 to-transparent sm:w-3/4" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/30" />
+
+        {/* Hero Content: Strict Visual Hierarchy */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pt-32 pb-16 sm:px-6 sm:pb-24 lg:px-8 lg:pb-28">
+          {/* Minimal Context Row: Location + Compact Live Weather */}
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-xs font-semibold tracking-wider uppercase text-stone-200">
+              Dieng, Jawa Tengah
+            </span>
+            <span className="text-white/40">•</span>
+            <LiveWeatherDieng />
           </div>
-          <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
-            Penginapan estetik, fun jeep, dan open trip Dieng
+
+          {/* Main Headline */}
+          <h1 className="mt-4 max-w-2xl font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.15]">
+            Liburan Nyaman<br />di Dataran Tinggi Dieng
           </h1>
-          <p className="mt-4 max-w-xl text-base text-stone-200 sm:text-lg">
-            Temukan cabin kayu hangat, homestay ramah keluarga, sensasi offroad jeep wisata, hingga golden sunrise Sikunir. Pilih paketnya di web, konfirmasi slot dan bayar langsung di WhatsApp.
+
+          {/* Supporting Copy */}
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-stone-200 sm:text-base">
+            Jelajahi Dieng, menginap dengan nyaman, dan nikmati perjalanan bersama orang lokal.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/penginapan"
-              className="inline-flex min-h-[48px] items-center gap-2 rounded-md bg-clay px-5 text-sm font-semibold text-white transition hover:bg-[#823318]"
-            >
-              <Home className="h-5 w-5" aria-hidden="true" />
-              Cari Penginapan
-            </Link>
-            <Link
-              href="/tours"
-              className="inline-flex min-h-[48px] items-center gap-2 rounded-md bg-white px-5 text-sm font-semibold text-ink transition hover:bg-stone-100"
-            >
-              <Mountain className="h-5 w-5" aria-hidden="true" />
-              Paket Trip &amp; Jeep
-            </Link>
+
+          {/* Clean Primary & Secondary CTA */}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={directChat}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[48px] items-center gap-2 rounded-md bg-wa px-5 text-sm font-semibold text-white transition hover:bg-[#0c573d]"
+              className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-wa px-5 text-sm font-bold text-white shadow-lift hover:bg-[#15803d] active:scale-[0.98] transition-all"
             >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              Tanya Admin via WA
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              <span>Chat WhatsApp</span>
+            </a>
+
+            <a
+              href="#penginapan"
+              className="inline-flex min-h-[46px] items-center rounded-xl border border-white/25 bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 active:scale-[0.98] transition-all"
+            >
+              <span>Lihat Penginapan</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* 3 Core Pillars: Penginapan, Fun Jeep, Open Trip */}
-      <section className="px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-8">
-            <p className="text-xs font-semibold uppercase tracking-wider text-clay">Pilihan Layanan</p>
-            <h2 className="mt-1 font-display text-3xl text-ink sm:text-4xl">Layanan Kediengaja</h2>
-          </div>
+      {/* 2. PARALLAX TRANSITION LINE: Hero -> Why Choose Us */}
+      <ParallaxSectionLine label="Elevasi 2.093 mdpl" />
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* 1. Penginapan Estetik */}
-            <Link
-              href="/penginapan"
-              className="group relative flex min-h-[260px] flex-col justify-end overflow-hidden rounded-xl border border-stone-200 bg-white p-6 shadow-sm transition hover:shadow-md"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1510797215324-95aa89f43c33?auto=format&fit=crop&w=1000&q=80"
-                alt="Cabin kayu dan villa penginapan Dieng"
-                className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
-              <div className="relative text-white">
-                <span className="rounded bg-white/20 px-2 py-0.5 text-xs font-medium uppercase tracking-wide backdrop-blur-sm">
-                  Menginap
-                </span>
-                <h3 className="mt-2 font-display text-2xl">Penginapan Estetik</h3>
-                <p className="mt-1 text-sm text-stone-200">
-                  Cabin house kayu, villa view pegunungan, dan homestay dekat spot wisata Dieng.
-                </p>
-              </div>
-            </Link>
+      {/* 3. WHY CHOOSE US: Editorial Features */}
+      <WhyChooseUs />
 
-            {/* 2. Fun Jeep Wisata */}
-            <Link
-              href="/tours"
-              className="group relative flex min-h-[260px] flex-col justify-end overflow-hidden rounded-xl border border-stone-200 bg-white p-6 shadow-sm transition hover:shadow-md"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=80"
-                alt="Armada Jeep wisata 4x4 Dieng"
-                className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
-              <div className="relative text-white">
-                <span className="rounded bg-white/20 px-2 py-0.5 text-xs font-medium uppercase tracking-wide backdrop-blur-sm">
-                  Petualangan
-                </span>
-                <h3 className="mt-2 font-display text-2xl">Fun Jeep Wisata</h3>
-                <p className="mt-1 text-sm text-stone-200">
-                  Keliling kawah, savana Pangonan, dan bukit dengan armada jeep 4x4 lokal terpercaya.
-                </p>
-              </div>
-            </Link>
+      {/* 4. ACCOMMODATION SECTION: Tempat Istirahat Terbaik di Dieng */}
+      <AccommodationSection />
 
-            {/* 3. Open Trip & Sunrise Sikunir */}
-            <Link
-              href="/tours"
-              className="group relative flex min-h-[260px] flex-col justify-end overflow-hidden rounded-xl border border-stone-200 bg-white p-6 shadow-sm transition hover:shadow-md"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=80"
-                alt="Golden Sunrise Sikunir Dieng"
-                className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
-              <div className="relative text-white">
-                <span className="rounded bg-white/20 px-2 py-0.5 text-xs font-medium uppercase tracking-wide backdrop-blur-sm">
-                  Trip Hemat
-                </span>
-                <h3 className="mt-2 font-display text-2xl">Open Trip &amp; Sunrise</h3>
-                <p className="mt-1 text-sm text-stone-200">
-                  Golden sunrise Bukit Sikunir, Candi Arjuna, dan Telaga Warna bareng teman baru.
-                </p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 5. PARALLAX TRANSITION LINE: Accommodation -> Destinations */}
+      <ParallaxSectionLine label="Jalur Wisata Dataran Tinggi" />
 
-      {/* Cara Pemesanan */}
-      <section className="border-t border-stone-200 bg-stone-50 py-14 sm:py-18">
+      {/* 6. DESTINATIONS: Jelajahi Keindahan Dieng */}
+      <DestinationSection />
+
+      {/* 7. LOCAL EXPERIENCE: Kenal Dieng dari Orang Lokal */}
+      <LocalExperience />
+
+      {/* 8. GUEST DOCUMENTATION: Polaroid Line Moments */}
+      <GuestDocumentation />
+
+      {/* 9. AVAILABILITY CALENDAR: Interactive 6-Month Scheduling */}
+      <section id="kalender" className="scroll-mt-20 border-t border-stone-200/70 bg-cream/40 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-5">
-              <span className="text-xs font-semibold uppercase tracking-wider text-moss">Alur Booking</span>
-              <h2 className="mt-2 font-display text-3xl text-ink sm:text-4xl">Cara pesan di Kediengaja</h2>
-              <p className="mt-4 text-stone-600 leading-relaxed">
-                Tanpa login dan tanpa proses checkout rumit. Cukup pilih tanggal dan jumlah orang di form, pesan akan tersusun otomatis untuk chat langsung ke WhatsApp admin.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-3 lg:col-span-7">
-              <div className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
-                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded bg-clay/10 text-clay font-bold text-sm">
-                  1
-                </div>
-                <h3 className="font-semibold text-ink">Pilih di Web</h3>
-                <p className="mt-1 text-xs text-stone-600">
-                  Cek foto kamar, fasilitas, kapasitas, atau rute jeep dan itinerary trip.
-                </p>
-              </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
-                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded bg-moss/10 text-moss font-bold text-sm">
-                  2
-                </div>
-                <h3 className="font-semibold text-ink">Kirim via WA</h3>
-                <p className="mt-1 text-xs text-stone-600">
-                  Klik tombol WA di halaman detail untuk mengirim rincian tanggal dan jumlah pax.
-                </p>
-              </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
-                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded bg-wa/10 text-wa font-bold text-sm">
-                  3
-                </div>
-                <h3 className="font-semibold text-ink">Konfirmasi &amp; Bayar</h3>
-                <p className="mt-1 text-xs text-stone-600">
-                  Admin memverifikasi slot yang tersedia lalu memandu DP/pelunasan secara aman.
-                </p>
-              </div>
-            </div>
-          </div>
+          <AvailabilityCalendar />
         </div>
       </section>
 
-      {/* Featured dynamic listings from Firestore */}
-      <FeaturedListings />
-
-      {/* Cerita Tamu & Ulasan */}
-      <Testimonials />
-
-      {/* Pertanyaan Umum Seputar Dieng (FAQ) + Schema.org */}
+      {/* 10. FAQ SECTION */}
       <FAQSection />
+
+      {/* 11. FINAL CTA: Siap Berangkat ke Dieng? */}
+      <FinalCTA />
     </main>
   );
 }

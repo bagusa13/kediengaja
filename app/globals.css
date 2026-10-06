@@ -12,13 +12,13 @@
   }
 
   ::selection {
-    background: rgb(156 61 28 / 0.22);
-    color: #1c1917;
+    background: rgb(5 150 105 / 0.18);
+    color: #0f172a;
   }
 
   :focus-visible {
-    outline: 2px solid #9c3d1c;
-    outline-offset: 3px;
+    outline: 2px solid #059669;
+    outline-offset: 2px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -38,10 +38,24 @@
 
 @layer components {
   .field {
-    @apply w-full min-h-[44px] rounded-md border border-stone-300 bg-white px-3 py-2.5 text-sm text-ink outline-none transition;
+    @apply w-full min-h-[44px] rounded-xl border border-stone-200 bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition duration-150;
   }
 
   .field:focus {
-    @apply border-clay ring-2 ring-clay/30;
+    @apply border-moss ring-2 ring-moss/20;
+  }
+
+  /* Subtle Film Grain Texture Overlay */
+  .film-grain {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
   }
 }
+

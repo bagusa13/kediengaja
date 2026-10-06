@@ -1,16 +1,26 @@
 "use client";
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 import { formatWaDate, waLink } from '@/lib/site';
+
+function tomorrowIso(fromIso) {
+  const date = fromIso ? new Date(`${fromIso}T00:00:00`) : new Date();
+  date.setDate(date.getDate() + 1);
+  return date.toISOString().split('T')[0];
+}
 
 export default function BookingForm({
   kind,
   itemName,
   priceLabel,
   defaultPax = 2,
+  defaultDate = '',
 }) {
   const [error, setError] = useState('');
+  const [checkIn, setCheckIn] = useState(defaultDate);
+  const today = useMemo(() => new Date().toISOString().split('T')[0], []);
+  const minOut = tomorrowIso(checkIn || today);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,6 +28,7 @@ export default function BookingForm({
     const form = new FormData(e.target);
     const name = String(form.get('customerName') || '').trim();
     const date = String(form.get('tripDate') || '');
+    const checkOut = String(form.get('checkOut') || '');
     const pax = String(form.get('paxCount') || '');
     const notes = String(form.get('notes') || '').trim();
 
@@ -26,8 +37,19 @@ export default function BookingForm({
       return;
     }
 
+    if (kind === 'stay' && (!checkOut || checkOut <= date)) {
+      setError('Tanggal check-out harus setelah check-in.');
+      return;
+    }
+
     const label = kind === 'stay' ? 'Penginapan' : 'Paket wisata';
-    let message = `Halo Admin Kediengaja,\nSaya ingin cek ketersediaan dan cara bayar untuk:\n\nNama: ${name}\n${label}: ${itemName}\nTanggal: ${formatWaDate(date)}\nJumlah orang: ${pax}`;
+    let message = `Halo Admin Kediengaja,\nSaya ingin cek ketersediaan dan cara bayar untuk:\n\nNama: ${name}\n${label}: ${itemName}`;
+    if (kind === 'stay') {
+      message += `\nCheck-in: ${formatWaDate(date)}\nCheck-out: ${formatWaDate(checkOut)}`;
+    } else {
+      message += `\nTanggal: ${formatWaDate(date)}`;
+    }
+    message += `\nJumlah orang: ${pax}`;
     if (notes) message += `\nCatatan: ${notes}`;
     message += '\n\nMohon konfirmasi slot dan rincian pembayaran via WhatsApp. Terima kasih.';
 
@@ -36,13 +58,11 @@ export default function BookingForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-      <p className="font-display text-xl text-ink">Pesan via WhatsApp</p>
+      <p className="font-display text-xl text-ink">Cek slot via WhatsApp</p>
       <p className="text-sm text-stone-600">
-        Isi data singkat. Kami kirim ke chat admin. Harga dan pembayaran dikonfirmasi di WhatsApp, bukan di situs ini.
+        Form ini menyusun pesan ke admin. Harga final, DP, dan pelunasan dikonfirmasi di chat, bukan di situs.
       </p>
-      {priceLabel ? (
-        <p className="text-sm font-medium text-clay">{priceLabel}</p>
-      ) : null}
+      {priceLabel ? <p className="text-sm font-medium text-clay">{priceLabel}</p> : null}
 
       {error ? (
         <p role="alert" className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-800">
@@ -59,17 +79,28 @@ export default function BookingForm({
 
       <div>
         <label htmlFor="tripDate" className="mb-1 block text-sm font-medium text-ink">
-          {kind === 'stay' ? 'Tanggal menginap' : 'Tanggal trip'}
+          {kind === 'stay' ? 'Check-in' : 'Tanggal trip'}
         </label>
         <input
           id="tripDate"
           name="tripDate"
           type="date"
-          min={new Date().toISOString().split('T')[0]}
+          min={today}
           required
           className="field"
+          value={checkIn}
+          onChange={(e) => setCheckIn(e.target.value)}
         />
       </div>
+
+      {kind === 'stay' ? (
+        <div>
+          <label htmlFor="checkOut" className="mb-1 block text-sm font-medium text-ink">
+            Check-out
+          </label>
+          <input id="checkOut" name="checkOut" type="date" min={minOut} required className="field" />
+        </div>
+      ) : null}
 
       <div>
         <label htmlFor="paxCount" className="mb-1 block text-sm font-medium text-ink">
@@ -87,7 +118,7 @@ export default function BookingForm({
 
       <button
         type="submit"
-        className="inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-wa px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#0c573d]"
+        className="inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-wa px-4 py-3 text-sm font-semibold text-white hover:bg-[#0c573d]"
       >
         <MessageCircle className="h-5 w-5" aria-hidden="true" />
         Kirim ke WhatsApp

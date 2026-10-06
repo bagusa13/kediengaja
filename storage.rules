@@ -1,0 +1,31 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isImage() {
+      return request.resource.contentType.matches('image/.*');
+    }
+
+    function isUnderMaxSize() {
+      // 10MB maximum file size limit
+      return request.resource.size < 10 * 1024 * 1024;
+    }
+
+    // Public photos for accommodations, tours, and guest documentation
+    match /uploads/{allPaths=**} {
+      // Anyone can view uploaded travel photography
+      allow read: if true;
+      // Only authenticated admins can upload images, strictly typed and size-capped
+      allow write: if isAuthenticated() && isImage() && isUnderMaxSize();
+    }
+
+    // Deny all other storage paths
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

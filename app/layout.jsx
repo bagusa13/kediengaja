@@ -1,19 +1,8 @@
-import { Fraunces, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { SITE } from '@/lib/site';
-
-const display = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-display',
-});
-
-const sans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
 
 const title = 'Kediengaja | Penginapan & paket wisata Dieng';
 const description =
@@ -64,7 +53,17 @@ const jsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="id">
-      <body className={`${sans.variable} ${display.variable} flex min-h-screen flex-col font-sans`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="flex min-h-screen flex-col font-sans bg-paper text-ink antialiased">
+        {/* Subtle Organic Film Grain Overlay */}
+        <div className="film-grain" aria-hidden="true" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Navbar />
         <div className="flex-1">{children}</div>

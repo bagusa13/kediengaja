@@ -2,12 +2,11 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { collection, getDocs, limit, query } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 import VillaCard from '@/components/VillaCard';
 import TourCard from '@/components/TourCard';
 import ListingStatus from '@/components/ListingStatus';
 import { FALLBACK_PENGINAPAN, FALLBACK_TOURS } from '@/lib/mockData';
+import { fetchCollection, orFallback } from '@/lib/listings';
 
 export default function FeaturedListings() {
   const [villas, setVillas] = useState([]);
@@ -19,20 +18,16 @@ export default function FeaturedListings() {
     setLoading(true);
     setError('');
     try {
-      const [villaSnap, tourSnap] = await Promise.all([
-        getDocs(query(collection(db, 'penginapan'), limit(3))),
-        getDocs(query(collection(db, 'tours'), limit(3))),
+      const [loadedVillas, loadedTours] = await Promise.all([
+        fetchCollection('penginapan', 3),
+        fetchCollection('tours', 3),
       ]);
-      const loadedVillas = villaSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      const loadedTours = tourSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-
-      setVillas(loadedVillas.length > 0 ? loadedVillas : FALLBACK_PENGINAPAN);
-      setTours(loadedTours.length > 0 ? loadedTours : FALLBACK_TOURS);
+      setVillas(orFallback(loadedVillas, FALLBACK_PENGINAPAN).slice(0, 3));
+      setTours(orFallback(loadedTours, FALLBACK_TOURS).slice(0, 3));
     } catch (err) {
       console.warn('Firestore fallback activated:', err);
-      // Graceful fallback to initial aesthetic Dieng data
-      setVillas(FALLBACK_PENGINAPAN);
-      setTours(FALLBACK_TOURS);
+      setVillas(FALLBACK_PENGINAPAN.slice(0, 3));
+      setTours(FALLBACK_TOURS.slice(0, 3));
     } finally {
       setLoading(false);
     }
@@ -44,16 +39,17 @@ export default function FeaturedListings() {
 
   return (
     <>
-      <section className="border-t border-stone-200 bg-white py-14 sm:py-20">
+      <section className="border-t border-stone-200 bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+          <div className="mb-8 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-clay">Katalog Pilihan</p>
-              <h2 className="mt-1 font-display text-3xl text-ink sm:text-4xl">Penginapan Estetik</h2>
-              <p className="mt-2 max-w-md text-sm text-stone-600">Cabin house, homestay, dan villa Dieng. Booking langsung lewat WhatsApp.</p>
+              <h2 className="font-display text-3xl text-ink sm:text-4xl">Kamar, cabin, dan villa</h2>
+              <p className="mt-2 max-w-md text-sm text-stone-600">
+                Pilih unit, kirim tanggal check-in ke admin. Pembayaran tidak diproses di web.
+              </p>
             </div>
             <Link href="/penginapan" className="text-sm font-semibold text-clay hover:underline">
-              Semua penginapan →
+              Katalog penginapan
             </Link>
           </div>
           <ListingStatus
@@ -75,17 +71,20 @@ export default function FeaturedListings() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-20">
+      <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-moss">Petualangan &amp; Trip</p>
-              <h2 className="mt-1 font-display text-3xl text-ink sm:text-4xl">Paket Tour &amp; Fun Jeep</h2>
-              <p className="mt-2 max-w-md text-sm text-stone-600">Armada Fun Jeep 4x4, Open Trip Sunrise Sikunir, dan Private Trip lengkap.</p>
+          <div className="mb-8 lg:grid lg:grid-cols-12 lg:items-end lg:gap-8">
+            <div className="lg:col-span-8">
+              <h2 className="font-display text-3xl text-ink sm:text-4xl">Jeep, sunrise, dan trip privat</h2>
+              <p className="mt-2 max-w-lg text-sm text-stone-600">
+                Harga jeep biasanya per kendaraan. Open trip dihitung per orang. Admin yang memastikan slot.
+              </p>
             </div>
-            <Link href="/tours" className="text-sm font-semibold text-clay hover:underline">
-              Semua paket trip →
-            </Link>
+            <div className="mt-3 lg:col-span-4 lg:text-right">
+              <Link href="/tours" className="text-sm font-semibold text-clay hover:underline">
+                Katalog paket wisata
+              </Link>
+            </div>
           </div>
           <ListingStatus
             loading={loading}

@@ -3,86 +3,118 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Menu, MessageCircle, X } from 'lucide-react';
+import { MessageCircle, Menu, X } from 'lucide-react';
 import { waLink } from '@/lib/site';
 
 const links = [
   { href: '/', label: 'Beranda' },
   { href: '/penginapan', label: 'Penginapan' },
-  { href: '/tours', label: 'Paket wisata' },
+  { href: '/jeep-dieng', label: 'Jeep 4x4' },
+  { href: '/jelajahi-dieng', label: 'Destinasi' },
+  { href: '/trip-builder', label: 'Trip Builder' },
+  { href: '/availability', label: 'Kalender' },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const chatHref = waLink('Halo Kediengaja, saya ingin tanya tentang liburan ke Dieng.');
+  const chatHref = waLink('Halo Admin Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
 
   useEffect(() => {
+    function onScroll() {
+      setIsScrolled(window.scrollY > 40);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
     function onKey(e) {
       if (e.key === 'Escape') setOpen(false);
     }
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('keydown', onKey);
+    };
   }, []);
 
-  const isActive = (href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
+  const isHome = pathname === '/';
 
   return (
-    <header className="sticky top-0 z-50 border-b border-stone-200 bg-paper/95 backdrop-blur-md">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled || !isHome
+          ? 'bg-slate-950/90 backdrop-blur-md border-b border-white/10 text-white shadow-sm'
+          : 'bg-transparent text-white border-b border-transparent'
+      }`}
+    >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex min-h-[44px] items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-clay text-white shadow-sm">
-            <Home className="h-5 w-5" aria-hidden="true" />
+        {/* Brand identity */}
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 transition-opacity hover:opacity-90"
+          onClick={() => setOpen(false)}
+        >
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-forest text-white text-xs font-black tracking-tight shadow-xs">
+            KD
           </span>
           <span className="leading-tight">
-            <span className="block font-display text-lg text-ink">Kediengaja</span>
-            <span className="hidden text-[11px] text-stone-600 sm:block">Guest House, Trip &amp; Tour</span>
+            <span className="block font-display text-base font-extrabold tracking-tight text-white">
+              Kediengaja
+            </span>
+            <span className="hidden text-[10px] text-stone-300 sm:block font-medium">
+              Dataran Tinggi Dieng
+            </span>
           </span>
         </Link>
 
+        {/* Desktop links */}
         <div className="hidden items-center gap-7 md:flex">
           {links.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
-              className={`text-sm font-medium ${isActive(link.href) ? 'text-clay' : 'text-stone-600 hover:text-ink'}`}
+              className="text-xs uppercase tracking-wider font-semibold text-stone-200 hover:text-white transition-colors"
             >
               {link.label}
             </Link>
           ))}
+
+          {/* Primary single WhatsApp action */}
           <a
             href={chatHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-md bg-wa px-4 text-sm font-semibold text-white hover:bg-[#0c573d]"
+            className="inline-flex min-h-[38px] cursor-pointer items-center gap-1.5 rounded-lg bg-wa px-3.5 text-xs font-bold text-white hover:bg-[#15803d] active:scale-[0.98] transition-all shadow-xs"
           >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            Chat admin
+            <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>Chat WhatsApp</span>
           </a>
         </div>
 
+        {/* Mobile menu button */}
         <button
           type="button"
-          className="flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center text-ink md:hidden"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center text-white md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          aria-label={open ? 'Tutup menu' : 'Buka menu'}
+          aria-label={open ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
         >
-          {open ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
+          {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
         </button>
       </nav>
 
-      {open ? (
-        <div className="border-t border-stone-200 bg-paper px-4 py-4 md:hidden">
-          <div className="flex flex-col gap-1">
+      {/* Mobile Drawer */}
+      {open && (
+        <div className="border-t border-white/10 bg-slate-950/95 px-5 py-4 backdrop-blur-lg md:hidden">
+          <div className="flex flex-col gap-1.5">
             {links.map((link) => (
               <Link
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`min-h-[44px] rounded-md px-3 py-2 text-sm font-medium ${
-                  isActive(link.href) ? 'bg-stone-100 text-clay' : 'text-ink'
-                }`}
+                className="rounded-lg px-3 py-2.5 text-sm font-semibold text-stone-200 hover:bg-white/10 hover:text-white transition-colors"
               >
                 {link.label}
               </Link>
@@ -91,14 +123,14 @@ export default function Navbar() {
               href={chatHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex min-h-[44px] cursor-pointer items-center justify-center gap-2 rounded-md bg-wa px-4 text-sm font-semibold text-white"
+              className="mt-3 inline-flex min-h-[42px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-wa px-4 text-xs font-bold text-white hover:bg-[#15803d] active:scale-[0.98] transition-all shadow-xs"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              Chat admin
+              Chat WhatsApp
             </a>
           </div>
         </div>
-      ) : null}
+      )}
     </header>
   );
 }
