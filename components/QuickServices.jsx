@@ -3,17 +3,17 @@ import { Home, Compass, Sparkles, Calendar, ArrowRight, ArrowUpRight, CheckCircl
 
 export default function QuickServices() {
   return (
-    <section className="bg-[#F8F7F3] pt-5 sm:pt-8 pb-14 sm:pb-20 border-b border-stone-200/80">
+    <section className="bg-[#F8F7F3] pt-4 sm:pt-6 lg:pt-8 pb-14 sm:pb-20 border-b border-stone-200/80">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Editorial Heading Rhythm: Quiet eyebrow, prominent heading with intentional break, compact copy */}
-        <div className="max-w-xl mb-7 sm:mb-8">
+        <div className="max-w-xl mb-6 sm:mb-7">
           <p className="text-xs font-semibold tracking-widest uppercase text-forest/90">
             Layanan Utama
           </p>
-          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[40px] leading-[1.18]">
+          <h2 className="mt-1.5 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[40px] leading-[1.18]">
             Mau ke Dieng<br />untuk apa?
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-stone-600 leading-relaxed">
+          <p className="mt-2.5 text-sm sm:text-base text-stone-600 leading-relaxed">
             Pilih kebutuhan perjalanan Anda. Seluruh akomodasi, armada jeep, dan rute diatur langsung bersama warga lokal Dieng.
           </p>
         </div>
