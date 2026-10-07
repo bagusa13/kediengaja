@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden">
       {/* 1. HERO SECTION: Full-Viewport Mountain Hospitality Landscape */}
-      <section className="relative isolate min-h-[560px] h-[88svh] xs:h-[90svh] sm:h-[95svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start overflow-hidden bg-slate-950">
+      <section className="relative isolate min-h-[560px] h-[88svh] xs:h-[90svh] sm:h-[95svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start overflow-hidden bg-slate-950 border-b border-stone-300/60">
         {/* Full-bleed Living Landscape: Untouched from top to bottom, zero white mask */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <HeroVideoBackground
@@ -24,6 +24,9 @@ export default function HomePage() {
             posterSrc="/images/hero/hero-video-poster.webp"
           />
         </div>
+
+        {/* Apple-style Hairline Divider: Crisp boundary separating hero media from content surface */}
+        <div className="absolute inset-x-0 bottom-0 z-20 h-px bg-stone-300/80 shadow-[0_1px_4px_rgba(0,0,0,0.08)] pointer-events-none" />
 
         {/* Localized Readability Gradient */}
         {/* Mobile: Gentle top mist protecting text in upper 58%, leaving lower mountain & village untouched */}
@@ -42,8 +45,8 @@ export default function HomePage() {
           }}
         />
 
-        {/* Hero Content: Raised higher into upper sky area, freeing terraces and village below */}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-20 xs:pt-22 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-36 pb-6">
+        {/* Hero Content: Raised higher into upper sky area for optimal optical balance */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-[74px] xs:pt-20 sm:pt-22 md:pt-24 lg:pt-[92px] xl:pt-[96px] pb-6">
           {/* Quiet Environmental Metadata: Small icon + text, secondary weight, zero pill */}
           <div className="mb-2 sm:mb-3.5">
             <LiveWeatherDieng
