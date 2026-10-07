@@ -39,6 +39,11 @@ export default function HeroVideoBackground({
     const CROSSFADE_SEC = 0.55; // 550ms crossfade duration
     const CROSSFADE_MS = 550;
 
+    v1.defaultMuted = true;
+    v1.muted = true;
+    v2.defaultMuted = true;
+    v2.muted = true;
+
     // Reset initial video states
     v1.currentTime = 0;
     v1.style.opacity = '1';
@@ -49,20 +54,52 @@ export default function HeroVideoBackground({
     v2.style.zIndex = '1';
 
     // Start playing primary buffer
-    const playPromise = v1.play();
-    if (playPromise && playPromise.then) {
-      playPromise
-        .then(() => {
-          if (isMounted) {
-            setVideoReady(true);
-            startLoopMonitor();
-          }
-        })
-        .catch(() => {
-          // Autoplay blocked or low power mode: keep poster visible
-          if (isMounted) setVideoReady(false);
-        });
-    }
+    const attemptPlay = () => {
+      const playPromise = v1.play();
+      if (playPromise && playPromise.then) {
+        playPromise
+          .then(() => {
+            if (isMounted) {
+              setVideoReady(true);
+              startLoopMonitor();
+            }
+          })
+          .catch(() => {
+            // Low Power Mode or initial gesture restriction
+          });
+      }
+    };
+
+    attemptPlay();
+
+    const onPlaying = () => {
+      if (isMounted) {
+        setVideoReady(true);
+        startLoopMonitor();
+      }
+    };
+    v1.addEventListener('playing', onPlaying);
+    v1.addEventListener('canplay', attemptPlay);
+
+    // iOS Low Power Mode fallback: wake video on first touch or scroll
+    const onUserGesture = () => {
+      if (v1 && v1.paused) {
+        v1.play()
+          .then(() => {
+            if (isMounted) {
+              setVideoReady(true);
+              startLoopMonitor();
+            }
+          })
+          .catch(() => {});
+      }
+      window.removeEventListener('touchstart', onUserGesture);
+      window.removeEventListener('click', onUserGesture);
+      window.removeEventListener('scroll', onUserGesture);
+    };
+    window.addEventListener('touchstart', onUserGesture, { passive: true, once: true });
+    window.addEventListener('click', onUserGesture, { passive: true, once: true });
+    window.addEventListener('scroll', onUserGesture, { passive: true, once: true });
 
     function startLoopMonitor() {
       function tick() {
@@ -152,8 +189,13 @@ export default function HeroVideoBackground({
 
     return () => {
       isMounted = false;
+      v1.removeEventListener('playing', onPlaying);
+      v1.removeEventListener('canplay', attemptPlay);
       v1.removeEventListener('ended', handleEmergencySwap);
       v2.removeEventListener('ended', handleEmergencySwap);
+      window.removeEventListener('touchstart', onUserGesture);
+      window.removeEventListener('click', onUserGesture);
+      window.removeEventListener('scroll', onUserGesture);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
       v1.pause();
@@ -176,8 +218,10 @@ export default function HeroVideoBackground({
       {/* 2. Buffer A: Primary Video Layer */}
       <video
         ref={video1Ref}
+        autoPlay
         muted
         playsInline
+        loop
         preload="auto"
         aria-hidden="true"
         className="absolute left-0 w-full object-cover pointer-events-none"
@@ -194,8 +238,10 @@ export default function HeroVideoBackground({
       {/* 3. Buffer B: Seamless Crossfade Video Layer (uses identical cached source) */}
       <video
         ref={video2Ref}
+        autoPlay
         muted
         playsInline
+        loop
         preload="auto"
         aria-hidden="true"
         className="absolute left-0 w-full object-cover pointer-events-none"
