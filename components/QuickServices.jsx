@@ -206,7 +206,7 @@ export default function QuickServices() {
           </div>
 
           {/* Quick Action Card 1: Paket Wisata & Trip Builder */}
-          <div className="rounded-xl border border-stone-200/90 bg-white p-4.5 shadow-xs">
+          <div className="rounded-xl border border-stone-200/90 bg-white p-4 xs:p-5 shadow-xs">
             <div className="flex items-center justify-between mb-2">
               <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-forest">
                 <Sparkles className="h-3.5 w-3.5 text-forest" />
@@ -237,7 +237,7 @@ export default function QuickServices() {
           </div>
 
           {/* Quick Action Card 2: Kalender Ketersediaan */}
-          <div className="rounded-xl border border-stone-200/90 bg-stone-50/80 p-4.5 shadow-xs">
+          <div className="rounded-xl border border-stone-200/90 bg-stone-50/80 p-4 xs:p-5 shadow-xs">
             <div className="flex items-center justify-between mb-2">
               <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-forest">
                 <Calendar className="h-3.5 w-3.5 text-forest" />
