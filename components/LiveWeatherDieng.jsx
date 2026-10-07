@@ -13,7 +13,7 @@ function getWeatherCondition(code) {
   return { label: 'Sejuk & Berawan', icon: Cloud };
 }
 
-export default function LiveWeatherDieng({ className = '' }) {
+export default function LiveWeatherDieng({ className = '', iconClassName = 'text-stone-300/80' }) {
   const [temp, setTemp] = useState(14);
   const [condition, setCondition] = useState('Sejuk & Berawan');
   const [IconComponent, setIconComponent] = useState(() => Cloud);
@@ -44,8 +44,8 @@ export default function LiveWeatherDieng({ className = '' }) {
   }, []);
 
   return (
-    <span className={`inline-flex items-center gap-1.5 text-xs text-stone-200/90 font-medium ${className}`}>
-      <IconComponent className="h-3.5 w-3.5 text-brand-orange shrink-0" aria-hidden="true" />
+    <span className={`inline-flex items-center gap-1.5 text-xs text-stone-300/90 font-normal tracking-wide ${className}`}>
+      <IconComponent className={`h-3.5 w-3.5 shrink-0 ${iconClassName}`} aria-hidden="true" />
       <span>Dieng sekarang: {temp}°C · {condition}</span>
     </span>
   );
