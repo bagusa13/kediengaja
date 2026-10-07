@@ -65,7 +65,7 @@ export default async function PenginapanDetailPage({ params }) {
       <main className="mx-auto max-w-lg px-4 py-24 text-center">
         <h1 className="font-display text-3xl text-ink">Penginapan tidak ditemukan</h1>
         <p className="mt-3 text-stone-600">Data mungkin sudah diperbarui atau tautannya salah.</p>
-        <Link href="/penginapan" className="mt-6 inline-block font-semibold text-moss hover:underline">
+        <Link href="/penginapan" className="mt-6 inline-block font-semibold text-forest hover:underline">
           Kembali ke katalog penginapan
         </Link>
       </main>
@@ -105,7 +105,7 @@ export default async function PenginapanDetailPage({ params }) {
           <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
           <Link href="/penginapan" className="hover:text-ink">Penginapan Dieng</Link>
           <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
-          <span className="text-moss font-semibold truncate max-w-[200px]">{item.nama}</span>
+          <span className="text-forest font-semibold truncate max-w-[200px]">{item.nama}</span>
         </nav>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.8fr)] lg:items-start">
@@ -113,7 +113,7 @@ export default async function PenginapanDetailPage({ params }) {
             <ImageGallery images={galleryImages} alt={item.nama} />
 
             <div className="mt-6">
-              <span className="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-bold text-moss">
+              <span className="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-bold text-forest">
                 {item.tipe || 'Penginapan'}
               </span>
               <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
@@ -122,7 +122,7 @@ export default async function PenginapanDetailPage({ params }) {
 
               <div className="mt-3 flex flex-wrap gap-4 text-sm text-stone-600">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="h-4 w-4 text-moss" aria-hidden="true" />
+                  <MapPin className="h-4 w-4 text-forest" aria-hidden="true" />
                   {item.lokasi}
                 </span>
                 {item.kapasitas ? (
@@ -169,9 +169,9 @@ export default async function PenginapanDetailPage({ params }) {
             </div>
           </article>
 
-          <aside className="rounded-2xl border border-stone-200 bg-white p-6 shadow-soft lg:sticky lg:top-24">
+          <aside className="rounded-2xl border border-stone-200 bg-white p-6 shadow-xs lg:sticky lg:top-24">
             <p className="text-xs text-stone-500">Harga mulai dari</p>
-            <p className="mb-5 text-2xl font-extrabold text-moss">
+            <p className="mb-5 text-2xl font-extrabold text-forest">
               {formatRupiah(item.harga)}
               <span className="text-xs font-normal text-stone-500">/malam</span>
             </p>

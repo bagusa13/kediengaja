@@ -2,12 +2,12 @@ import { MessageCircle, MapPin, Instagram, Clock, Phone } from 'lucide-react';
 import { SITE, waLink } from '@/lib/site';
 
 export const metadata = {
-  title: 'Kontak Resmi & Informasi | Ke Dieng Aja',
-  description: 'Hubungi pengelola resmi Ke Dieng Aja untuk pemesanan villa, sewa Jeep 4x4, dan konsultasi liburan Dataran Tinggi Dieng.',
+  title: 'Kontak Resmi & Informasi | Kediengaja',
+  description: 'Hubungi pengelola resmi Kediengaja untuk pemesanan villa, sewa Jeep 4x4, dan konsultasi liburan Dataran Tinggi Dieng.',
 };
 
 export default function KontakPage() {
-  const directChat = waLink('Halo Ke Dieng Aja, saya ingin konsultasi rencana liburan ke Dieng.');
+  const directChat = waLink('Halo Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
 
   return (
     <main className="bg-cream/30 min-h-screen py-16 sm:py-24">
@@ -16,7 +16,7 @@ export default function KontakPage() {
           Pusat Bantuan &amp; Reservasi
         </span>
         <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-5xl">
-          Kontak Resmi Ke Dieng Aja
+          Kontak Resmi Kediengaja
         </h1>
         <p className="mt-3 text-sm sm:text-base text-stone-600">
           Semua pertanyaan, pengecekan jadwal kamar, dan pemesanan Jeep dilayani langsung melalui WhatsApp resmi kami setiap hari.

@@ -54,7 +54,7 @@ export default function ToursSection() {
         {/* Photo-Led Tours Grid */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {tours.slice(0, 3).map((item) => {
-            const bookingHref = waLink(`Halo Ke Dieng Aja, saya ingin reservasi ${item.nama}.`);
+            const bookingHref = waLink(`Halo Kediengaja, saya ingin reservasi ${item.nama}.`);
             return (
               <article
                 key={item.id}

@@ -33,10 +33,10 @@ export default function WhyChooseUs() {
             Kelebihan Bersama Warga Lokal
           </p>
           <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl lg:text-4xl">
-            Kenapa Ke Dieng Aja?
+            Kenapa Kediengaja?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-stone-600 leading-relaxed">
-            Ke Dieng Aja menghubungkan Anda langsung dengan warga lokal dan pengalaman dataran tinggi yang sesungguhnya.
+            Kediengaja menghubungkan Anda langsung dengan warga lokal dan pengalaman dataran tinggi yang sesungguhnya.
           </p>
         </div>
 

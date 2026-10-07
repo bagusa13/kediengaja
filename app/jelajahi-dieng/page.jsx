@@ -3,10 +3,10 @@ import { MapPin, Clock, Tag, ArrowRight } from 'lucide-react';
 import { FALLBACK_DESTINASI } from '@/lib/mockData';
 
 export const metadata = {
-  title: 'Jelajahi Wisata Dataran Tinggi Dieng | Panduan Destinasi Ke Dieng Aja',
+  title: 'Jelajahi Wisata Dataran Tinggi Dieng | Panduan Destinasi Kediengaja',
   description: 'Panduan lengkap destinasi wisata Dieng: Golden Sunrise Sikunir, Telaga Warna, Kawah Sikidang, dan Candi Arjuna dengan tips lokal warga setempat.',
   openGraph: {
-    title: 'Jelajahi Wisata Dataran Tinggi Dieng | Ke Dieng Aja',
+    title: 'Jelajahi Wisata Dataran Tinggi Dieng | Kediengaja',
     description: 'Panduan destinasi ikonik, elevasi, jam terbaik, dan tiket masuk objek wisata Dieng.',
   },
 };

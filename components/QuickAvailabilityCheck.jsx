@@ -13,7 +13,7 @@ export default function QuickAvailabilityCheck() {
   const [guests, setGuests] = useState('2-4 Orang');
 
   function handleCheck() {
-    const text = `Halo Ke Dieng Aja, saya ingin cek ketersediaan untuk:\n- Penginapan: ${selectedVilla}\n- Check-in: ${formatWaDate(checkIn) || 'Segera'}\n- Check-out: ${formatWaDate(checkOut) || 'Segera'}\n- Jumlah Tamu: ${guests}\nApakah slot tanggal tersebut masih tersedia?`;
+    const text = `Halo Admin Kediengaja, saya ingin cek ketersediaan untuk:\n- Penginapan: ${selectedVilla}\n- Check-in: ${formatWaDate(checkIn) || 'Segera'}\n- Check-out: ${formatWaDate(checkOut) || 'Segera'}\n- Jumlah Tamu: ${guests}\nApakah slot tanggal tersebut masih tersedia?`;
     window.open(waLink(text), '_blank');
   }
 

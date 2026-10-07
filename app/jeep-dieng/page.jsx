@@ -5,16 +5,16 @@ import { formatRupiah } from '@/lib/covers';
 import { waLink } from '@/lib/site';
 
 export const metadata = {
-  title: 'Sewa Jeep Dieng 4x4 Offroad | Paket & Rute Wisata Ke Dieng Aja',
+  title: 'Sewa Jeep Dieng 4x4 Offroad | Paket & Rute Wisata Kediengaja',
   description: 'Sewa Jeep 4x4 wisata Dieng untuk rute Kawah Sikidang, Savana Pangonan, Telaga Dringo, dan sunrise Sikunir. Sopir lokal ramah merangkap fotografer.',
   openGraph: {
-    title: 'Sewa Jeep Dieng 4x4 Offroad | Ke Dieng Aja',
+    title: 'Sewa Jeep Dieng 4x4 Offroad | Kediengaja',
     description: 'Sensasi offroad seru keliling dataran tinggi Dieng dengan armada 4x4 terawat bersama driver lokal.',
   },
 };
 
 export default function JeepDiengPage() {
-  const generalChat = waLink('Halo Ke Dieng Aja, saya ingin tanya ketersediaan dan sewa Jeep 4x4 di Dieng.');
+  const generalChat = waLink('Halo Admin Kediengaja, saya ingin tanya ketersediaan dan sewa Jeep 4x4 di Dieng.');
 
   return (
     <main className="bg-cream/30 min-h-screen">
@@ -71,7 +71,7 @@ export default function JeepDiengPage() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {FALLBACK_JEEP.map((item) => {
             const bookingHref = waLink(
-              `Halo Ke Dieng Aja,\nSaya ingin booking paket Jeep 4x4:\n\nPaket: ${item.nama}\nHarga: ${formatRupiah(item.harga)} / mobil\n\nMohon informasi jadwal kosong dan titik jemputnya. Terima kasih.`
+              `Halo Admin Kediengaja,\nSaya ingin booking paket Jeep 4x4:\n\nPaket: ${item.nama}\nHarga: ${formatRupiah(item.harga)} / mobil\n\nMohon informasi jadwal kosong dan titik jemputnya. Terima kasih.`
             );
 
             return (

@@ -6,10 +6,10 @@ import { formatRupiah, villaCover } from '@/lib/covers';
 import { waLink } from '@/lib/site';
 
 export const metadata = {
-  title: 'Sewa Cabin & Penginapan Dieng | Pilihan Homestay & Villa Ke Dieng Aja',
+  title: 'Sewa Cabin & Penginapan Dieng | Pilihan Homestay & Villa Kediengaja',
   description: 'Sewa cabin kayu estetik, homestay keluarga, dan villa di Dataran Tinggi Dieng. Fasilitas water heater 24 jam, view Gunung Prau, kapasitas 2–12 orang, booking langsung ke host.',
   openGraph: {
-    title: 'Sewa Cabin & Penginapan Dieng | Ke Dieng Aja',
+    title: 'Sewa Cabin & Penginapan Dieng | Kediengaja',
     description: 'Pilihan sewa cabin kayu dan homestay nyaman di Dataran Tinggi Dieng dengan fasilitas air panas 24 jam dan view pegunungan.',
   },
 };
@@ -23,7 +23,7 @@ export default async function PenginapanPage() {
     penginapan = FALLBACK_PENGINAPAN;
   }
 
-  const generalChat = waLink('Halo Ke Dieng Aja, saya ingin tanya ketersediaan dan rekomendasi penginapan/cabin di Dieng.');
+  const generalChat = waLink('Halo Admin Kediengaja, saya ingin tanya ketersediaan dan rekomendasi penginapan/cabin di Dieng.');
 
   return (
     <main className="bg-cream/30 min-h-screen">
@@ -88,7 +88,7 @@ export default async function PenginapanPage() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {penginapan.map((item) => {
             const bookingHref = waLink(
-              `Halo Ke Dieng Aja,\nSaya ingin booking penginapan di Dieng:\n\nUnit: ${item.nama}\nHarga: ${formatRupiah(item.harga)} / malam\nKapasitas: ${item.kapasitas} orang\n\nMohon informasi ketersediaan tanggalnya. Terima kasih.`
+              `Halo Admin Kediengaja,\nSaya ingin booking penginapan di Dieng:\n\nUnit: ${item.nama}\nHarga: ${formatRupiah(item.harga)} / malam\nKapasitas: ${item.kapasitas} orang\n\nMohon informasi ketersediaan tanggalnya. Terima kasih.`
             );
 
             const fasilitasHighlights = Array.isArray(item.fasilitas) && item.fasilitas.length > 0

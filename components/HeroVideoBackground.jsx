@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 /**
  * HeroVideoBackground
  * 
- * Provides a seamless, living-photograph landscape background for Ke Dieng Aja.
+ * Provides a seamless, living-photograph landscape background for Kediengaja.
  * Features:
  * - Dual-buffer crossfade (400-700ms) to eliminate loop seams without ping-pong or reverse
  * - Strict CSS letterbox cropping (top -15.45%, height 130.91%) eliminating black bars at all viewports
@@ -113,6 +113,27 @@ export default function HeroVideoBackground({
       rafIdRef.current = requestAnimationFrame(tick);
     }
 
+    function handleEmergencySwap() {
+      if (!isMounted) return;
+      const outgoing = activeBufferRef.current === 1 ? v1 : v2;
+      const incoming = activeBufferRef.current === 1 ? v2 : v1;
+      incoming.currentTime = 0;
+      incoming.style.zIndex = '3';
+      incoming.style.opacity = '1';
+      const p = incoming.play();
+      if (p && p.catch) p.catch(() => {});
+      outgoing.pause();
+      outgoing.currentTime = 0;
+      outgoing.style.opacity = '0';
+      outgoing.style.zIndex = '1';
+      incoming.style.zIndex = '2';
+      activeBufferRef.current = activeBufferRef.current === 1 ? 2 : 1;
+      isTransitioningRef.current = false;
+    }
+
+    v1.addEventListener('ended', handleEmergencySwap);
+    v2.addEventListener('ended', handleEmergencySwap);
+
     // Tab visibility handling (pause when tab hidden to save CPU/battery)
     function onVisibilityChange() {
       if (document.hidden) {
@@ -131,6 +152,8 @@ export default function HeroVideoBackground({
 
     return () => {
       isMounted = false;
+      v1.removeEventListener('ended', handleEmergencySwap);
+      v2.removeEventListener('ended', handleEmergencySwap);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
       v1.pause();

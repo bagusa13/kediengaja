@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: 'Apakah penginapan memiliki fasilitas air panas?',
-    a: 'Ya, seluruh unit kabin dan villa mitra Ke Dieng Aja wajib memiliki fasilitas water heater aktif 24 jam untuk kenyamanan mandi di tengah udara dingin Dieng.',
+    a: 'Ya, seluruh unit kabin dan villa mitra Kediengaja wajib memiliki fasilitas water heater aktif 24 jam untuk kenyamanan mandi di tengah udara dingin Dieng.',
   },
 ];
 

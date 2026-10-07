@@ -4,9 +4,9 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { SITE } from '@/lib/site';
 
-const title = 'Ke Dieng Aja | Platform Perjalanan Wisata Dieng';
+const title = 'Kediengaja | Wisata, Penginapan & Jeep 4x4 Dieng';
 const description =
-  'Tempat menemukan, memilih, dan mempersiapkan perjalanan ke Dieng: penginapan nyaman, sewa jeep 4x4, dan paket wisata lokal tanpa ribet.';
+  'Platform terpercaya untuk liburan ke Dieng: sewa cabin & homestay nyaman dengan air panas 24 jam, armada Jeep 4x4, dan paket wisata bersama warga lokal.';
 
 export const metadata = {
   metadataBase: new URL(SITE.url),

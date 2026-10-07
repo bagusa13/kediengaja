@@ -31,7 +31,7 @@ export default function HomePage() {
 
         {/* Hero Content */}
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pt-20 pb-14 sm:px-6 sm:py-20 lg:px-8">
-          {/* Logo Ke Dieng Aja & Weather Capsule */}
+          {/* Logo Kediengaja & Weather Capsule */}
           <div className="mb-4 sm:mb-5 flex flex-wrap items-center gap-3">
             <BrandLogo variant="light" showTagline={false} />
             <span className="hidden sm:inline-block text-white/30">•</span>
@@ -56,7 +56,7 @@ export default function HomePage() {
               href="#penginapan"
               className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-6 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
             >
-              <Home className="h-4 w-4 text-brand-orange" aria-hidden="true" />
+              <Home className="h-4 w-4 text-amber-400" aria-hidden="true" />
               <span>Cari Penginapan</span>
             </Link>
 
@@ -83,7 +83,7 @@ export default function HomePage() {
       {/* 5. DESTINASI POPULER: Sikunir, Telaga Warna, Sikidang, Arjuna */}
       <DestinationSection />
 
-      {/* 6. KENAPA KE DIENG AJA?: Local Proof & Differentiation */}
+      {/* 6. KENAPA KEDIENGAJA?: Local Proof & Differentiation */}
       <WhyChooseUs />
 
       {/* 7. AVAILABILITY / CEK KETERSEDIAAN: Simple Booking Checker */}

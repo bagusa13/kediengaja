@@ -33,7 +33,7 @@ export default function Testimonials() {
             Cerita Perjalanan Tamu
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
-            Pengalaman nyata wisatawan yang telah menjelajahi dataran tinggi bersama Ke Dieng Aja.
+            Pengalaman nyata wisatawan yang telah menjelajahi dataran tinggi bersama Kediengaja.
           </p>
         </div>
 

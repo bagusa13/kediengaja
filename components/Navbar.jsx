@@ -20,7 +20,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const chatHref = waLink('Halo Ke Dieng Aja, saya ingin konsultasi rencana liburan ke Dieng.');
+  const chatHref = waLink('Halo Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
 
   useEffect(() => {
     function onScroll() {
@@ -69,9 +69,9 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`text-xs font-semibold uppercase tracking-wider transition-colors ${
+                className={`text-xs font-semibold tracking-wide transition-colors ${
                   isActive
-                    ? 'text-brand-orange font-bold'
+                    ? 'text-amber-400 font-bold'
                     : 'text-stone-200 hover:text-white'
                 }`}
               >
@@ -89,7 +89,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex min-h-[38px] items-center gap-2 rounded-full bg-forest px-4 text-xs font-bold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
           >
-            <MessageCircle className="h-3.5 w-3.5 text-brand-orange" aria-hidden="true" />
+            <MessageCircle className="h-3.5 w-3.5 text-amber-400" aria-hidden="true" />
             <span>Hubungi Kami</span>
           </a>
         </div>
@@ -119,7 +119,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className={`rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'bg-white/10 text-brand-orange font-bold'
+                      ? 'bg-white/10 text-amber-400 font-bold'
                       : 'text-stone-200 hover:bg-white/5 hover:text-white'
                   }`}
                 >
@@ -135,7 +135,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-forest px-4 text-xs font-bold text-white hover:bg-forest-light transition-all"
             >
-              <MessageCircle className="h-4 w-4 text-brand-orange" aria-hidden="true" />
+              <MessageCircle className="h-4 w-4 text-amber-400" aria-hidden="true" />
               <span>Hubungi Kami via WhatsApp</span>
             </a>
           </div>

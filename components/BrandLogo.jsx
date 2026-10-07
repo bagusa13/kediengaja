@@ -7,11 +7,11 @@ export default function BrandLogo({
 }) {
   return (
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* Brand Mark: Mountain + Sunrise + Road */}
+      {/* Brand Mark */}
       <div className="relative h-9 w-9 sm:h-10 sm:w-10 shrink-0 overflow-hidden rounded-lg">
         <img
           src="/images/logo/icon-192.webp"
-          alt="Ke Dieng Aja Logo"
+          alt="Kediengaja Logo"
           className="h-full w-full object-contain"
         />
       </div>
@@ -21,22 +21,19 @@ export default function BrandLogo({
         <div className="flex items-baseline">
           <span
             className={`font-display text-lg sm:text-xl font-extrabold tracking-tight leading-none ${
-              variant === 'light' ? 'text-white' : 'text-brand-dark'
+              variant === 'light' ? 'text-white' : 'text-stone-900'
             }`}
           >
-            Ke Dieng
-          </span>
-          <span className="font-display text-lg sm:text-xl font-extrabold tracking-tight leading-none text-brand-orange ml-1">
-            Aja
+            Kediengaja
           </span>
         </div>
         {showTagline ? (
           <span
-            className={`text-[9px] sm:text-[10px] font-semibold tracking-wider uppercase mt-0.5 leading-none ${
-              variant === 'light' ? 'text-stone-300' : 'text-brand-green'
+            className={`text-[9px] sm:text-[10px] font-semibold tracking-wider mt-0.5 leading-none ${
+              variant === 'light' ? 'text-stone-300' : 'text-forest'
             }`}
           >
-            Jelajahi Dieng, Lebih Dekat
+            Ke Dieng aja.
           </span>
         ) : (
           <span
@@ -44,7 +41,7 @@ export default function BrandLogo({
               variant === 'light' ? 'text-stone-300' : 'text-stone-500'
             }`}
           >
-            Wisata Dataran Tinggi Dieng
+            Wisata &amp; Penginapan Dieng
           </span>
         )}
       </div>
