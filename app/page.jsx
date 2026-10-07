@@ -45,8 +45,8 @@ export default function HomePage() {
           }}
         />
 
-        {/* Hero Content: Centered vertically on desktop (versi sebelumnya) */}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-20 xs:pt-24 sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12">
+        {/* Hero Content: Optically centered with refined upward lift on desktop */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-20 xs:pt-24 sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12 sm:-translate-y-8 lg:-translate-y-12">
           {/* Quiet Environmental Metadata: Small icon + text, secondary weight, zero pill */}
           <div className="mb-2 sm:mb-3.5">
             <LiveWeatherDieng
