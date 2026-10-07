@@ -23,47 +23,33 @@ export default function HomePage() {
           posterSrc="/images/hero/hero-video-poster.webp"
         />
 
-        {/* Directional Photographic Atmospheric Gradient: Concentrated on left/bottom-left text zone */}
-        {/* Preserves 100% natural landscape visibility on right/upper quadrant while ensuring crisp text contrast */}
+        {/* Localized Readability Gradient: Strictly anchored on the left text zone */}
+        {/* Leaves the entire landscape, sky, and right 50% untouched and photographic */}
         <div
-          className="absolute inset-0 pointer-events-none z-[1]"
+          className="absolute inset-y-0 left-0 w-full sm:w-3/4 max-w-2xl pointer-events-none z-[1]"
           style={{
-            background: 'radial-gradient(ellipse 85% 75% at 18% 46%, rgba(8, 14, 12, 0.70) 0%, rgba(8, 14, 12, 0.44) 42%, rgba(8, 14, 12, 0.12) 72%, transparent 100%)',
-          }}
-        />
-        <div
-          className="absolute inset-y-0 left-0 w-full sm:w-3/4 max-w-3xl pointer-events-none z-[2]"
-          style={{
-            background: 'linear-gradient(90deg, rgba(8, 14, 12, 0.65) 0%, rgba(8, 14, 12, 0.38) 45%, rgba(8, 14, 12, 0.10) 75%, transparent 100%)',
+            background: 'linear-gradient(to right, rgba(8, 14, 12, 0.65) 0%, rgba(8, 14, 12, 0.32) 55%, transparent 100%)',
           }}
         />
 
-        {/* Subtle Atmospheric Ground Depth before Dissolve */}
+        {/* Short, Subtle Edge Transition (64px mobile / 80px tablet / 96px desktop) */}
+        {/* 0-65% is 100% transparent; soft fade occurs only in the final 25-30px near the bottom edge */}
         <div
-          className="absolute inset-x-0 bottom-0 h-44 sm:h-56 pointer-events-none z-[3]"
-          style={{
-            background: 'linear-gradient(to bottom, transparent 0%, rgba(8, 14, 12, 0.35) 45%, rgba(8, 14, 12, 0.72) 100%)',
-          }}
-        />
-
-        {/* Dedicated Hero-to-Section Dissolve Transition Layer (140-180px tall) */}
-        {/* Melts the mountain video smoothly into the warm neutral tone (#F8F7F3) of Layanan Utama */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-36 sm:h-48 pointer-events-none z-[4]"
+          className="absolute inset-x-0 bottom-0 h-16 sm:h-20 lg:h-24 pointer-events-none z-[2]"
           style={{
             background: `linear-gradient(
               to bottom,
               rgba(248, 247, 243, 0) 0%,
-              rgba(248, 247, 243, 0.18) 25%,
-              rgba(248, 247, 243, 0.60) 60%,
-              rgba(248, 247, 243, 0.92) 85%,
+              rgba(248, 247, 243, 0) 65%,
+              rgba(248, 247, 243, 0.25) 80%,
+              rgba(248, 247, 243, 0.70) 92%,
               #F8F7F3 100%
             )`,
           }}
         />
 
-        {/* Hero Content */}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pt-20 pb-20 sm:px-6 sm:pt-24 sm:pb-24 lg:px-8">
+        {/* Hero Content: Vertically balanced without large blank space */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pt-20 pb-12 sm:pt-24 sm:pb-14 lg:pt-28 lg:pb-16 lg:px-8">
           {/* Quiet Environmental Metadata: Small icon + text, no capsule, no pill, no border, no shadow */}
           <div className="mb-4 sm:mb-5">
             <LiveWeatherDieng className="text-stone-300/85" />
