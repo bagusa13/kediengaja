@@ -7,20 +7,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          dark: '#0F3B2E',
+          green: '#5A8F3D',
+          light: '#A7C957',
+          orange: '#F59E0B',
+          cream: '#F7F4EC',
+          neutral: '#F4F5EF',
+          ink: '#0F1714',
+        },
         paper: '#FFFFFF',
         surface: '#F8FAFC',
         cream: '#FAF8F5',
         forest: {
-          DEFAULT: '#064E3B',
-          dark: '#022C22',
-          light: '#0D5F49',
+          DEFAULT: '#0F3B2E',
+          dark: '#09271E',
+          light: '#1B5E4A',
         },
         earth: {
           light: '#A8A29E',
           DEFAULT: '#78716C',
           dark: '#57534E',
         },
-        gold: '#D97706',
+        gold: '#F59E0B',
         stone: {
           50: '#F8FAFC',
           100: '#F1F5F9',
@@ -33,19 +42,19 @@ module.exports = {
           800: '#1E293B',
           900: '#0F172A',
         },
-        ink: '#0F172A',
+        ink: '#0F1714',
         candi: '#334155',
-        moss: '#059669',
-        clay: '#047857',
+        moss: '#5A8F3D',
+        clay: '#0F3B2E',
         emerald: {
           fresh: '#10B981',
-          deep: '#047857',
+          deep: '#0F3B2E',
         },
         wa: '#16A34A',
       },
       fontFamily: {
-        display: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
-        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        display: ['"Poppins"', '"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"Poppins"', '"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         lift: '0 12px 30px -4px rgba(15, 23, 42, 0.08)',

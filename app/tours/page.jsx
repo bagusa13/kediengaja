@@ -59,7 +59,7 @@ function ToursList() {
   if (tanggal) hintParts.push(`Tanggal ${formatWaDate(tanggal)}`);
   if (pax) hintParts.push(`${pax} orang`);
   const hint = hintParts.length ? `Filter pencarian: ${hintParts.join(', ')}. Slot tetap dikonfirmasi admin.` : '';
-  const waMessage = `Halo Admin Kediengaja, saya ingin konsultasi paket trip atau sewa Jeep di Dieng${tanggal ? ` untuk ${formatWaDate(tanggal)}` : ''}${pax ? `, ${pax} orang` : ''}.`;
+  const waMessage = `Halo Ke Dieng Aja, saya ingin konsultasi paket trip atau sewa Jeep di Dieng${tanggal ? ` untuk ${formatWaDate(tanggal)}` : ''}${pax ? `, ${pax} orang` : ''}.`;
 
   return (
     <main>

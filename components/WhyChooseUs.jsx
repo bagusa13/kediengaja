@@ -1,72 +1,62 @@
-import { Flame, Mountain, Car, Users } from 'lucide-react';
+import { Home, Users, CheckCircle, Navigation } from 'lucide-react';
 
-const features = [
+const reasons = [
   {
-    icon: Flame,
-    title: 'Water Heater 24 Jam',
-    description: 'Nyaman di udara dingin Dieng, kapan saja.',
-  },
-  {
-    icon: Mountain,
-    title: 'Jeep 4x4 Offroad',
-    description: 'Jelajahi spot terbaik Dieng dengan jeep.',
-  },
-  {
-    icon: Car,
-    title: 'Antar-Jemput',
-    description: 'Layanan jemput dan antar sesuai kebutuhan.',
+    icon: Home,
+    title: 'Penginapan Nyata di Kawasan Dieng',
+    desc: 'Semua kabin dan villa benar-benar berada di dataran tinggi Dieng. Bersih, terawat, dan dilengkapi water heater aktif 24 jam untuk mengatasi suhu dingin malam hari.',
   },
   {
     icon: Users,
-    title: 'Dikelola Warga Lokal',
-    description: 'Pengalaman lebih autentik bersama orang lokal.',
+    title: 'Driver & Guide Asli Dieng',
+    desc: 'Didampingi warga lokal yang hafal medan perbukitan, jalur alternatif saat musim ramai, serta titik terbaik untuk menikmati kabut dan matahari terbit.',
+  },
+  {
+    icon: CheckCircle,
+    title: 'Konfirmasi Langsung & Pasti',
+    desc: 'Jadwal dan slot dikonfirmasi langsung oleh tim lokal lewat WhatsApp resmi. Tanpa perantara berlapis dan tanpa biaya tersembunyi.',
+  },
+  {
+    icon: Navigation,
+    title: 'Rute & Rekomendasi Nyata',
+    desc: 'Saran waktu kunjungan disesuaikan dengan kondisi cuaca aktual di Dieng hari itu, agar liburan Anda tidak terbuang karena salah jam berkunjung.',
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="border-t border-stone-200/70 bg-cream py-16 sm:py-20">
+    <section className="border-b border-stone-200/80 bg-brand-cream/60 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Editorial Heading */}
+        {/* Section Heading */}
         <div className="max-w-2xl">
-          <p className="text-xs font-bold tracking-wider uppercase text-forest">
-            Kenyamanan &amp; Pelayanan
+          <p className="text-xs font-bold tracking-wider uppercase text-brand-green">
+            Kelebihan Bersama Warga Lokal
           </p>
-          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
-            Pengalaman Lebih dari Sekadar Menginap
+          <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl lg:text-4xl">
+            Kenapa Ke Dieng Aja?
           </h2>
-          <p className="mt-2 text-sm text-stone-600 leading-relaxed">
-            Standar fasilitas dan pendampingan terpercaya agar liburan Anda di dataran tinggi terasa hangat dan berkesan.
+          <p className="mt-3 text-sm sm:text-base text-stone-600 leading-relaxed">
+            Ke Dieng Aja menghubungkan Anda langsung dengan warga lokal dan pengalaman dataran tinggi yang sesungguhnya.
           </p>
         </div>
 
-        {/* 4 Concise Features with Clean Dividers */}
-        <div className="mt-12 grid grid-cols-1 divide-y divide-stone-200/80 border-y border-stone-200/80 sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
-          {features.map((item, idx) => {
+        {/* 4 Concrete Proof Points with Clean Layout */}
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {reasons.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className={`py-6 sm:py-8 ${
-                  idx === 0
-                    ? 'sm:pr-6 lg:pr-6'
-                    : idx === 1
-                    ? 'sm:px-6 lg:px-6'
-                    : idx === 2
-                    ? 'sm:px-6 lg:px-6'
-                    : 'sm:pl-6 lg:pl-6'
-                }`}
+                className="flex flex-col rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs"
               >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-stone-100 text-forest">
-                    <Icon className="h-4.5 w-4.5" aria-hidden="true" />
-                  </span>
-                  <h3 className="font-display text-base font-bold text-ink">
-                    {item.title}
-                  </h3>
-                </div>
-                <p className="mt-3 text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  {item.description}
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-stone-100 text-brand-dark mb-4">
+                  <Icon className="h-5 w-5 text-brand-dark" aria-hidden="true" />
+                </span>
+                <h3 className="font-display text-base font-bold text-brand-ink leading-snug">
+                  {item.title}
+                </h3>
+                <p className="mt-2.5 text-xs sm:text-sm text-stone-600 leading-relaxed flex-1">
+                  {item.desc}
                 </p>
               </div>
             );

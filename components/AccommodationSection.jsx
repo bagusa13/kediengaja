@@ -2,28 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Users, Flame, Eye } from 'lucide-react';
+import { ArrowRight, Users, Flame, MapPin, BedDouble } from 'lucide-react';
 import { FALLBACK_PENGINAPAN } from '@/lib/mockData';
 import { fetchCollection, orFallback } from '@/lib/listings';
 import { formatRupiah, villaCover } from '@/lib/covers';
-
-const categories = [
-  {
-    title: 'Villa',
-    subtitle: 'Privasi & kenyamanan',
-    desc: 'Cocok untuk rombongan keluarga besar hingga 12 orang dengan area kumpul luas.',
-  },
-  {
-    title: 'Homestay & Kabin',
-    subtitle: 'Suasana hangat seperti rumah',
-    desc: 'Kabin kayu estetik berlatar perbukitan dengan fasilitas dapur dan ruang santai.',
-  },
-  {
-    title: 'Kamar Privat',
-    subtitle: 'Nyaman untuk perjalanan Anda',
-    desc: 'Istirahat tenang dengan jaminan water heater 24 jam di tengah dinginnya Dieng.',
-  },
-];
 
 export default function AccommodationSection() {
   const [villas, setVillas] = useState(FALLBACK_PENGINAPAN);
@@ -43,121 +25,115 @@ export default function AccommodationSection() {
   }, []);
 
   return (
-    <section id="penginapan" className="scroll-mt-20 border-t border-stone-200/70 bg-white py-16 sm:py-24">
+    <section id="penginapan" className="scroll-mt-20 border-b border-stone-200/80 bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Editorial Heading */}
-        <div className="max-w-3xl">
-          <p className="text-xs font-bold tracking-wider uppercase text-forest">
-            Akomodasi Terpilih
-          </p>
-          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
-            Tempat Istirahat Terbaik di Dieng
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-stone-600 leading-relaxed">
-            Pilih penginapan yang sesuai dengan kebutuhan Anda, dari homestay sederhana hingga villa dengan pemandangan langsung ke pegunungan.
-          </p>
-        </div>
+        {/* Section Heading */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div>
+            <p className="text-xs font-bold tracking-wider uppercase text-brand-green">
+              Akomodasi Pilihan
+            </p>
+            <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl lg:text-4xl">
+              Penginapan Pilihan di Dieng
+            </h2>
+            <p className="mt-2 max-w-xl text-sm sm:text-base text-stone-600 leading-relaxed">
+              Kabin kayu hangat dan villa privat dengan fasilitas air panas aktif 24 jam untuk kenyamanan istirahat di udara dingin Dieng.
+            </p>
+          </div>
 
-        {/* 3 Editorial Accommodation Categories */}
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3 border-b border-stone-200/70 pb-10">
-          {categories.map((cat) => (
-            <div key={cat.title} className="rounded-xl border border-stone-200/80 bg-cream/60 p-5">
-              <h3 className="font-display text-base font-bold text-ink">
-                {cat.title}
-              </h3>
-              <p className="mt-0.5 text-xs font-medium text-forest">
-                {cat.subtitle}
-              </p>
-              <p className="mt-2 text-xs text-stone-600 leading-relaxed">
-                {cat.desc}
-              </p>
-            </div>
-          ))}
+          <Link
+            href="/penginapan"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-dark hover:text-brand-green transition-colors shrink-0"
+          >
+            <span>Lihat Semua Penginapan</span>
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
 
         {/* Real Curated Listings Grid */}
-        <div className="mt-12">
-          <div className="mb-6 flex items-center justify-between">
-            <h3 className="font-display text-lg font-bold text-ink sm:text-xl">
-              Unit Populer Siap Booking
-            </h3>
-            <Link
-              href="/penginapan"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-forest hover:text-forest-dark transition-colors"
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {villas.slice(0, 3).map((item) => (
+            <article
+              key={item.id}
+              className="group flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white transition-all duration-200 hover:border-brand-green/60 hover:shadow-md"
             >
-              <span>Lihat Semua Penginapan</span>
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {villas.slice(0, 3).map((item) => (
-              <article
-                key={item.id}
-                className="group flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white transition-all duration-200 hover:border-forest/40 hover:shadow-soft"
+              {/* Photo container */}
+              <Link
+                href={`/penginapan/${item.id}`}
+                className="relative aspect-4/3 w-full overflow-hidden bg-stone-100"
               >
-                {/* Photo container */}
-                <Link
-                  href={`/penginapan/${item.id}`}
-                  className="relative aspect-4/3 w-full overflow-hidden bg-stone-100"
-                >
-                  <img
-                    src={villaCover(item)}
-                    alt={item.nama}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute left-3 bottom-3 rounded-md bg-white/95 px-2.5 py-1 text-[11px] font-bold text-forest shadow-xs">
-                    {item.tipe || 'Penginapan'}
+                <img
+                  src={villaCover(item)}
+                  alt={item.nama}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                
+                {/* Tipe badge */}
+                <span className="absolute left-3 top-3 rounded-md bg-slate-950/70 backdrop-blur-xs px-2.5 py-1 text-[11px] font-semibold text-white shadow-xs">
+                  {item.tipe || 'Kabin Wisata'}
+                </span>
+
+                {/* Price pill */}
+                <div className="absolute left-3 bottom-3 text-white">
+                  <span className="text-[10px] text-stone-300 block uppercase tracking-wider">Mulai</span>
+                  <span className="font-display text-base font-extrabold text-white">
+                    {formatRupiah(item.harga)}
+                    <span className="text-xs font-normal text-stone-200"> / malam</span>
                   </span>
-                </Link>
+                </div>
+              </Link>
 
-                {/* Details */}
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-start justify-between gap-2">
-                    <h4 className="font-display text-base font-bold text-ink">
-                      <Link href={`/penginapan/${item.id}`} className="hover:text-forest transition-colors">
-                        {item.nama}
-                      </Link>
-                    </h4>
-                  </div>
-
-                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-stone-600">
-                    {item.deskripsi}
-                  </p>
-
-                  <div className="mt-4 flex items-center gap-4 border-t border-stone-100 pt-3 text-xs text-stone-600">
-                    <span className="flex items-center gap-1.5">
-                      <Users className="h-3.5 w-3.5 text-stone-400" aria-hidden="true" />
-                      Maks. {item.kapasitas} Orang
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Flame className="h-3.5 w-3.5 text-forest" aria-hidden="true" />
-                      Water Heater 24J
-                    </span>
-                  </div>
-
-                  <div className="mt-4 flex items-center justify-between pt-2">
-                    <div>
-                      <p className="text-[10px] text-stone-500 uppercase tracking-wider">Mulai dari</p>
-                      <p className="font-display text-base font-extrabold text-forest">
-                        {formatRupiah(item.harga)}
-                        <span className="text-[11px] font-normal text-stone-500"> /malam</span>
-                      </p>
-                    </div>
-
-                    <Link
-                      href={`/penginapan/${item.id}`}
-                      className="inline-flex min-h-[36px] items-center rounded-lg bg-stone-100 px-3.5 text-xs font-bold text-ink hover:bg-forest hover:text-white transition-all active:scale-95"
-                    >
-                      Lihat Unit
+              {/* Property Details */}
+              <div className="flex flex-1 flex-col p-5">
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-display text-lg font-bold text-brand-ink">
+                    <Link href={`/penginapan/${item.id}`} className="hover:text-brand-green transition-colors">
+                      {item.nama}
                     </Link>
+                  </h3>
+                </div>
+
+                {/* Location */}
+                <p className="mt-1 flex items-center gap-1.5 text-xs text-stone-500">
+                  <MapPin className="h-3.5 w-3.5 text-brand-green shrink-0" aria-hidden="true" />
+                  <span className="truncate">{item.lokasi || 'Kawasan Wisata Dieng'}</span>
+                </p>
+
+                {/* Key Spec */}
+                <div className="mt-4 grid grid-cols-3 gap-2 border-y border-stone-100 py-3 text-xs text-stone-600">
+                  <div className="flex flex-col items-center justify-center p-1.5 rounded-lg bg-brand-cream/60 text-center">
+                    <Users className="h-4 w-4 text-brand-dark mb-1" aria-hidden="true" />
+                    <span className="font-semibold text-[11px] text-brand-ink">{item.kapasitas} Orang</span>
+                  </div>
+                  <div className="flex flex-col items-center justify-center p-1.5 rounded-lg bg-brand-cream/60 text-center">
+                    <BedDouble className="h-4 w-4 text-brand-dark mb-1" aria-hidden="true" />
+                    <span className="font-semibold text-[11px] text-brand-ink">Bed Lengkap</span>
+                  </div>
+                  <div className="flex flex-col items-center justify-center p-1.5 rounded-lg bg-brand-cream/60 text-center">
+                    <Flame className="h-4 w-4 text-brand-orange mb-1" aria-hidden="true" />
+                    <span className="font-semibold text-[11px] text-brand-ink">Water Heater</span>
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
+
+                {/* Summary */}
+                <p className="mt-3 line-clamp-2 text-xs leading-relaxed text-stone-600 flex-1">
+                  {item.deskripsi}
+                </p>
+
+                {/* Action button */}
+                <div className="mt-4 pt-2">
+                  <Link
+                    href={`/penginapan/${item.id}`}
+                    className="inline-flex min-h-[40px] w-full items-center justify-center rounded-lg border border-brand-dark bg-transparent px-4 text-xs font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-all active:scale-[0.99]"
+                  >
+                    Lihat Detail
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

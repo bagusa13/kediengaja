@@ -1,46 +1,51 @@
 import Link from 'next/link';
 import { SITE, waLink } from '@/lib/site';
+import BrandLogo from './BrandLogo';
 
 export default function Footer() {
-  const chatHref = waLink('Halo Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
+  const chatHref = waLink('Halo Ke Dieng Aja, saya ingin konsultasi rencana liburan ke Dieng.');
 
   return (
-    <footer className="mt-auto bg-slate-950 text-stone-300 border-t border-white/10">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.6fr_1fr_1fr] lg:px-8">
+    <footer className="mt-auto bg-slate-950 text-stone-300 border-t border-stone-800">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr] lg:px-8">
         <div>
-          <p className="font-display text-xl font-bold tracking-tight text-white">
-            Kediengaja
+          <BrandLogo variant="light" showTagline={true} />
+          <p className="mt-3 max-w-sm text-xs sm:text-sm leading-relaxed text-stone-400">
+            Platform perjalanan lokal Dieng. Membantu wisatawan menemukan penginapan nyaman, sewa Jeep 4x4, dan paket wisata bersama warga lokal.
           </p>
-          <p className="mt-2 max-w-sm text-xs sm:text-sm leading-relaxed text-stone-400">
-            Layanan penginapan villa, cabin hangat, sewa Jeep 4x4, dan paket trip wisata yang dikelola langsung oleh warga lokal Dataran Tinggi Dieng.
+          <p className="mt-3 text-xs text-stone-400 font-medium">
+            {SITE.location}
           </p>
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-white">
-            Navigasi
+          <h3 className="text-xs font-bold uppercase tracking-wider text-brand-orange">
+            Layanan Wisata
           </h3>
           <div className="mt-3 flex flex-col gap-2.5 text-xs sm:text-sm text-stone-300">
-            <Link href="/#penginapan" className="hover:text-white transition-colors">
+            <Link href="/penginapan" className="hover:text-white transition-colors">
               Penginapan &amp; Villa
             </Link>
-            <Link href="/#destinasi" className="hover:text-white transition-colors">
-              Destinasi Dieng
+            <Link href="/jeep-dieng" className="hover:text-white transition-colors">
+              Jeep 4x4 Offroad
             </Link>
             <Link href="/tours" className="hover:text-white transition-colors">
-              Paket Wisata &amp; Jeep
+              Paket Wisata Dieng
             </Link>
-            <Link href="/#kalender" className="hover:text-white transition-colors">
-              Kalender Jadwal
+            <Link href="/jelajahi-dieng" className="hover:text-white transition-colors">
+              Destinasi Populer
+            </Link>
+            <Link href="/trip-builder" className="hover:text-white transition-colors">
+              Rancang Trip Sendiri
             </Link>
           </div>
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-white">
-            Kontak &amp; Lokasi
+          <h3 className="text-xs font-bold uppercase tracking-wider text-brand-orange">
+            Kontak &amp; Informasi
           </h3>
-          <div className="mt-3 flex flex-col gap-2 text-xs sm:text-sm text-stone-300">
+          <div className="mt-3 flex flex-col gap-2.5 text-xs sm:text-sm text-stone-300">
             <a
               href={chatHref}
               target="_blank"
@@ -57,15 +62,18 @@ export default function Footer() {
             >
               Instagram: @kediengaja
             </a>
-            <p className="mt-1 text-xs text-stone-400">
-              {SITE.location}
-            </p>
+            <Link href="/availability" className="hover:text-white transition-colors">
+              Cek Kalender Jadwal
+            </Link>
+            <Link href="/kontak" className="hover:text-white transition-colors">
+              Hubungi Kami
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/5 py-5 text-center text-xs text-stone-500">
-        © {new Date().getFullYear()} Kediengaja. Hak cipta dilindungi.
+      <div className="border-t border-stone-800/80 py-5 text-center text-xs text-stone-500">
+        © {new Date().getFullYear()} Ke Dieng Aja. Platform perjalanan wisata Dieng, Jawa Tengah.
       </div>
     </footer>
   );

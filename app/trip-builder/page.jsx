@@ -42,7 +42,7 @@ export default function TripBuilderPage() {
       stayName = 'Kamar Privat Kabin';
       stayPrice = 450000;
     } else if (guests === '10') {
-      stayName = 'Kediengaja by Daun Villa (12 Orang)';
+      stayName = 'Daun Villa Dieng (12 Orang)';
       stayPrice = 1800000;
     }
 
@@ -78,7 +78,7 @@ export default function TripBuilderPage() {
   const selectedVibe = VIBES.find((v) => v.id === vibe)?.label;
   const selectedTransport = TRANSPORTS.find((t) => t.id === transport)?.label;
 
-  const waMessage = `Halo Admin Kediengaja,\nSaya membuat rencana liburan lewat Trip Builder di website:\n\nDurasi: ${selectedDuration}\nJumlah Tamu: ${selectedGuests}\nFokus Trip: ${selectedVibe}\nTransportasi: ${selectedTransport}\n\nEstimasi Pilihan:\n- Akomodasi: ${recommendation.stayName}\n- Aktivitas: ${recommendation.jeepName}\n- Perkiraan Biaya: ~${formatRupiah(recommendation.estTotal)}\n\nMohon dibantu cek ketersediaan jadwal dan penyesuaian detailnya. Terima kasih.`;
+  const waMessage = `Halo Ke Dieng Aja,\nSaya membuat rencana liburan lewat Trip Builder di website:\n\nDurasi: ${selectedDuration}\nJumlah Tamu: ${selectedGuests}\nFokus Trip: ${selectedVibe}\nTransportasi: ${selectedTransport}\n\nEstimasi Pilihan:\n- Akomodasi: ${recommendation.stayName}\n- Aktivitas: ${recommendation.jeepName}\n- Perkiraan Biaya: ~${formatRupiah(recommendation.estTotal)}\n\nMohon dibantu cek ketersediaan jadwal dan penyesuaian detailnya. Terima kasih.`;
 
   return (
     <main className="bg-cream/30 min-h-screen py-12 sm:py-20">

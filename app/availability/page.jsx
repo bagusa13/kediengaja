@@ -1,10 +1,10 @@
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 
 export const metadata = {
-  title: 'Kalender Ketersediaan Tanggal | Kediengaja Dieng',
+  title: 'Kalender Ketersediaan Tanggal | Ke Dieng Aja',
   description: 'Cek jadwal dan tanggal kosong villa, cabin, dan homestay di Dataran Tinggi Dieng hingga 6 bulan ke depan.',
   openGraph: {
-    title: 'Kalender Ketersediaan Penginapan Dieng | Kediengaja',
+    title: 'Kalender Ketersediaan Penginapan Dieng | Ke Dieng Aja',
     description: 'Cek tanggal yang masih tersedia sebelum reservasi via WhatsApp resmi.',
   },
 };

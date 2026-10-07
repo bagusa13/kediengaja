@@ -4,14 +4,18 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { SITE } from '@/lib/site';
 
-const title = 'Kediengaja | Penginapan & paket wisata Dieng';
+const title = 'Ke Dieng Aja | Platform Perjalanan Wisata Dieng';
 const description =
-  'Katalog villa, homestay, cabin, dan paket trip Dieng. Pilih di web, konfirmasi ketersediaan dan bayar lewat WhatsApp.';
+  'Tempat menemukan, memilih, dan mempersiapkan perjalanan ke Dieng: penginapan nyaman, sewa jeep 4x4, dan paket wisata lokal tanpa ribet.';
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
   title,
   description,
+  icons: {
+    icon: '/images/logo/icon-192.webp',
+    apple: '/images/logo/icon-192.webp',
+  },
   robots: 'index, follow',
   alternates: { canonical: SITE.url },
   openGraph: {
@@ -57,7 +61,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>

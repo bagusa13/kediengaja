@@ -32,7 +32,6 @@ export default function LiveWeatherDieng({ className = '' }) {
         setCondition(info.label);
         setIconComponent(() => info.icon);
       } catch (err) {
-        // Fallback default for Dieng highland typical condition
         setTemp(14);
         setCondition('Sejuk & Berawan');
         setIconComponent(() => Cloud);
@@ -45,11 +44,9 @@ export default function LiveWeatherDieng({ className = '' }) {
   }, []);
 
   return (
-    <div
-      className={`inline-flex items-center gap-2 rounded-full border border-white/15 bg-slate-900/60 px-3.5 py-1 text-xs font-medium text-stone-200 backdrop-blur-md shadow-xs ${className}`}
-    >
-      <IconComponent className="h-3.5 w-3.5 text-stone-300" aria-hidden="true" />
-      <span>{temp}°C · {condition}</span>
-    </div>
+    <span className={`inline-flex items-center gap-1.5 text-xs text-stone-200/90 font-medium ${className}`}>
+      <IconComponent className="h-3.5 w-3.5 text-brand-orange shrink-0" aria-hidden="true" />
+      <span>Dieng sekarang: {temp}°C · {condition}</span>
+    </span>
   );
 }
