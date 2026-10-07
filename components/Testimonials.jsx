@@ -37,7 +37,8 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* DESKTOP REVIEWS GRID (hidden sm:grid) */}
+        <div className="hidden sm:grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.map((rev, i) => (
             <div
               key={i}
@@ -61,6 +62,38 @@ export default function Testimonials() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* MOBILE ART-DIRECTED REVIEWS CAROUSEL (sm:hidden) */}
+        <div className="sm:hidden">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 -mx-4 px-4 scrollbar-none">
+            {reviews.map((rev, i) => (
+              <div
+                key={i}
+                className="w-[85vw] max-w-[320px] shrink-0 snap-center rounded-2xl border border-stone-200/90 bg-white p-5 shadow-xs flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-1 text-amber-500 mb-2.5" aria-label={`Rating ${rev.rating} bintang`}>
+                    {[...Array(rev.rating)].map((_, s) => (
+                      <Star key={s} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" aria-hidden="true" />
+                    ))}
+                  </div>
+                  <p className="text-xs leading-relaxed text-stone-700">
+                    &ldquo;{rev.text}&rdquo;
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
+                  <div>
+                    <h3 className="font-semibold text-xs text-ink">{rev.name}</h3>
+                    <p className="text-[11px] text-stone-500">{rev.origin}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-center text-xs text-stone-400">
+            ← Geser untuk cerita tamu lainnya →
+          </p>
         </div>
       </div>
     </section>

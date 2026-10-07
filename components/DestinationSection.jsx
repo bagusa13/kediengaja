@@ -66,8 +66,8 @@ export default function DestinationSection() {
           </Link>
         </div>
 
-        {/* Editorial Layout: Large Featured + 3 Secondary Cards (Breaks the generic 4-column repetition) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* DESKTOP EDITORIAL LAYOUT (lg:grid) */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-6 items-stretch">
           {/* 1. Large Featured Card: Bukit Sikunir */}
           <Link
             href={`/jelajahi-dieng/${featuredDestination.slug}`}
@@ -140,6 +140,94 @@ export default function DestinationSection() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+
+        {/* MOBILE EDITORIAL DESTINATION COMPOSITION (lg:hidden) */}
+        <div className="lg:hidden flex flex-col space-y-4">
+          {/* Featured Spotlight: Bukit Sikunir */}
+          <Link
+            href={`/jelajahi-dieng/${featuredDestination.slug}`}
+            className="group relative flex flex-col justify-end overflow-hidden rounded-2xl bg-slate-950 min-h-[300px] p-5 text-white shadow-xs"
+          >
+            <img
+              src={featuredDestination.image}
+              alt={featuredDestination.title}
+              className="absolute inset-0 h-full w-full object-cover opacity-75"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent pointer-events-none" />
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="rounded-md bg-white/20 backdrop-blur-xs px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
+                  {featuredDestination.category}
+                </span>
+                <span className="rounded-md bg-emerald-600/80 px-2 py-0.5 text-[10px] font-semibold text-white">
+                  {featuredDestination.elevation}
+                </span>
+              </div>
+
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="font-display text-xl font-bold text-white">
+                  {featuredDestination.title}
+                </h3>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white/20 text-white">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </div>
+
+              <p className="mt-1.5 text-xs text-stone-200 line-clamp-2 leading-relaxed">
+                {featuredDestination.description}
+              </p>
+            </div>
+          </Link>
+
+          {/* Secondary Editorial Cards Carousel */}
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-2 -mx-4 px-4 scrollbar-none">
+            {secondaryDestinations.map((item) => (
+              <Link
+                key={item.title}
+                href={`/jelajahi-dieng/${item.slug}`}
+                className="w-[82vw] max-w-[320px] shrink-0 snap-center rounded-2xl border border-stone-200/90 bg-white overflow-hidden shadow-xs flex flex-col"
+              >
+                <div className="relative aspect-16/10 w-full overflow-hidden bg-stone-100">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute left-2.5 top-2.5 rounded bg-slate-950/75 backdrop-blur-xs px-2 py-0.5 text-[10px] font-bold text-white">
+                    {item.elevation}
+                  </span>
+                  <span className="absolute left-2.5 bottom-2.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-300">
+                    {item.category}
+                  </span>
+                </div>
+
+                <div className="p-4 flex flex-1 flex-col justify-between">
+                  <div>
+                    <h4 className="font-display text-base font-bold text-ink">
+                      {item.title}
+                    </h4>
+                    <p className="mt-1 text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-forest">
+                    <span>Lihat Panduan &amp; Tips</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-between text-xs text-stone-500 px-1">
+            <span>← Geser untuk lihat spot lain →</span>
+            <Link href="/jelajahi-dieng" className="font-semibold text-forest">
+              Semua Spot
+            </Link>
           </div>
         </div>
       </div>

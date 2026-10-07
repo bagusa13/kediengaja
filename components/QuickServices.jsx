@@ -18,8 +18,8 @@ export default function QuickServices() {
           </p>
         </div>
 
-        {/* Hierarchical Discovery Grid: Photo-led stays/jeep + utility availability */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+        {/* DESKTOP DISCOVERY GRID (md:grid) - Approved 12-column layout */}
+        <div className="hidden md:grid md:grid-cols-12 gap-5">
           {/* 1. Photography-Led: Menginap (Cabin & Villa) */}
           <Link
             href="/penginapan"
@@ -144,6 +144,120 @@ export default function QuickServices() {
               <Link
                 href="/availability"
                 className="inline-flex min-h-[40px] w-full items-center justify-center gap-2 rounded-xl bg-forest px-4 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
+              >
+                <Calendar className="h-4 w-4" />
+                <span>Buka Kalender Ketersediaan</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* MOBILE ART-DIRECTED DISCOVERY COMPOSITION (md:hidden) */}
+        <div className="md:hidden flex flex-col space-y-4">
+          {/* Two Visual Pillar Cards: Stays & Jeep */}
+          <div className="grid grid-cols-1 xs:grid-cols-2 gap-3.5">
+            <Link
+              href="/penginapan"
+              className="group relative flex flex-col justify-end overflow-hidden rounded-xl bg-slate-950 min-h-[200px] p-4 text-white shadow-xs"
+            >
+              <img
+                src="/images/cabin-house-1/bigbed.jpg"
+                alt="Kabin dan Penginapan Hangat Dieng"
+                className="absolute inset-0 h-full w-full object-cover opacity-60"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              <div className="relative z-10">
+                <span className="inline-flex items-center gap-1 rounded-md bg-white/20 px-2 py-0.5 text-[10px] font-semibold text-white backdrop-blur-xs mb-1.5">
+                  <Home className="h-3 w-3" />
+                  <span>Akomodasi</span>
+                </span>
+                <h3 className="font-display text-base font-bold text-white leading-tight">
+                  Sewa Cabin &amp; Villa
+                </h3>
+                <p className="mt-1 text-[11px] text-stone-200 line-clamp-1">
+                  Water heater 24 jam &amp; view gunung
+                </p>
+              </div>
+            </Link>
+
+            <Link
+              href="/jeep-dieng"
+              className="group relative flex flex-col justify-end overflow-hidden rounded-xl bg-slate-950 min-h-[200px] p-4 text-white shadow-xs"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=80"
+                alt="Armada Jeep 4x4 Dieng"
+                className="absolute inset-0 h-full w-full object-cover opacity-60"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              <div className="relative z-10">
+                <span className="inline-flex items-center gap-1 rounded-md bg-white/20 px-2 py-0.5 text-[10px] font-semibold text-white backdrop-blur-xs mb-1.5">
+                  <Compass className="h-3 w-3" />
+                  <span>Jelajah Alam</span>
+                </span>
+                <h3 className="font-display text-base font-bold text-white leading-tight">
+                  Jeep 4x4 Offroad
+                </h3>
+                <p className="mt-1 text-[11px] text-stone-200 line-clamp-1">
+                  Sunrise Sikunir, kawah &amp; savana
+                </p>
+              </div>
+            </Link>
+          </div>
+
+          {/* Quick Action Card 1: Paket Wisata & Trip Builder */}
+          <div className="rounded-xl border border-stone-200/90 bg-white p-4.5 shadow-xs">
+            <div className="flex items-center justify-between mb-2">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-forest">
+                <Sparkles className="h-3.5 w-3.5 text-forest" />
+                <span>Paket Wisata &amp; Custom Trip</span>
+              </span>
+            </div>
+            <h3 className="font-display text-base font-bold text-ink">
+              Paket Terpadu atau Rancang Sendiri
+            </h3>
+            <p className="mt-1 text-xs text-stone-600 leading-snug">
+              Open trip, privat 2D1N all-in, atau estimasikan biaya sendiri dengan Trip Builder.
+            </p>
+            <div className="mt-3.5 pt-3 border-t border-stone-100 grid grid-cols-2 gap-2">
+              <Link
+                href="/tours"
+                className="inline-flex min-h-[38px] items-center justify-center gap-1 rounded-xl bg-stone-100 px-3 text-xs font-semibold text-ink active:bg-stone-200 transition"
+              >
+                <span>Paket Wisata</span>
+                <ArrowRight className="h-3 w-3" />
+              </Link>
+              <Link
+                href="/trip-builder"
+                className="inline-flex min-h-[38px] items-center justify-center gap-1 rounded-xl border border-forest/30 bg-forest/5 px-3 text-xs font-semibold text-forest active:bg-forest/10 transition"
+              >
+                <span>Trip Builder</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Quick Action Card 2: Kalender Ketersediaan */}
+          <div className="rounded-xl border border-stone-200/90 bg-stone-50/80 p-4.5 shadow-xs">
+            <div className="flex items-center justify-between mb-2">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-forest">
+                <Calendar className="h-3.5 w-3.5 text-forest" />
+                <span>Cek Ketersediaan</span>
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-md border border-stone-200 bg-white px-2 py-0.5 text-[10px] font-semibold text-stone-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                Live Sync
+              </span>
+            </div>
+            <h3 className="font-display text-base font-bold text-ink">
+              Cek Kalender Tanggal Menginap
+            </h3>
+            <p className="mt-1 text-xs text-stone-600 leading-snug">
+              Periksa ketersediaan tanggal cabin &amp; villa mitra hingga 6 bulan ke depan.
+            </p>
+            <div className="mt-3.5 pt-3 border-t border-stone-200/70">
+              <Link
+                href="/availability"
+                className="inline-flex min-h-[40px] w-full items-center justify-center gap-2 rounded-xl bg-forest px-4 text-xs font-semibold text-white shadow-xs active:bg-forest-light transition"
               >
                 <Calendar className="h-4 w-4" />
                 <span>Buka Kalender Ketersediaan</span>

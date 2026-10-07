@@ -50,8 +50,8 @@ export default function AccommodationSection() {
           </Link>
         </div>
 
-        {/* Real Curated Listings Grid */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {/* DESKTOP CURATED LISTINGS GRID (sm:grid) */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {villas.slice(0, 3).map((item) => (
             <article
               key={item.id}
@@ -134,6 +134,100 @@ export default function AccommodationSection() {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* MOBILE ART-DIRECTED ACCOMMODATION CAROUSEL (sm:hidden) */}
+        <div className="sm:hidden">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 -mx-4 px-4 scrollbar-none">
+            {villas.slice(0, 3).map((item) => (
+              <article
+                key={item.id}
+                className="w-[85vw] max-w-[340px] shrink-0 snap-center flex flex-col overflow-hidden rounded-2xl border border-stone-200/90 bg-white shadow-xs"
+              >
+                {/* Photo container */}
+                <Link
+                  href={`/penginapan/${item.id}`}
+                  className="relative aspect-16/10 w-full overflow-hidden bg-stone-100"
+                >
+                  <img
+                    src={villaCover(item)}
+                    alt={item.nama}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                  
+                  {/* Tipe badge */}
+                  <span className="absolute left-3 top-3 rounded-md bg-stone-900/80 backdrop-blur-xs px-2.5 py-1 text-[11px] font-semibold text-white shadow-xs">
+                    {item.tipe || 'Kabin Wisata'}
+                  </span>
+
+                  {/* Price pill */}
+                  <div className="absolute left-3 bottom-3 text-white">
+                    <span className="text-[10px] text-stone-300 block uppercase tracking-wider">Mulai</span>
+                    <span className="font-display text-base font-bold text-white">
+                      {formatRupiah(item.harga)}
+                      <span className="text-xs font-normal text-stone-200"> / malam</span>
+                    </span>
+                  </div>
+                </Link>
+
+                {/* Property Details */}
+                <div className="flex flex-1 flex-col p-4.5">
+                  <h3 className="font-display text-base font-bold text-ink">
+                    <Link href={`/penginapan/${item.id}`}>
+                      {item.nama}
+                    </Link>
+                  </h3>
+
+                  {/* Location */}
+                  <p className="mt-1 flex items-center gap-1.5 text-xs text-stone-500">
+                    <MapPin className="h-3.5 w-3.5 text-forest shrink-0" aria-hidden="true" />
+                    <span className="truncate">{item.lokasi || 'Kawasan Wisata Dieng'}</span>
+                  </p>
+
+                  {/* Key Spec Row */}
+                  <div className="mt-3.5 grid grid-cols-3 gap-2 border-y border-stone-100 py-2.5 text-xs text-stone-600">
+                    <div className="flex flex-col items-center justify-center p-1 rounded-lg bg-stone-50 text-center">
+                      <Users className="h-3.5 w-3.5 text-forest mb-0.5" aria-hidden="true" />
+                      <span className="font-semibold text-[11px] text-ink">{item.kapasitas} Org</span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center p-1 rounded-lg bg-stone-50 text-center">
+                      <BedDouble className="h-3.5 w-3.5 text-forest mb-0.5" aria-hidden="true" />
+                      <span className="font-semibold text-[11px] text-ink">Bed Lengkap</span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center p-1 rounded-lg bg-stone-50 text-center">
+                      <Flame className="h-3.5 w-3.5 text-amber-600 mb-0.5" aria-hidden="true" />
+                      <span className="font-semibold text-[11px] text-ink">Air Panas</span>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="mt-2.5 line-clamp-2 text-xs leading-relaxed text-stone-600">
+                    {item.deskripsi}
+                  </p>
+
+                  {/* Action button */}
+                  <div className="mt-3.5 pt-1">
+                    <Link
+                      href={`/penginapan/${item.id}`}
+                      className="inline-flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-forest px-4 text-xs font-semibold text-white shadow-xs active:bg-forest-light transition-all"
+                    >
+                      <span>Lihat Detail Unit</span>
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-3 flex items-center justify-between text-xs text-stone-500 px-1">
+            <span>← Geser untuk lihat kabin lain →</span>
+            <Link href="/penginapan" className="font-semibold text-forest">
+              Semua ({villas.length})
+            </Link>
+          </div>
         </div>
       </div>
     </section>

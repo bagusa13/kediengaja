@@ -54,32 +54,33 @@ export default function QuickAvailabilityCheck() {
               </select>
             </div>
 
-            {/* 2. Check-in */}
-            <div>
-              <label className="block text-[11px] font-semibold uppercase tracking-wider text-stone-600 mb-1.5 flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5 text-forest" aria-hidden="true" />
-                Tanggal Check-in
-              </label>
-              <input
-                type="date"
-                value={checkIn}
-                onChange={(e) => setCheckIn(e.target.value)}
-                className="w-full rounded-xl border border-stone-300 bg-white px-3 py-2 text-xs sm:text-sm font-medium text-ink focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest/20"
-              />
-            </div>
+            {/* 2 & 3: Tanggal Check-in & Check-out (Side-by-side on mobile via sm:contents) */}
+            <div className="grid grid-cols-2 gap-2.5 sm:contents">
+              <div>
+                <label className="block text-[11px] font-semibold uppercase tracking-wider text-stone-600 mb-1.5 flex items-center gap-1.5">
+                  <Calendar className="h-3.5 w-3.5 text-forest" aria-hidden="true" />
+                  <span>Check-in</span>
+                </label>
+                <input
+                  type="date"
+                  value={checkIn}
+                  onChange={(e) => setCheckIn(e.target.value)}
+                  className="w-full rounded-xl border border-stone-300 bg-white px-2.5 py-2 text-xs sm:text-sm font-medium text-ink focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest/20 min-h-[42px]"
+                />
+              </div>
 
-            {/* 3. Check-out */}
-            <div>
-              <label className="block text-[11px] font-semibold uppercase tracking-wider text-stone-600 mb-1.5 flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5 text-forest" aria-hidden="true" />
-                Tanggal Check-out
-              </label>
-              <input
-                type="date"
-                value={checkOut}
-                onChange={(e) => setCheckOut(e.target.value)}
-                className="w-full rounded-xl border border-stone-300 bg-white px-3 py-2 text-xs sm:text-sm font-medium text-ink focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest/20"
-              />
+              <div>
+                <label className="block text-[11px] font-semibold uppercase tracking-wider text-stone-600 mb-1.5 flex items-center gap-1.5">
+                  <Calendar className="h-3.5 w-3.5 text-forest" aria-hidden="true" />
+                  <span>Check-out</span>
+                </label>
+                <input
+                  type="date"
+                  value={checkOut}
+                  onChange={(e) => setCheckOut(e.target.value)}
+                  className="w-full rounded-xl border border-stone-300 bg-white px-2.5 py-2 text-xs sm:text-sm font-medium text-ink focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest/20 min-h-[42px]"
+                />
+              </div>
             </div>
 
             {/* 4. Action Button */}

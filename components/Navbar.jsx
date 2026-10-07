@@ -43,10 +43,21 @@ export default function Navbar() {
   const isHome = pathname === '/';
   const showDarkBg = isScrolled || !isHome;
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-250 ${
-        showDarkBg
+        showDarkBg || open
           ? 'bg-slate-950/95 backdrop-blur-md border-b border-stone-800 text-white shadow-xs'
           : 'bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent text-white border-b border-transparent'
       }`}
@@ -98,47 +109,63 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-white hover:bg-white/10 lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-xl text-white hover:bg-white/10 active:scale-95 transition-all lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? 'Tutup menu' : 'Buka menu'}
         >
-          {open ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
+          {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
         </button>
       </div>
 
-      {/* Mobile Nav Menu */}
+      {/* Art-Directed Mobile Nav Drawer */}
       {open && (
-        <div className="border-t border-stone-800 bg-slate-950/98 px-5 py-4 backdrop-blur-xl lg:hidden">
-          <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors ${
-                    isActive
-                      ? 'bg-white/10 text-amber-400 font-bold'
-                      : 'text-stone-200 hover:bg-white/5 hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-          <div className="mt-4 border-t border-stone-800 pt-3">
+        <div className="fixed inset-x-0 top-[61px] bottom-0 z-50 bg-slate-950/98 backdrop-blur-2xl px-6 py-6 lg:hidden flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-3">
+              Eksplorasi Dieng
+            </p>
+            <nav className="flex flex-col space-y-1">
+              {navLinks.map((link, idx) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-semibold transition-all ${
+                      isActive
+                        ? 'bg-white/10 text-amber-400 font-bold'
+                        : 'text-stone-200 hover:bg-white/5 active:bg-white/10'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <span className="text-xs text-stone-400 font-mono">0{idx + 1}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+          <div className="mt-8 pt-5 border-t border-stone-800/80 space-y-4">
             <a
               href={chatHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-forest px-4 text-xs font-bold text-white hover:bg-forest-light transition-all"
+              onClick={() => setOpen(false)}
+              className="flex min-h-[48px] w-full items-center justify-center gap-2.5 rounded-xl bg-forest px-4 text-sm font-bold text-white hover:bg-forest-light active:scale-[0.98] transition-all shadow-sm"
             >
               <MessageCircle className="h-4 w-4 text-amber-400" aria-hidden="true" />
-              <span>Hubungi Kami via WhatsApp</span>
+              <span>Konsultasi Liburan via WhatsApp</span>
             </a>
+
+            <div className="flex items-center justify-between text-[11px] text-stone-400 px-1">
+              <span>Dataran Tinggi Dieng, Wonosobo</span>
+              <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Respon Cepat
+              </span>
+            </div>
           </div>
         </div>
       )}

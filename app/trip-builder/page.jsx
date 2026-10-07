@@ -34,6 +34,8 @@ export default function TripBuilderPage() {
   const [vibe, setVibe] = useState('sunrise');
   const [transport, setTransport] = useState('own');
 
+  const [activeStep, setActiveStep] = useState(1);
+
   // Dynamic recommendation & pricing logic
   const recommendation = useMemo(() => {
     let stayName = 'Cabin House 1';
@@ -99,7 +101,8 @@ export default function TripBuilderPage() {
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-12 items-start">
+        {/* DESKTOP SIDE-BY-SIDE ITINERARY PLANNER (hidden lg:grid) */}
+        <div className="hidden lg:grid gap-10 lg:grid-cols-12 items-start">
           {/* Options Step Column */}
           <div className="space-y-8 lg:col-span-6">
             {/* Step 1: Durasi */}
@@ -241,7 +244,7 @@ export default function TripBuilderPage() {
                 </span>
               </div>
 
-              {/* Day-by-day Itinerary Output (Real Travel Planner Output) */}
+              {/* Day-by-day Itinerary Output */}
               <div className="mt-5 space-y-4">
                 {/* HARI 1 */}
                 <div className="rounded-xl border border-stone-200/80 bg-stone-50/60 p-4">
@@ -348,6 +351,351 @@ export default function TripBuilderPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* MOBILE ART-DIRECTED STEP-BY-STEP FLOW (lg:hidden) */}
+        <div className="lg:hidden flex flex-col space-y-5 pb-24">
+          {/* Step Progress Bar */}
+          <div className="rounded-xl border border-stone-200/90 bg-white p-4 shadow-xs">
+            <div className="flex items-center justify-between text-xs font-semibold mb-2">
+              <span className="text-forest">
+                {activeStep <= 4 ? `Langkah ${activeStep} dari 4` : 'Ringkasan Itinerary'}
+              </span>
+              <span className="text-stone-500">
+                {activeStep === 1 && '1. Durasi'}
+                {activeStep === 2 && '2. Rombongan'}
+                {activeStep === 3 && '3. Gaya Trip'}
+                {activeStep === 4 && '4. Transportasi'}
+                {activeStep === 5 && '5. Itinerary Selesai'}
+              </span>
+            </div>
+            {/* Visual Progress Bar */}
+            <div className="h-2 w-full rounded-full bg-stone-100 overflow-hidden">
+              <div
+                className="h-full bg-forest rounded-full transition-all duration-300"
+                style={{ width: `${Math.min(100, (activeStep / 4) * 100)}%` }}
+              />
+            </div>
+            {/* Quick step jump pills */}
+            <div className="mt-3 flex items-center justify-between gap-1 text-[11px]">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => setActiveStep(s)}
+                  className={`flex-1 py-1 text-center rounded-md font-medium transition ${
+                    activeStep === s
+                      ? 'bg-forest text-white font-bold'
+                      : 'bg-stone-50 text-stone-600 hover:bg-stone-100'
+                  }`}
+                >
+                  {s === 5 ? 'Hasil' : `Step ${s}`}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* STEP 1: DURASI */}
+          {activeStep === 1 && (
+            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 shadow-xs animate-in fade-in">
+              <div className="flex items-center gap-2 mb-3">
+                <Calendar className="h-4 w-4 text-forest" />
+                <h3 className="font-display text-base font-bold text-ink">
+                  Berapa lama rencana Anda di Dieng?
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {DURATIONS.map((d) => (
+                  <button
+                    key={d.id}
+                    type="button"
+                    onClick={() => {
+                      setDuration(d.id);
+                      setActiveStep(2);
+                    }}
+                    className={`flex w-full items-start justify-between rounded-xl border p-4 text-left transition ${
+                      duration === d.id
+                        ? 'border-forest bg-forest/5 shadow-xs ring-1 ring-forest'
+                        : 'border-stone-200 bg-white active:bg-stone-50'
+                    }`}
+                  >
+                    <div>
+                      <p className="font-bold text-ink text-sm">{d.label}</p>
+                      <p className="text-xs text-stone-500 mt-1 leading-snug">{d.desc}</p>
+                    </div>
+                    {duration === d.id && (
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest text-white mt-0.5 ml-2">
+                        <Check className="h-3 w-3" />
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* STEP 2: JUMLAH ROMBONGAN */}
+          {activeStep === 2 && (
+            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 shadow-xs animate-in fade-in">
+              <div className="flex items-center gap-2 mb-3">
+                <Users className="h-4 w-4 text-forest" />
+                <h3 className="font-display text-base font-bold text-ink">
+                  Berapa orang yang berangkat?
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {GUEST_OPTIONS.map((g) => (
+                  <button
+                    key={g.id}
+                    type="button"
+                    onClick={() => {
+                      setGuests(g.id);
+                      setActiveStep(3);
+                    }}
+                    className={`flex w-full items-start justify-between rounded-xl border p-4 text-left transition ${
+                      guests === g.id
+                        ? 'border-forest bg-forest/5 shadow-xs ring-1 ring-forest'
+                        : 'border-stone-200 bg-white active:bg-stone-50'
+                    }`}
+                  >
+                    <div>
+                      <p className="font-bold text-ink text-sm">{g.label}</p>
+                      <p className="text-xs text-stone-500 mt-1 leading-snug">{g.desc}</p>
+                    </div>
+                    {guests === g.id && (
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest text-white mt-0.5 ml-2">
+                        <Check className="h-3 w-3" />
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* STEP 3: GAYA TRIP */}
+          {activeStep === 3 && (
+            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 shadow-xs animate-in fade-in">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-4 w-4 text-forest" />
+                <h3 className="font-display text-base font-bold text-ink">
+                  Apa prioritas suasana liburan Anda?
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {VIBES.map((v) => (
+                  <button
+                    key={v.id}
+                    type="button"
+                    onClick={() => {
+                      setVibe(v.id);
+                      setActiveStep(4);
+                    }}
+                    className={`flex w-full items-start justify-between rounded-xl border p-4 text-left transition ${
+                      vibe === v.id
+                        ? 'border-forest bg-forest/5 shadow-xs ring-1 ring-forest'
+                        : 'border-stone-200 bg-white active:bg-stone-50'
+                    }`}
+                  >
+                    <div>
+                      <p className="font-bold text-ink text-sm">{v.label}</p>
+                      <p className="text-xs text-stone-500 mt-1 leading-snug">{v.desc}</p>
+                    </div>
+                    {vibe === v.id && (
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest text-white mt-0.5 ml-2">
+                        <Check className="h-3 w-3" />
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* STEP 4: TRANSPORTASI */}
+          {activeStep === 4 && (
+            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 shadow-xs animate-in fade-in">
+              <div className="flex items-center gap-2 mb-3">
+                <Car className="h-4 w-4 text-forest" />
+                <h3 className="font-display text-base font-bold text-ink">
+                  Bagaimana transportasi menuju Dieng?
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {TRANSPORTS.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => {
+                      setTransport(t.id);
+                      setActiveStep(5);
+                    }}
+                    className={`flex w-full items-start justify-between rounded-xl border p-4 text-left transition ${
+                      transport === t.id
+                        ? 'border-forest bg-forest/5 shadow-xs ring-1 ring-forest'
+                        : 'border-stone-200 bg-white active:bg-stone-50'
+                    }`}
+                  >
+                    <div>
+                      <p className="font-bold text-ink text-sm">{t.label}</p>
+                      <p className="text-xs text-stone-500 mt-1 leading-snug">{t.desc}</p>
+                    </div>
+                    {transport === t.id && (
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest text-white mt-0.5 ml-2">
+                        <Check className="h-3 w-3" />
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* STEP 5: HASIL ITINERARY & ESTIMASI */}
+          {activeStep === 5 && (
+            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 shadow-xs animate-in fade-in space-y-5">
+              <div className="flex items-center justify-between border-b border-stone-100 pb-3">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-forest block">
+                    Itinerary Rekomendasi
+                  </span>
+                  <h3 className="font-display text-lg font-bold text-ink">
+                    Rencana Wisata Anda
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setActiveStep(1)}
+                  className="rounded-lg border border-stone-200 bg-stone-50 px-2.5 py-1 text-xs font-semibold text-stone-600 active:bg-stone-100"
+                >
+                  Ubah Pilihan
+                </button>
+              </div>
+
+              {/* Day-by-day Itinerary Output */}
+              <div className="space-y-3.5">
+                {/* HARI 1 */}
+                <div className="rounded-xl border border-stone-200/80 bg-stone-50/70 p-3.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-forest uppercase tracking-wider mb-2">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-forest text-white text-[10px]">1</span>
+                    <span>Hari 1 — Kedatangan &amp; Adaptasi</span>
+                  </div>
+                  <ul className="space-y-1.5 text-xs text-stone-700">
+                    <li className="flex items-start gap-1.5">
+                      <Clock className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                      <span>{recommendation.hasShuttle ? 'Jemput di stasiun/bandara.' : 'Tiba & temu sapa di basecamp Dieng.'}</span>
+                    </li>
+                    <li className="flex items-start gap-1.5">
+                      <MapPin className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                      <span>Check-in <strong>{recommendation.stayName}</strong>.</span>
+                    </li>
+                    <li className="flex items-start gap-1.5">
+                      <Sparkles className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                      <span>Sore: Candi Arjuna &amp; sunset Telaga Menjer.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* HARI 2 (if 2D1N or 3D2N) */}
+                {duration !== '1d' && (
+                  <div className="rounded-xl border border-stone-200/80 bg-stone-50/70 p-3.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-forest uppercase tracking-wider mb-2">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-forest text-white text-[10px]">2</span>
+                      <span>Hari 2 — Sunrise &amp; Jeep 4x4</span>
+                    </div>
+                    <ul className="space-y-1.5 text-xs text-stone-700">
+                      <li className="flex items-start gap-1.5">
+                        <Clock className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                        <span><strong>03.30 WIB:</strong> Golden Sunrise Bukit Sikunir.</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <Car className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                        <span>Jeep: Kawah Sikidang, Savana Pangonan, &amp; Telaga Warna.</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <Check className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                        <span>{duration === '2d1n' ? 'Belanja oleh-oleh carica & kepulangan.' : 'Eksplorasi Telaga Dringo & istirahat malam 2.'}</span>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+
+                {/* HARI 3 (if 3D2N) */}
+                {duration === '3d2n' && (
+                  <div className="rounded-xl border border-stone-200/80 bg-stone-50/70 p-3.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-forest uppercase tracking-wider mb-2">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-forest text-white text-[10px]">3</span>
+                      <span>Hari 3 — Puncak Dieng &amp; Pulang</span>
+                    </div>
+                    <ul className="space-y-1.5 text-xs text-stone-700">
+                      <li className="flex items-start gap-1.5">
+                        <Clock className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                        <span>Pagi santai di kabin dengan teh hangat Dieng.</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <MapPin className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                        <span>Batu Pandang Ratapan Angin (view Telaga Warna).</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <Check className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                        <span>Check-out, makan mie ongklok, dan diantar pulang.</span>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              {/* Price Breakdown */}
+              <div className="border-t border-stone-100 pt-4">
+                <span className="text-[10px] text-stone-500 uppercase tracking-wider block font-semibold">
+                  Estimasi Total Rombongan:
+                </span>
+                <p className="font-display text-2xl font-bold text-forest mt-0.5">
+                  ~{formatRupiah(recommendation.estTotal)}
+                </p>
+                <p className="text-[11px] text-stone-400 mt-1">
+                  *Perkiraan kasar akomodasi, armada jeep, dan transportasi.
+                </p>
+              </div>
+
+              {/* Action Button */}
+              <div className="pt-2">
+                <a
+                  href={waLink(waMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-forest py-3 text-xs font-bold text-white shadow-xs active:bg-forest-light transition"
+                >
+                  <MessageCircle className="h-4.5 w-4.5" />
+                  <span>Kirim Rencana ke WhatsApp Admin</span>
+                </a>
+              </div>
+            </div>
+          )}
+
+          {/* Sticky Mobile Step Navigation Controls */}
+          {activeStep <= 4 && (
+            <div className="flex items-center justify-between gap-3 pt-2">
+              {activeStep > 1 ? (
+                <button
+                  type="button"
+                  onClick={() => setActiveStep((s) => s - 1)}
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-stone-300 bg-white px-5 text-xs font-semibold text-stone-700 active:bg-stone-100"
+                >
+                  ← Kembali
+                </button>
+              ) : <div />}
+
+              <button
+                type="button"
+                onClick={() => setActiveStep((s) => s + 1)}
+                className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-xl bg-forest px-6 text-xs font-bold text-white shadow-xs active:bg-forest-light"
+              >
+                <span>{activeStep === 4 ? 'Lihat Itinerary & Biaya' : 'Langkah Selanjutnya'}</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </main>

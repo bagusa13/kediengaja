@@ -33,12 +33,12 @@ export default function FinalCTA() {
           Kami bantu siapkan penginapan, armada jeep, dan perjalanan Anda. Konsultasikan rencana trip Anda langsung bersama warga lokal.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
           <a
             href={directChat}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-6 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
+            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-forest px-6 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
           >
             <MessageCircle className="h-4 w-4 text-white" aria-hidden="true" />
             <span>Chat WhatsApp</span>
@@ -46,7 +46,7 @@ export default function FinalCTA() {
 
           <Link
             href="/penginapan"
-            className="inline-flex min-h-[46px] items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-6 text-xs sm:text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 active:scale-[0.98] transition-all"
+            className="inline-flex min-h-[44px] sm:min-h-[48px] items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-6 text-xs sm:text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 active:scale-[0.98] transition-all"
           >
             <span>Lihat Semua Penginapan</span>
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

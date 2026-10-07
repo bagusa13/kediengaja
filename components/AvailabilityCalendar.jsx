@@ -274,7 +274,7 @@ export default function AvailabilityCalendar() {
   };
 
   return (
-    <div className="rounded-xl border border-stone-200/90 bg-white p-5 sm:p-7 shadow-xs">
+    <div className="rounded-xl border border-stone-200/90 bg-white p-5 sm:p-7 shadow-xs pb-20 sm:pb-7">
       {/* Header bar: Unit picker + Live indicator */}
       <div className="flex flex-col gap-4 border-b border-stone-100 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -522,6 +522,38 @@ export default function AvailabilityCalendar() {
           </div>
         </div>
       </div>
+
+      {/* MOBILE STICKY BOOKING CONFIRMATION BAR (sm:hidden) */}
+      {checkIn && (
+        <div className="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/90 px-4 py-3 sm:hidden shadow-lg flex items-center justify-between gap-3 animate-in slide-in-from-bottom duration-200">
+          <div className="min-w-0 flex-1">
+            <p className="text-[10px] text-stone-500 font-medium truncate">
+              {selectedVilla.nama} • {totalNights > 0 ? `${totalNights} Malam` : '1 Malam'}
+            </p>
+            <p className="text-xs font-bold text-forest truncate">
+              {formatWaDate(checkIn)}{checkOut ? ` → ${formatWaDate(checkOut)}` : ''}
+            </p>
+          </div>
+          <button
+            type="button"
+            disabled={isVerifying}
+            onClick={handleConfirmBooking}
+            className="inline-flex min-h-[42px] items-center gap-1.5 rounded-xl bg-forest px-4 text-xs font-bold text-white shadow-xs active:bg-forest-light shrink-0"
+          >
+            {isVerifying ? (
+              <>
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                <span>Memeriksa...</span>
+              </>
+            ) : (
+              <>
+                <MessageCircle className="h-3.5 w-3.5" />
+                <span>Pesan via WA</span>
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
