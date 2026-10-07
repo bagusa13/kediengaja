@@ -6,19 +6,23 @@ import { db } from '@/lib/firebase';
 import { uploadToCloudinary } from '@/lib/uploader';
 
 const DEFAULT_SLIDES = [
-  { id: '1', title: 'Sunrise Sikunir', image: '/images/dokumentasi/tamu-1.jpg' },
+  { id: '1', title: 'Sunrise Sikunir', image: '/images/destinasi/bukit-sikunir.webp' },
   { id: '2', title: 'Cabin House 1', image: '/images/cabin-house-1/building.jpg' },
   { id: '3', title: 'Tamu Kediengaja', image: '/images/dokumentasi/tamu-2.jpg' },
   { id: '4', title: 'Cabin House 2', image: '/images/cabin-house-2/building.jpg' },
   { id: '5', title: 'Offroad Jeep Dieng', image: '/images/dokumentasi/tamu-3.jpg' },
   { id: '6', title: 'Daun Villa Dieng', image: '/images/daun-villa/daun-villa-1.jpg' },
   { id: '7', title: 'Rombongan Tamu', image: '/images/dokumentasi/tamu-4.jpg' },
-  { id: '8', title: 'Lautan Awan Prau', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1800&auto=format&fit=crop' },
-  { id: '9', title: 'Telaga Dieng', image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1800&auto=format&fit=crop' },
-  { id: '10', title: 'Lembah Dieng', image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1800&auto=format&fit=crop' },
+  { id: '8', title: 'Candi Arjuna', image: '/images/destinasi/candi-arjuna.webp' },
+  { id: '9', title: 'Kawah Sikidang', image: '/images/destinasi/kawah-sikidang.webp' },
+  { id: '10', title: 'Telaga Warna', image: '/images/destinasi/telaga-warna.webp' },
 ];
 
 const PRESET_PHOTOS = [
+  { label: 'Destinasi: Bukit Sikunir (HD WebP)', url: '/images/destinasi/bukit-sikunir.webp' },
+  { label: 'Destinasi: Candi Arjuna (HD WebP)', url: '/images/destinasi/candi-arjuna.webp' },
+  { label: 'Destinasi: Kawah Sikidang (HD WebP)', url: '/images/destinasi/kawah-sikidang.webp' },
+  { label: 'Destinasi: Telaga Warna (HD WebP)', url: '/images/destinasi/telaga-warna.webp' },
   { label: 'Tamu 1 (Sunrise Sikunir)', url: '/images/dokumentasi/tamu-1.jpg' },
   { label: 'Tamu 2 (Keluarga/Gathering)', url: '/images/dokumentasi/tamu-2.jpg' },
   { label: 'Tamu 3 (Jeep Offroad)', url: '/images/dokumentasi/tamu-3.jpg' },
@@ -28,7 +32,6 @@ const PRESET_PHOTOS = [
   { label: 'Cabin House 2 (Bangunan)', url: '/images/cabin-house-2/building.jpg' },
   { label: 'Daun Villa (Eksterior)', url: '/images/daun-villa/daun-villa-1.jpg' },
   { label: 'Daun Villa (Kamar)', url: '/images/daun-villa/daun-villa-2.jpg' },
-  { label: 'Lanskap Gunung Prau', url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80' },
 ];
 
 export default function GalleryManagerPage() {
@@ -137,14 +140,14 @@ export default function GalleryManagerPage() {
 
   if (loading) {
     return (
-      <div className="p-8 max-w-6xl mx-auto">
+      <div className="p-4 sm:p-6 md:p-8 max-w-6xl mx-auto">
         <p className="text-gray-500 text-sm">Memuat pengaturan galeri polaroid...</p>
       </div>
     );
   }
 
   return (
-    <div className="p-8 max-w-6xl mx-auto">
+    <div className="p-4 sm:p-6 md:p-8 max-w-6xl mx-auto">
       {/* HEADER */}
       <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>

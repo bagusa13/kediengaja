@@ -50,7 +50,7 @@ export default function CreatePenginapan() {
   }
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
+    <div className="p-4 sm:p-6 md:p-8 max-w-3xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Tambah Penginapan</h1>
 
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 space-y-5">

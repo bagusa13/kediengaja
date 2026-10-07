@@ -86,14 +86,14 @@ export default function EditTour({ params }) {
 
   if (loading) {
     return (
-      <div className="p-8 max-w-3xl mx-auto text-gray-500">
+      <div className="p-4 sm:p-6 md:p-8 max-w-3xl mx-auto text-gray-500">
         Memuat data paket tour...
       </div>
     );
   }
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
+    <div className="p-4 sm:p-6 md:p-8 max-w-3xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Edit Paket Tour &amp; Jeep</h1>
 
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 space-y-4">

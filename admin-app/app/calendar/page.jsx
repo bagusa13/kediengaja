@@ -152,7 +152,7 @@ export default function CalendarManagerPage() {
   const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay();
 
   return (
-    <div className="p-8 max-w-6xl mx-auto">
+    <div className="p-4 sm:p-6 md:p-8 max-w-6xl mx-auto">
       <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Manajemen Kalender &amp; Tanggal Terbooking</h1>

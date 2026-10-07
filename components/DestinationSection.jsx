@@ -1,29 +1,34 @@
-import { MapPin } from 'lucide-react';
+import Link from 'next/link';
+import { MapPin, ArrowRight } from 'lucide-react';
 
 const destinations = [
   {
+    slug: 'bukit-sikunir',
     title: 'Bukit Sikunir',
     elevation: '2.263 mdpl',
     description: 'Golden sunrise fenomenal berlatar siluet deretan gunung di Jawa Tengah.',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/destinasi/bukit-sikunir.webp',
   },
   {
+    slug: 'telaga-warna',
     title: 'Telaga Warna & Pengilon',
     elevation: '2.000 mdpl',
     description: 'Gradasi air danau alami bernuansa toska yang dikelilingi hutan pinus pegunungan.',
-    image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/destinasi/telaga-warna.webp',
   },
   {
+    slug: 'kawah-sikidang',
     title: 'Kawah Sikidang',
     elevation: '2.050 mdpl',
     description: 'Fenomena vulkanik unik dengan uap belerang aktif dan jembatan kayu estetik.',
-    image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/destinasi/kawah-sikidang.webp',
   },
   {
+    slug: 'candi-arjuna',
     title: 'Kompleks Candi Arjuna',
     elevation: '2.093 mdpl',
     description: 'Warisan peradaban abad ke-7 yang berdiri kokoh di tengah hamparan kabut Dieng.',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/destinasi/candi-arjuna.webp',
   },
 ];
 
