@@ -54,3 +54,12 @@ This project enforces intentional art direction across viewports:
   - **Mobile (360px–430px)**: Vertical narrative rhythm, reordered content, dedicated crop and focal points (e.g. centering Sindoro peak at 38%), simplified navigation (compact header + hamburger), concise copy length, stacked/hierarchical CTA pairs, thumb-friendly safe-area controls (compact circular WhatsApp).
 - **Evaluation Question**: For every section, always ask: *“What is the most elegant, human composition for a 390px viewport?”* — never *“How do I squeeze the 1440px desktop layout down to 390px?”*
 
+## Master Hero Lock (DO NOT MODIFY)
+The Homepage Hero and Hero-to-Content transition are **FINAL, APPROVED, AND LOCKED**:
+- **Video & Landscape Fit**: `public/video/kediengajaVideo.mp4`, full bleed, `object-[38%_center] sm:object-[center_35%]`. Untouched landscape extending cleanly to the bottom edge. Zero white fade / milky mask.
+- **Desktop Layout**: Viewport height `lg:h-[100svh] lg:min-h-[720px]`, vertically centered with optical upward lift (`sm:-translate-y-8 lg:-translate-y-12`), left-aligned text in upper sky zone.
+- **Section Boundary ("Skat")**: Apple-style 1px hairline divider (`border-b border-stone-300/60` and `border-t border-stone-300/70` with `shadow-[0_1px_4px_rgba(0,0,0,0.08)]`).
+- **Mobile Layout**: `h-[88svh] xs:h-[90svh] min-h-[560px]`, top-aligned content (`pt-20`), compact weather metadata, editorial headline, stacked CTA pair with quiet secondary link, and compact circular WhatsApp floating button.
+- **Lock Status**: STRICTLY LOCKED. Do NOT alter hero height, positioning, framing, text alignment, or transition styling.
+
+
