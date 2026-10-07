@@ -25,14 +25,14 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="border-b border-stone-200/80 bg-brand-cream/60 py-16 sm:py-24">
+    <section className="border-b border-stone-200/80 bg-[#F8F7F3] py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="max-w-2xl">
-          <p className="text-xs font-bold tracking-wider uppercase text-brand-green">
+          <p className="text-xs font-semibold tracking-wider uppercase text-forest">
             Kelebihan Bersama Warga Lokal
           </p>
-          <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl lg:text-4xl">
+          <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
             Kenapa Kediengaja?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-stone-600 leading-relaxed">
@@ -49,10 +49,10 @@ export default function WhyChooseUs() {
                 key={item.title}
                 className="flex flex-col rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-stone-100 text-brand-dark mb-4">
-                  <Icon className="h-5 w-5 text-brand-dark" aria-hidden="true" />
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-stone-100/90 text-forest border border-stone-200/60 mb-4">
+                  <Icon className="h-5 w-5 text-forest" aria-hidden="true" />
                 </span>
-                <h3 className="font-display text-base font-bold text-brand-ink leading-snug">
+                <h3 className="font-display text-base font-bold text-ink leading-snug">
                   {item.title}
                 </h3>
                 <p className="mt-2.5 text-xs sm:text-sm text-stone-600 leading-relaxed flex-1">

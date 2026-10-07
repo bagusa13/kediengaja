@@ -11,27 +11,27 @@ export default function VillaCard(item) {
     : ['Water Heater 24 Jam', 'View Pegunungan'];
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white transition-all duration-200 hover:-translate-y-1 hover:border-moss/40 hover:shadow-lift">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white transition hover:border-forest/40 hover:shadow-xs">
       {/* Cover Image Container */}
       <Link href={`/penginapan/${id}`} className="relative block h-52 overflow-hidden sm:h-56 bg-stone-900">
         <img
           src={villaCover(item)}
           alt={nama}
           loading="lazy"
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent pointer-events-none" />
 
         {/* Top Badges */}
         <div className="absolute left-3 top-3 flex items-center gap-1.5">
-          <span className="rounded-lg bg-white/95 px-2.5 py-1 text-xs font-bold text-moss shadow-sm backdrop-blur-sm border border-stone-100">
+          <span className="rounded-md bg-white/95 px-2.5 py-1 text-xs font-bold text-forest shadow-xs border border-stone-100">
             {tipe || 'Cabin House'}
           </span>
         </div>
 
         {/* Warm Heater Feature Badge */}
         <div className="absolute right-3 top-3">
-          <span className="inline-flex items-center gap-1 rounded-lg bg-black/60 backdrop-blur-sm px-2 py-1 text-[11px] font-medium text-amber-200 border border-white/10">
+          <span className="inline-flex items-center gap-1 rounded-md bg-slate-950/70 backdrop-blur-xs px-2 py-1 text-[11px] font-medium text-amber-200 border border-white/10">
             <Flame className="w-3 h-3 text-amber-400" aria-hidden="true" />
             Air Panas 24 Jam
           </span>
@@ -48,14 +48,14 @@ export default function VillaCard(item) {
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-display text-lg font-bold text-ink">
-            <Link href={`/penginapan/${id}`} className="hover:text-moss transition-colors">
+            <Link href={`/penginapan/${id}`} className="hover:text-forest transition-colors">
               {nama}
             </Link>
           </h3>
         </div>
 
         <div className="mt-1.5 flex items-center text-xs text-stone-500">
-          <MapPin className="mr-1 h-3.5 w-3.5 text-moss shrink-0" aria-hidden="true" />
+          <MapPin className="mr-1 h-3.5 w-3.5 text-forest shrink-0" aria-hidden="true" />
           <span className="truncate">{lokasi || 'Dataran Tinggi Dieng'}</span>
         </div>
 
@@ -84,14 +84,14 @@ export default function VillaCard(item) {
         <div className="mt-auto flex items-end justify-between gap-3 border-t border-stone-100 pt-4 mt-5">
           <div>
             <p className="text-[11px] font-medium text-stone-500">Mulai dari</p>
-            <p className="text-base font-extrabold text-moss">
+            <p className="font-display text-base font-bold text-forest">
               {formatRupiah(harga)}
               <span className="text-xs font-normal text-stone-500">/malam</span>
             </p>
           </div>
           <Link
             href={`/penginapan/${id}`}
-            className="inline-flex min-h-[38px] items-center gap-1 rounded-xl bg-forest px-3.5 text-xs font-bold text-white hover:bg-forest-light active:scale-[0.98] transition-all shadow-sm"
+            className="inline-flex min-h-[38px] items-center gap-1 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white hover:bg-forest-light active:scale-[0.98] transition-all shadow-xs hover:shadow-sm"
           >
             <span>Cek Kamar</span>
             <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />

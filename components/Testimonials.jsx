@@ -23,13 +23,13 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section className="border-b border-stone-200/80 bg-white py-16 sm:py-20">
+    <section className="border-b border-stone-200/80 bg-[#F8F7F3] py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-10">
-          <p className="text-xs font-bold tracking-wider uppercase text-brand-green">
+          <p className="text-xs font-semibold tracking-wider uppercase text-forest">
             Ulasan Tamu
           </p>
-          <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl">
+          <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
             Cerita Perjalanan Tamu
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
@@ -41,7 +41,7 @@ export default function Testimonials() {
           {reviews.map((rev, i) => (
             <div
               key={i}
-              className="rounded-xl border border-stone-200/90 bg-brand-cream/30 p-6 flex flex-col justify-between"
+              className="rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-1 text-amber-500 mb-3" aria-label={`Rating ${rev.rating} bintang`}>
@@ -55,7 +55,7 @@ export default function Testimonials() {
               </div>
               <div className="mt-5 pt-3 border-t border-stone-200/60 flex items-center justify-between">
                 <div>
-                  <h3 className="font-bold text-xs text-brand-ink">{rev.name}</h3>
+                  <h3 className="font-semibold text-xs text-ink">{rev.name}</h3>
                   <p className="text-[11px] text-stone-500">{rev.origin}</p>
                 </div>
               </div>

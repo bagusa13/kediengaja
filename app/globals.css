@@ -42,7 +42,7 @@
   }
 
   .field:focus {
-    @apply border-moss ring-2 ring-moss/20;
+    @apply border-forest ring-2 ring-forest/20;
   }
 
   /* Subtle Film Grain Texture Overlay */

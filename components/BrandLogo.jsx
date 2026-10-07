@@ -20,7 +20,7 @@ export default function BrandLogo({
       <div className="flex flex-col justify-center">
         <div className="flex items-baseline">
           <span
-            className={`font-display text-lg sm:text-xl font-extrabold tracking-tight leading-none ${
+            className={`font-display text-lg sm:text-xl font-bold tracking-tight leading-none ${
               variant === 'light' ? 'text-white' : 'text-stone-900'
             }`}
           >

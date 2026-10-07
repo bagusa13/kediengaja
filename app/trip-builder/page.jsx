@@ -84,14 +84,14 @@ export default function TripBuilderPage() {
   const waMessage = `Halo Admin Kediengaja,\nSaya membuat rencana liburan lewat Trip Builder di website:\n\nDurasi: ${selectedDuration}\nJumlah Tamu: ${selectedGuests}\nGaya Trip: ${selectedVibe}\nTransportasi: ${selectedTransport}\n\nEstimasi Rencana:\n- Akomodasi: ${recommendation.nights > 0 ? `${recommendation.stayName} (${recommendation.nights} Malam)` : 'Tanpa Menginap'}\n- Aktivitas: ${recommendation.jeepName}\n- Estimasi Total Biaya: ~${formatRupiah(recommendation.estTotal)}\n\nMohon dibantu cek ketersediaan tanggal dan konfirmasi detail perjalanannya. Terima kasih.`;
 
   return (
-    <main className="bg-stone-50/60 min-h-screen py-12 sm:py-20">
+    <main className="bg-[#F8F7F3] min-h-screen py-12 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-block rounded-md bg-forest/10 px-3 py-1 text-xs font-bold tracking-wider uppercase text-forest">
+          <span className="inline-block rounded-lg bg-white/80 border border-stone-200 px-3 py-1 text-xs font-semibold tracking-wider uppercase text-forest shadow-xs">
             Perencana Liburan Kediengaja
           </span>
-          <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-5xl">
+          <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl">
             Rancang Liburan Dieng Anda
           </h1>
           <p className="mt-3 text-xs sm:text-sm text-stone-600 leading-relaxed">
@@ -103,7 +103,7 @@ export default function TripBuilderPage() {
           {/* Options Step Column */}
           <div className="space-y-8 lg:col-span-6">
             {/* Step 1: Durasi */}
-            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
+            <div className="rounded-xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
               <label className="font-display text-sm font-bold text-ink uppercase tracking-wider block mb-3 flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-forest" />
                 <span>1. Durasi Perjalanan</span>
@@ -135,7 +135,7 @@ export default function TripBuilderPage() {
             </div>
 
             {/* Step 2: Tamu */}
-            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
+            <div className="rounded-xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
               <label className="font-display text-sm font-bold text-ink uppercase tracking-wider block mb-3 flex items-center gap-2">
                 <Users className="h-4 w-4 text-forest" />
                 <span>2. Jumlah Rombongan</span>
@@ -160,7 +160,7 @@ export default function TripBuilderPage() {
             </div>
 
             {/* Step 3: Vibe */}
-            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
+            <div className="rounded-xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
               <label className="font-display text-sm font-bold text-ink uppercase tracking-wider block mb-3 flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-forest" />
                 <span>3. Fokus &amp; Gaya Liburan</span>
@@ -192,7 +192,7 @@ export default function TripBuilderPage() {
             </div>
 
             {/* Step 4: Transport */}
-            <div className="rounded-2xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
+            <div className="rounded-xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
               <label className="font-display text-sm font-bold text-ink uppercase tracking-wider block mb-3 flex items-center gap-2">
                 <Car className="h-4 w-4 text-forest" />
                 <span>4. Kebutuhan Transportasi</span>
@@ -226,7 +226,7 @@ export default function TripBuilderPage() {
 
           {/* Sticky Visual Itinerary Planner Column */}
           <div className="lg:col-span-6">
-            <div className="sticky top-24 rounded-2xl border border-stone-200/90 bg-white p-6 sm:p-7 shadow-xs">
+            <div className="sticky top-24 rounded-xl border border-stone-200/90 bg-white p-6 sm:p-7 shadow-xs">
               <div className="flex items-center justify-between border-b border-stone-100 pb-4">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-forest block">
@@ -321,7 +321,7 @@ export default function TripBuilderPage() {
                     <span className="text-[10px] text-stone-500 uppercase tracking-wider block font-semibold">
                       Estimasi Total Biaya Rombongan:
                     </span>
-                    <p className="font-display text-2xl sm:text-3xl font-extrabold text-forest mt-0.5">
+                    <p className="font-display text-2xl sm:text-3xl font-bold text-forest mt-0.5">
                       ~{formatRupiah(recommendation.estTotal)}
                     </p>
                   </div>
@@ -340,7 +340,7 @@ export default function TripBuilderPage() {
                   href={waLink(waMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-wa py-3 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-[#15803d] active:scale-[0.98] transition"
+                  className="flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-forest py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
                 >
                   <MessageCircle className="h-4.5 w-4.5" />
                   <span>Kirim Rencana ke WhatsApp Admin</span>

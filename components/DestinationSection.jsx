@@ -41,12 +41,12 @@ const secondaryDestinations = [
 
 export default function DestinationSection() {
   return (
-    <section id="destinasi" className="scroll-mt-20 border-b border-stone-200/80 bg-white py-16 sm:py-24">
+    <section id="destinasi" className="scroll-mt-20 border-b border-stone-200/80 bg-[#F8F7F3] py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs font-bold tracking-wider uppercase text-forest">
+            <p className="text-xs font-semibold tracking-wider uppercase text-forest">
               Wisata Alam &amp; Budaya
             </p>
             <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
@@ -59,7 +59,7 @@ export default function DestinationSection() {
 
           <Link
             href="/jelajahi-dieng"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-forest hover:text-forest-dark transition-colors shrink-0"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-forest hover:text-forest-light transition-colors shrink-0"
           >
             <span>Panduan Semua Destinasi</span>
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -71,7 +71,7 @@ export default function DestinationSection() {
           {/* 1. Large Featured Card: Bukit Sikunir */}
           <Link
             href={`/jelajahi-dieng/${featuredDestination.slug}`}
-            className="group relative lg:col-span-7 flex flex-col justify-end overflow-hidden rounded-2xl bg-slate-950 min-h-[380px] sm:min-h-[440px] p-6 sm:p-8 text-white shadow-xs transition hover:shadow-md"
+            className="group relative lg:col-span-7 flex flex-col justify-end overflow-hidden rounded-xl bg-slate-950 min-h-[380px] sm:min-h-[440px] p-6 sm:p-8 text-white shadow-xs transition hover:shadow-sm"
           >
             <img
               src={featuredDestination.image}
@@ -82,10 +82,10 @@ export default function DestinationSection() {
 
             <div className="relative z-10">
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="rounded-md bg-white/20 backdrop-blur-xs px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+                <span className="rounded-lg bg-white/20 backdrop-blur-xs px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
                   {featuredDestination.category}
                 </span>
-                <span className="rounded-md bg-emerald-500/80 px-2.5 py-1 text-[11px] font-bold text-white">
+                <span className="rounded-lg bg-emerald-600/80 px-2.5 py-1 text-[11px] font-semibold text-white">
                   {featuredDestination.elevation}
                 </span>
                 <span className="text-xs text-stone-300 ml-auto hidden sm:inline">
@@ -94,10 +94,10 @@ export default function DestinationSection() {
               </div>
 
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white group-hover:text-amber-300 transition-colors">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-200 transition-colors">
                   {featuredDestination.title}
                 </h3>
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/20 backdrop-blur-xs text-white transition group-hover:bg-white group-hover:text-ink">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/20 backdrop-blur-xs text-white transition group-hover:bg-white group-hover:text-ink">
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
               </div>

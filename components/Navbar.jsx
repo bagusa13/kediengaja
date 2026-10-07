@@ -87,7 +87,8 @@ export default function Navbar() {
             href={chatHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[38px] items-center gap-2 rounded-full bg-forest px-4 text-xs font-bold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
+            className="inline-flex min-h-[38px] items-center gap-2 rounded-xl bg-forest px-4 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
+            aria-label="Hubungi Kediengaja via WhatsApp"
           >
             <MessageCircle className="h-3.5 w-3.5 text-amber-400" aria-hidden="true" />
             <span>Hubungi Kami</span>

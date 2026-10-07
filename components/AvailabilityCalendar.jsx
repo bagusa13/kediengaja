@@ -274,16 +274,16 @@ export default function AvailabilityCalendar() {
   };
 
   return (
-    <div className="rounded-2xl border border-stone-200/90 bg-white p-5 sm:p-7 shadow-xs">
+    <div className="rounded-xl border border-stone-200/90 bg-white p-5 sm:p-7 shadow-xs">
       {/* Header bar: Unit picker + Live indicator */}
       <div className="flex flex-col gap-4 border-b border-stone-100 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="flex items-center gap-2">
-            <p className="text-xs font-bold tracking-wider uppercase text-forest">
+            <p className="text-xs font-semibold tracking-wider uppercase text-forest">
               Jadwal &amp; Ketersediaan Unit
             </p>
             {isLiveConnected && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-forest">
+              <span className="inline-flex items-center gap-1.5 rounded-md border border-stone-200 bg-stone-100 px-2 py-0.5 text-[10px] font-semibold text-stone-700">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
                 Live Sync
               </span>
@@ -468,7 +468,7 @@ export default function AvailabilityCalendar() {
                   id="guest-select"
                   value={guestCount}
                   onChange={(e) => setGuestCount(Number(e.target.value))}
-                  className="rounded-md border border-stone-200 bg-white px-2 py-1 text-xs font-bold text-ink"
+                  className="rounded-lg border border-stone-200 bg-white px-2.5 py-1 text-xs font-semibold text-ink"
                 >
                   {[2, 4, 6, 8, 10, 12].map((n) => (
                     <option key={n} value={n}>
@@ -483,7 +483,7 @@ export default function AvailabilityCalendar() {
             <div className="mt-4">
               <div className="flex items-baseline justify-between">
                 <span className="text-xs text-stone-500">Estimasi Total Biaya:</span>
-                <span className="font-display text-2xl font-extrabold text-forest">
+                <span className="font-display text-2xl font-bold text-forest">
                   {formatRupiah(estimatedTotal)}
                 </span>
               </div>
@@ -498,10 +498,10 @@ export default function AvailabilityCalendar() {
               type="button"
               disabled={isVerifying || !checkIn}
               onClick={handleConfirmBooking}
-              className={`flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl px-4 text-xs sm:text-sm font-bold text-white shadow-xs transition ${
+              className={`flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl px-4 text-xs sm:text-sm font-semibold text-white shadow-xs transition ${
                 !checkIn
                   ? 'bg-stone-300 cursor-not-allowed text-stone-500'
-                  : 'bg-wa hover:bg-[#15803d] active:scale-[0.98] cursor-pointer'
+                  : 'bg-forest hover:bg-forest-light active:scale-[0.98] cursor-pointer'
               }`}
             >
               {isVerifying ? (

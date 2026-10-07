@@ -8,3 +8,4 @@ admin-app/.next
 .env.*.local
 admin-app/.env*
 *.log
+__pycache__/

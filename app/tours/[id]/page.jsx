@@ -105,7 +105,8 @@ export default async function TourDetailPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <div className="bg-[#F8F7F3] min-h-screen py-8 sm:py-12">
+      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-xs text-stone-500 mb-6" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-ink">Beranda</Link>
@@ -120,10 +121,10 @@ export default async function TourDetailPage({ params }) {
             <ImageGallery images={galleryImages} alt={item.nama} />
 
             <div className="mt-6">
-              <span className="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-bold text-forest">
+              <span className="inline-block rounded-md bg-stone-100 border border-stone-200 px-3 py-1 text-xs font-semibold text-stone-700">
                 {item.tipe || 'Paket Wisata'}
               </span>
-              <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+              <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
                 {item.nama}
               </h1>
 
@@ -152,14 +153,14 @@ export default async function TourDetailPage({ params }) {
               {destinasi.length > 0 ? (
                 <div className="mt-8 border-t border-stone-200 pt-6">
                   <h2 className="mb-3 font-display text-xl font-bold text-ink flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-emerald-700" aria-hidden="true" />
+                    <Sparkles className="w-5 h-5 text-forest" aria-hidden="true" />
                     Spot & Destinasi yang Dikunjungi
                   </h2>
                   <ul className="flex flex-wrap gap-2">
                     {destinasi.map((dest) => (
                       <li
                         key={dest}
-                        className="rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-xs font-semibold text-forest"
+                        className="rounded-lg border border-stone-200 bg-stone-100/90 px-3 py-1 text-xs font-medium text-stone-700"
                       >
                         {dest}
                       </li>
@@ -175,9 +176,9 @@ export default async function TourDetailPage({ params }) {
                     {termasuk.map((row) => (
                       <li
                         key={row}
-                        className="flex items-center gap-2.5 rounded-xl border border-stone-200 bg-surface px-4 py-3 font-medium text-stone-700"
+                        className="flex items-center gap-2.5 rounded-xl border border-stone-200 bg-white px-4 py-3 font-medium text-stone-700"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" aria-hidden="true" />
+                        <CheckCircle2 className="w-4 h-4 text-forest flex-shrink-0" aria-hidden="true" />
                         <span>{row}</span>
                       </li>
                     ))}
@@ -186,8 +187,8 @@ export default async function TourDetailPage({ params }) {
               ) : null}
 
               {/* Host / Local Guide Guarantee */}
-              <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-5 flex items-start gap-4">
-                <ShieldCheck className="w-6 h-6 text-emerald-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
+              <div className="mt-8 rounded-xl border border-stone-200/90 bg-white p-5 flex items-start gap-4 shadow-xs">
+                <ShieldCheck className="w-6 h-6 text-forest flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="text-xs sm:text-sm text-stone-700 space-y-1">
                   <p className="font-bold text-ink">Driver & Pemandu Asli Dieng</p>
                   <p className="text-stone-600">
@@ -198,9 +199,9 @@ export default async function TourDetailPage({ params }) {
             </div>
           </article>
 
-          <aside className="rounded-2xl border border-stone-200 bg-white p-6 shadow-xs lg:sticky lg:top-24">
+          <aside className="rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs lg:sticky lg:top-24">
             <p className="text-xs text-stone-500">Harga mulai dari</p>
-            <p className="mb-5 text-2xl font-extrabold text-forest">
+            <p className="mb-5 text-2xl font-bold text-forest">
               {formatRupiah(item.harga)}
               <span className="text-xs font-normal text-stone-500">{unit}</span>
             </p>
@@ -208,6 +209,7 @@ export default async function TourDetailPage({ params }) {
           </aside>
         </div>
       </main>
+    </div>
     </>
   );
 }

@@ -33,18 +33,18 @@ export default function DestinasiDetailPage({ params }) {
   const consultWa = waLink(`Halo Admin Kediengaja, saya ingin konsultasi rencana berkunjung ke ${item.nama} dan rekomendasi perjalanannya.`);
 
   return (
-    <main className="bg-cream/30 min-h-screen py-10 sm:py-16">
+    <main className="bg-[#F8F7F3] min-h-screen py-10 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Link
           href="/jelajahi-dieng"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-forest hover:text-forest-dark transition mb-6"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-forest hover:text-forest-light transition mb-6"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           <span>Kembali ke Semua Destinasi</span>
         </Link>
 
         {/* Hero Banner */}
-        <div className="relative aspect-21/9 sm:aspect-16/7 w-full overflow-hidden rounded-2xl bg-slate-900 shadow-md">
+        <div className="relative aspect-21/9 sm:aspect-16/7 w-full overflow-hidden rounded-xl bg-slate-900 shadow-xs">
           <img
             src={item.gambar}
             alt={item.nama}
@@ -52,10 +52,10 @@ export default function DestinasiDetailPage({ params }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
           <div className="absolute bottom-5 left-5 right-5 text-white">
-            <span className="rounded-md bg-white/20 px-2.5 py-1 text-[11px] font-bold uppercase backdrop-blur-xs">
+            <span className="rounded-lg bg-white/20 px-2.5 py-1 text-[11px] font-semibold uppercase backdrop-blur-xs">
               {item.kategori} · {item.elevasi}
             </span>
-            <h1 className="mt-2 font-display text-2xl font-black sm:text-4xl text-white">
+            <h1 className="mt-2 font-display text-2xl font-bold sm:text-4xl text-white">
               {item.nama}
             </h1>
           </div>
@@ -68,15 +68,15 @@ export default function DestinasiDetailPage({ params }) {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 border-y border-stone-200/80 py-4 text-xs">
               <div>
                 <span className="text-[10px] text-stone-500 uppercase font-semibold block">Jam Berkunjung Terbaik</span>
-                <span className="font-bold text-ink text-sm mt-0.5 block">{item.jamTerbaik}</span>
+                <span className="font-semibold text-ink text-sm mt-0.5 block">{item.jamTerbaik}</span>
               </div>
               <div>
                 <span className="text-[10px] text-stone-500 uppercase font-semibold block">Tiket Masuk</span>
-                <span className="font-bold text-ink text-sm mt-0.5 block">{item.tiketMasuk}</span>
+                <span className="font-semibold text-ink text-sm mt-0.5 block">{item.tiketMasuk}</span>
               </div>
               <div>
                 <span className="text-[10px] text-stone-500 uppercase font-semibold block">Estimasi Durasi</span>
-                <span className="font-bold text-ink text-sm mt-0.5 block">{item.durasiKunjungan}</span>
+                <span className="font-semibold text-ink text-sm mt-0.5 block">{item.durasiKunjungan}</span>
               </div>
             </div>
 
@@ -116,7 +116,7 @@ export default function DestinasiDetailPage({ params }) {
           <div className="space-y-6 lg:col-span-4">
             {/* Related Stay Card */}
             <div className="rounded-xl border border-stone-200/80 bg-white p-5">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-forest block mb-1">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-forest block mb-1">
                 Rekomendasi Menginap Dekat Sini
               </span>
               <h3 className="font-display text-base font-bold text-ink">
@@ -127,7 +127,7 @@ export default function DestinasiDetailPage({ params }) {
               </p>
               <Link
                 href="/penginapan"
-                className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-forest hover:underline"
+                className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-forest hover:underline"
               >
                 <Home className="h-3.5 w-3.5" />
                 <span>Lihat Penginapan</span>
@@ -136,7 +136,7 @@ export default function DestinasiDetailPage({ params }) {
 
             {/* Related Jeep Card */}
             <div className="rounded-xl border border-stone-200/80 bg-white p-5">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-forest block mb-1">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-forest block mb-1">
                 Paket Jelajah Jeep Terkait
               </span>
               <h3 className="font-display text-base font-bold text-ink">
@@ -147,7 +147,7 @@ export default function DestinasiDetailPage({ params }) {
               </p>
               <Link
                 href={`/jeep-dieng/${relatedJeep.slug}`}
-                className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-forest hover:underline"
+                className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-forest hover:underline"
               >
                 <Mountain className="h-3.5 w-3.5" />
                 <span>Cek Detail Rute Jeep</span>
@@ -159,7 +159,7 @@ export default function DestinasiDetailPage({ params }) {
               href={consultWa}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-wa py-3 text-xs font-bold text-white shadow-soft hover:bg-[#15803d] active:scale-95 transition"
+              className="flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-forest py-3 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-95 transition"
             >
               <MessageCircle className="h-4 w-4" />
               <span>Tanya Rute Wisata Ini</span>

@@ -35,18 +35,18 @@ export default function JeepDetailPage({ params }) {
   );
 
   return (
-    <main className="bg-cream/30 min-h-screen py-10 sm:py-16">
+    <main className="bg-[#F8F7F3] min-h-screen py-10 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Link
           href="/jeep-dieng"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-forest hover:text-forest-dark transition mb-6"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-forest hover:text-forest-light transition mb-6"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           <span>Kembali ke Semua Paket Jeep</span>
         </Link>
 
         {/* Hero Photo Banner */}
-        <div className="relative aspect-21/9 sm:aspect-16/7 w-full overflow-hidden rounded-2xl bg-slate-900 shadow-md">
+        <div className="relative aspect-21/9 sm:aspect-16/7 w-full overflow-hidden rounded-xl bg-slate-900 shadow-xs">
           <img
             src={item.gambar}
             alt={item.nama}
@@ -54,10 +54,10 @@ export default function JeepDetailPage({ params }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
           <div className="absolute bottom-5 left-5 right-5 text-white">
-            <span className="rounded-md bg-white/20 px-2.5 py-1 text-[11px] font-bold uppercase backdrop-blur-xs">
+            <span className="rounded-lg bg-white/20 px-2.5 py-1 text-[11px] font-semibold uppercase backdrop-blur-xs">
               {item.kategori}
             </span>
-            <h1 className="mt-2 font-display text-2xl font-black sm:text-4xl text-white">
+            <h1 className="mt-2 font-display text-2xl font-bold sm:text-4xl text-white">
               {item.nama}
             </h1>
           </div>
@@ -101,7 +101,7 @@ export default function JeepDetailPage({ params }) {
               <div className="space-y-2">
                 {item.rute.map((r, i) => (
                   <div key={r} className="flex items-center gap-3 rounded-lg border border-stone-200/80 bg-white p-3 text-xs sm:text-sm text-stone-800">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-forest text-white font-bold text-[10px]">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-forest text-white font-bold text-[10px]">
                       {i + 1}
                     </span>
                     <span className="font-semibold">{r}</span>
@@ -144,12 +144,12 @@ export default function JeepDetailPage({ params }) {
 
           {/* Booking Card Sticky Column */}
           <div className="lg:col-span-5">
-            <div className="sticky top-24 rounded-2xl border border-stone-200/80 bg-white p-6 shadow-soft">
-              <p className="text-xs font-bold tracking-wider uppercase text-forest">
+            <div className="sticky top-24 rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs">
+              <p className="text-xs font-semibold tracking-wider uppercase text-forest">
                 Tarif Resmi Wisata
               </p>
               <div className="mt-2 flex items-baseline gap-2">
-                <span className="font-display text-3xl font-black text-forest">
+                <span className="font-display text-3xl font-bold text-forest">
                   {formatRupiah(item.harga)}
                 </span>
                 <span className="text-xs text-stone-500">/ mobil (all-in)</span>
@@ -163,7 +163,7 @@ export default function JeepDetailPage({ params }) {
                   href={bookingHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-wa py-3 text-sm font-bold text-white shadow-lift hover:bg-[#15803d] active:scale-[0.98] transition"
+                  className="flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-forest py-3 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
                 >
                   <MessageCircle className="h-4.5 w-4.5" />
                   <span>Pesan Jeep via WhatsApp</span>

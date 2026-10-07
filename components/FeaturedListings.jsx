@@ -39,17 +39,17 @@ export default function FeaturedListings() {
 
   return (
     <>
-      <section className="border-t border-stone-200 bg-white py-12 sm:py-16">
+      <section className="border-t border-stone-200/80 bg-[#F8F7F3] py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
             <div>
-              <h2 className="font-display text-3xl text-ink sm:text-4xl">Kamar, cabin, dan villa</h2>
+              <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">Kamar, cabin, dan villa</h2>
               <p className="mt-2 max-w-md text-sm text-stone-600">
                 Pilih unit, kirim tanggal check-in ke admin. Pembayaran tidak diproses di web.
               </p>
             </div>
-            <Link href="/penginapan" className="text-sm font-semibold text-clay hover:underline">
-              Katalog penginapan
+            <Link href="/penginapan" className="text-sm font-semibold text-forest hover:text-forest-light transition-colors">
+              Katalog penginapan &rarr;
             </Link>
           </div>
           <ListingStatus
@@ -71,18 +71,18 @@ export default function FeaturedListings() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16">
+      <section className="border-t border-stone-200/80 bg-[#F8F7F3] py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 lg:grid lg:grid-cols-12 lg:items-end lg:gap-8">
             <div className="lg:col-span-8">
-              <h2 className="font-display text-3xl text-ink sm:text-4xl">Jeep, sunrise, dan trip privat</h2>
+              <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">Jeep, sunrise, dan trip privat</h2>
               <p className="mt-2 max-w-lg text-sm text-stone-600">
                 Harga jeep biasanya per kendaraan. Open trip dihitung per orang. Admin yang memastikan slot.
               </p>
             </div>
             <div className="mt-3 lg:col-span-4 lg:text-right">
-              <Link href="/tours" className="text-sm font-semibold text-clay hover:underline">
-                Katalog paket wisata
+              <Link href="/tours" className="text-sm font-semibold text-forest hover:text-forest-light transition-colors">
+                Katalog paket wisata &rarr;
               </Link>
             </div>
           </div>

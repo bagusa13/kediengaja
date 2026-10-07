@@ -17,7 +17,7 @@ export default function JeepDiengPage() {
   const generalChat = waLink('Halo Admin Kediengaja, saya ingin tanya ketersediaan dan sewa Jeep 4x4 di Dieng.');
 
   return (
-    <main className="bg-cream/30 min-h-screen">
+    <main className="bg-[#F8F7F3] min-h-screen">
       {/* Editorial Hero Header */}
       <section className="relative isolate overflow-hidden bg-slate-950 py-20 sm:py-28 text-white">
         <img
@@ -29,10 +29,10 @@ export default function JeepDiengPage() {
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <span className="inline-block rounded-md bg-white/10 px-3 py-1 text-xs font-bold tracking-wider uppercase backdrop-blur-xs text-stone-200">
+            <span className="inline-block rounded-lg bg-white/10 px-3 py-1 text-xs font-semibold tracking-wider uppercase backdrop-blur-xs text-stone-200">
               Offroad &amp; Jelajah Alam
             </span>
-            <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl leading-tight">
+            <h1 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl leading-tight">
               Sewa Jeep 4x4 Wisata Dieng
             </h1>
             <p className="mt-4 text-sm sm:text-base leading-relaxed text-stone-300">
@@ -44,7 +44,7 @@ export default function JeepDiengPage() {
                 href={generalChat}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-wa px-5 text-sm font-bold text-white shadow-lift hover:bg-[#15803d] active:scale-[0.98] transition"
+                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span>Konsultasi Rute Jeep via WhatsApp</span>
@@ -57,7 +57,7 @@ export default function JeepDiengPage() {
       {/* Package Grid */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mb-10 max-w-2xl">
-          <p className="text-xs font-bold tracking-wider uppercase text-forest">
+          <p className="text-xs font-semibold tracking-wider uppercase text-forest">
             Pilihan Rute Resmi
           </p>
           <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
@@ -77,7 +77,7 @@ export default function JeepDiengPage() {
             return (
               <article
                 key={item.id}
-                className="group flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white transition hover:border-forest/40 hover:shadow-soft"
+                className="group flex flex-col overflow-hidden rounded-xl border border-stone-200/90 bg-white transition hover:border-forest/40 hover:shadow-xs"
               >
                 {/* Photo container */}
                 <div className="relative aspect-16/10 w-full overflow-hidden bg-stone-100">
@@ -86,7 +86,7 @@ export default function JeepDiengPage() {
                     alt={item.nama}
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
-                  <span className="absolute left-3 top-3 rounded-md bg-slate-900/90 px-2.5 py-1 text-[11px] font-bold text-white shadow-xs backdrop-blur-xs">
+                  <span className="absolute left-3 top-3 rounded-md bg-stone-900/85 px-2.5 py-1 text-[11px] font-semibold text-white shadow-xs backdrop-blur-xs">
                     {item.kategori}
                   </span>
                 </div>
@@ -116,7 +116,7 @@ export default function JeepDiengPage() {
 
                   {/* Destinations highlight */}
                   <div className="mt-4 border-t border-stone-100 pt-3">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500 mb-2">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-stone-500 mb-2">
                       Destinasi yang Dikunjungi:
                     </p>
                     <ul className="space-y-1.5">
@@ -134,7 +134,7 @@ export default function JeepDiengPage() {
                     <div className="flex items-end justify-between">
                       <div>
                         <p className="text-[10px] text-stone-500 uppercase tracking-wider">Harga per Mobil</p>
-                        <p className="font-display text-lg font-black text-forest">
+                        <p className="font-display text-lg font-bold text-forest">
                           {formatRupiah(item.harga)}
                           <span className="text-xs font-normal text-stone-500"> /jeep</span>
                         </p>
@@ -144,7 +144,7 @@ export default function JeepDiengPage() {
                         href={bookingHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex min-h-[38px] items-center gap-1.5 rounded-lg bg-wa px-3.5 text-xs font-bold text-white hover:bg-[#15803d] active:scale-95 transition"
+                        className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-95 transition"
                       >
                         <MessageCircle className="h-3.5 w-3.5" />
                         <span>Pesan</span>

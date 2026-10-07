@@ -10,12 +10,12 @@ export default function KontakPage() {
   const directChat = waLink('Halo Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
 
   return (
-    <main className="bg-cream/30 min-h-screen py-16 sm:py-24">
+    <main className="bg-[#F8F7F3] min-h-screen py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <span className="inline-block rounded-md bg-forest/10 px-3 py-1 text-xs font-bold tracking-wider uppercase text-forest">
+        <span className="inline-block rounded-lg bg-white/80 border border-stone-200 px-3 py-1 text-xs font-semibold tracking-wider uppercase text-forest shadow-xs">
           Pusat Bantuan &amp; Reservasi
         </span>
-        <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-5xl">
+        <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl">
           Kontak Resmi Kediengaja
         </h1>
         <p className="mt-3 text-sm sm:text-base text-stone-600">
@@ -24,8 +24,8 @@ export default function KontakPage() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {/* WhatsApp Card */}
-          <div className="rounded-2xl border border-emerald-200/80 bg-white p-6 shadow-soft">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-wa mb-3">
+          <div className="rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-stone-100 text-forest border border-stone-200/60 mb-3">
               <MessageCircle className="h-5 w-5" />
             </span>
             <h2 className="font-display text-lg font-bold text-ink">
@@ -34,14 +34,14 @@ export default function KontakPage() {
             <p className="mt-1 text-xs text-stone-500">
               Respon cepat setiap hari pukul 06.00 – 22.00 WIB
             </p>
-            <p className="mt-3 font-display text-xl font-black text-forest">
+            <p className="mt-3 font-display text-xl font-bold text-forest">
               {SITE.phoneDisplay}
             </p>
             <a
               href={directChat}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex min-h-[42px] w-full items-center justify-center gap-2 rounded-xl bg-wa px-4 text-xs font-bold text-white hover:bg-[#15803d] transition"
+              className="mt-5 inline-flex min-h-[42px] w-full items-center justify-center gap-2 rounded-xl bg-forest px-4 text-xs font-semibold text-white shadow-xs hover:bg-forest-light transition"
             >
               <MessageCircle className="h-4 w-4" />
               <span>Buka Chat WhatsApp</span>
@@ -50,7 +50,7 @@ export default function KontakPage() {
 
           {/* Social & Basecamp Info */}
           <div className="space-y-4">
-            <div className="rounded-xl border border-stone-200/80 bg-white p-5">
+            <div className="rounded-xl border border-stone-200/90 bg-white p-5 shadow-xs">
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-forest shrink-0 mt-0.5" />
                 <div>
@@ -62,7 +62,7 @@ export default function KontakPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-stone-200/80 bg-white p-5">
+            <div className="rounded-xl border border-stone-200/90 bg-white p-5 shadow-xs">
               <div className="flex items-start gap-3">
                 <Instagram className="h-5 w-5 text-forest shrink-0 mt-0.5" />
                 <div>
@@ -77,7 +77,7 @@ export default function KontakPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-stone-200/80 bg-white p-5">
+            <div className="rounded-xl border border-stone-200/90 bg-white p-5 shadow-xs">
               <div className="flex items-start gap-3">
                 <Clock className="h-5 w-5 text-forest shrink-0 mt-0.5" />
                 <div>

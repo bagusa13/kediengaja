@@ -85,7 +85,7 @@ function ToursList() {
   const generalChat = waLink(waMessage);
 
   return (
-    <main className="bg-cream/30 min-h-screen">
+    <main className="bg-[#F8F7F3] min-h-screen">
       {/* Editorial Hero Header */}
       <section className="relative isolate overflow-hidden bg-slate-950 py-20 sm:py-28 text-white">
         <img
@@ -97,10 +97,10 @@ function ToursList() {
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <span className="inline-block rounded-md bg-white/10 px-3 py-1 text-xs font-bold tracking-wider uppercase backdrop-blur-xs text-stone-200">
+            <span className="inline-block rounded-lg bg-white/10 px-3 py-1 text-xs font-semibold tracking-wider uppercase backdrop-blur-xs text-stone-200">
               Paket Trip &amp; Wisata Dieng
             </span>
-            <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl leading-tight">
+            <h1 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl leading-tight">
               Paket Wisata &amp; Fun Jeep Dieng
             </h1>
             <p className="mt-4 text-sm sm:text-base leading-relaxed text-stone-300">
@@ -112,7 +112,7 @@ function ToursList() {
                 href={generalChat}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-wa px-5 text-sm font-bold text-white shadow-xs hover:bg-[#15803d] active:scale-[0.98] transition"
+                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span>Konsultasi Trip via WhatsApp</span>
@@ -133,7 +133,7 @@ function ToursList() {
       {/* Main Tour Catalog Grid */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mb-10 max-w-2xl">
-          <p className="text-xs font-bold tracking-wider uppercase text-forest">
+          <p className="text-xs font-semibold tracking-wider uppercase text-forest">
             Pilihan Paket Resmi
           </p>
           <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
@@ -177,7 +177,7 @@ function ToursList() {
         ) : null}
 
         {/* Custom Route or Jeep Consultation Card */}
-        <div className="mt-16 rounded-2xl border border-stone-200/90 bg-white p-6 sm:p-8 shadow-xs">
+        <div className="mt-16 rounded-xl border border-stone-200/90 bg-white p-6 sm:p-8 shadow-xs">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="font-display text-xl sm:text-2xl font-bold text-ink">
@@ -191,7 +191,7 @@ function ToursList() {
               href={generalChat}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-forest px-5 text-xs sm:text-sm font-bold text-white hover:bg-forest-light transition shrink-0"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-forest px-5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light transition shrink-0"
             >
               <MessageCircle className="h-4 w-4" />
               <span>Konsultasi Rute Custom</span>

@@ -21,11 +21,11 @@ export default function FinalCTA() {
 
       {/* Content */}
       <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <p className="text-xs font-bold tracking-widest uppercase text-amber-400">
+        <p className="text-xs font-semibold tracking-widest uppercase text-emerald-300">
           Kediengaja
         </p>
 
-        <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
           Siap Berangkat ke Dieng?
         </h2>
 
@@ -38,9 +38,9 @@ export default function FinalCTA() {
             href={directChat}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-6 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
+            className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-6 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
           >
-            <MessageCircle className="h-4 w-4 text-amber-400" aria-hidden="true" />
+            <MessageCircle className="h-4 w-4 text-white" aria-hidden="true" />
             <span>Chat WhatsApp</span>
           </a>
 

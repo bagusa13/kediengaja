@@ -37,7 +37,7 @@ export default function QuickServices() {
                   <Home className="h-3.5 w-3.5" />
                   <span>Akomodasi</span>
                 </span>
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 backdrop-blur-xs text-white transition group-hover:bg-white group-hover:text-ink">
+                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/15 backdrop-blur-xs text-white transition group-hover:bg-white group-hover:text-ink">
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
               </div>
@@ -67,7 +67,7 @@ export default function QuickServices() {
                   <Compass className="h-3.5 w-3.5" />
                   <span>Jelajah Alam</span>
                 </span>
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 backdrop-blur-xs text-white transition group-hover:bg-white group-hover:text-ink">
+                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/15 backdrop-blur-xs text-white transition group-hover:bg-white group-hover:text-ink">
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
               </div>
@@ -106,14 +106,14 @@ export default function QuickServices() {
             <div className="mt-5 pt-4 border-t border-stone-100 flex flex-wrap items-center gap-3">
               <Link
                 href="/tours"
-                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-lg bg-stone-100 px-3.5 text-xs font-semibold text-ink hover:bg-stone-200 transition"
+                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-stone-100 px-3.5 text-xs font-semibold text-ink hover:bg-stone-200 transition"
               >
                 <span>Lihat Paket Wisata</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
               <Link
                 href="/trip-builder"
-                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-lg border border-forest/30 bg-forest/5 px-3.5 text-xs font-semibold text-forest hover:bg-forest/10 transition"
+                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl border border-forest/30 bg-forest/5 px-3.5 text-xs font-semibold text-forest hover:bg-forest/10 transition"
               >
                 <span>Coba Trip Builder</span>
               </Link>
@@ -121,14 +121,14 @@ export default function QuickServices() {
           </div>
 
           {/* 4. Action & Utility Card: Realtime Availability */}
-          <div className="md:col-span-5 flex flex-col justify-between rounded-xl border border-emerald-200/70 bg-emerald-50/40 p-6 sm:p-7 shadow-xs">
+          <div className="md:col-span-5 flex flex-col justify-between rounded-xl border border-stone-200/90 bg-stone-50/70 p-6 sm:p-7 shadow-xs">
             <div>
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-forest">
                   <Calendar className="h-4 w-4 text-forest" />
                   <span>Cek Ketersediaan</span>
                 </span>
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-forest">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-stone-200 bg-stone-100 px-2 py-0.5 text-[10px] font-semibold text-stone-700">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
                   Live Sync
                 </span>
@@ -140,7 +140,7 @@ export default function QuickServices() {
                 Hindari bentrok jadwal. Cek langsung tanggal yang masih kosong untuk cabin dan villa mitra hingga 6 bulan ke depan.
               </p>
             </div>
-            <div className="mt-5 pt-4 border-t border-emerald-200/60">
+            <div className="mt-5 pt-4 border-t border-stone-200/80">
               <Link
                 href="/availability"
                 className="inline-flex min-h-[40px] w-full items-center justify-center gap-2 rounded-xl bg-forest px-4 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"

@@ -98,7 +98,8 @@ export default async function PenginapanDetailPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <div className="bg-[#F8F7F3] min-h-screen py-8 sm:py-12">
+      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-xs text-stone-500 mb-6" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-ink">Beranda</Link>
@@ -113,10 +114,10 @@ export default async function PenginapanDetailPage({ params }) {
             <ImageGallery images={galleryImages} alt={item.nama} />
 
             <div className="mt-6">
-              <span className="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-bold text-forest">
+              <span className="inline-block rounded-md bg-stone-100 border border-stone-200 px-3 py-1 text-xs font-semibold text-stone-700">
                 {item.tipe || 'Penginapan'}
               </span>
-              <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+              <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
                 {item.nama}
               </h1>
 
@@ -147,8 +148,8 @@ export default async function PenginapanDetailPage({ params }) {
                   <h2 className="mb-4 font-display text-xl font-bold text-ink">Fasilitas Lengkap</h2>
                   <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                     {fasilitas.map((row) => (
-                      <li key={row} className="flex items-center gap-2.5 rounded-xl border border-stone-200 bg-surface px-4 py-3 text-xs sm:text-sm font-medium text-stone-700">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" aria-hidden="true" />
+                      <li key={row} className="flex items-center gap-2.5 rounded-xl border border-stone-200 bg-white px-4 py-3 text-xs sm:text-sm font-medium text-stone-700">
+                        <CheckCircle2 className="w-4 h-4 text-forest flex-shrink-0" aria-hidden="true" />
                         <span>{row}</span>
                       </li>
                     ))}
@@ -157,8 +158,8 @@ export default async function PenginapanDetailPage({ params }) {
               ) : null}
 
               {/* Host guarantee card */}
-              <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-5 flex items-start gap-4">
-                <ShieldCheck className="w-6 h-6 text-emerald-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
+              <div className="mt-8 rounded-xl border border-stone-200/90 bg-white p-5 flex items-start gap-4 shadow-xs">
+                <ShieldCheck className="w-6 h-6 text-forest flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="text-xs sm:text-sm text-stone-700 space-y-1">
                   <p className="font-bold text-ink">Jaminan Host Langsung Kediengaja</p>
                   <p className="text-stone-600">
@@ -169,9 +170,9 @@ export default async function PenginapanDetailPage({ params }) {
             </div>
           </article>
 
-          <aside className="rounded-2xl border border-stone-200 bg-white p-6 shadow-xs lg:sticky lg:top-24">
+          <aside className="rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs lg:sticky lg:top-24">
             <p className="text-xs text-stone-500">Harga mulai dari</p>
-            <p className="mb-5 text-2xl font-extrabold text-forest">
+            <p className="mb-5 text-2xl font-bold text-forest">
               {formatRupiah(item.harga)}
               <span className="text-xs font-normal text-stone-500">/malam</span>
             </p>
@@ -183,6 +184,7 @@ export default async function PenginapanDetailPage({ params }) {
           </aside>
         </div>
       </main>
+    </div>
     </>
   );
 }

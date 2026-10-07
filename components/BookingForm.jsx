@@ -58,14 +58,14 @@ export default function BookingForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-      <p className="font-display text-xl text-ink">Cek slot via WhatsApp</p>
+      <p className="font-display text-xl font-bold text-ink">Cek slot reservasi via WhatsApp</p>
       <p className="text-sm text-stone-600">
         Form ini menyusun pesan ke admin. Harga final, DP, dan pelunasan dikonfirmasi di chat, bukan di situs.
       </p>
       {priceLabel ? <p className="text-sm font-medium text-clay">{priceLabel}</p> : null}
 
       {error ? (
-        <p role="alert" className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-800">
+        <p role="alert" className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
           {error}
         </p>
       ) : null}
@@ -118,7 +118,7 @@ export default function BookingForm({
 
       <button
         type="submit"
-        className="inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-wa px-4 py-3 text-sm font-semibold text-white hover:bg-[#0c573d]"
+        className="inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-forest px-4 py-3 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.99] transition"
       >
         <MessageCircle className="h-5 w-5" aria-hidden="true" />
         Kirim ke WhatsApp
