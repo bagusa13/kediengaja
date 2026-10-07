@@ -224,10 +224,8 @@ export default function HeroVideoBackground({
         loop
         preload="auto"
         aria-hidden="true"
-        className="absolute left-0 w-full object-cover pointer-events-none"
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
         style={{
-          top: '-15.45%',
-          height: '130.91%',
           objectPosition: 'center 40%',
           transition: 'opacity 550ms ease-in-out',
         }}
@@ -244,10 +242,8 @@ export default function HeroVideoBackground({
         loop
         preload="auto"
         aria-hidden="true"
-        className="absolute left-0 w-full object-cover pointer-events-none"
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
         style={{
-          top: '-15.45%',
-          height: '130.91%',
           objectPosition: 'center 40%',
           transition: 'opacity 550ms ease-in-out',
         }}
