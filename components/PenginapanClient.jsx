@@ -216,8 +216,8 @@ export default function PenginapanClient({ initialItems = [] }) {
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 
                 {/* Tipe Filter Tabs */}
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="text-xs font-semibold text-stone-500 mr-2 flex items-center gap-1">
+                <div className="flex overflow-x-auto sm:flex-wrap items-center gap-1.5 pb-1 sm:pb-0 no-scrollbar">
+                  <span className="text-xs font-semibold text-stone-500 mr-1 sm:mr-2 flex items-center gap-1 shrink-0">
                     <SlidersHorizontal className="w-3.5 h-3.5" aria-hidden="true" />
                     Tipe:
                   </span>
@@ -229,9 +229,9 @@ export default function PenginapanClient({ initialItems = [] }) {
                         key={t}
                         type="button"
                         onClick={() => setSelectedType(t)}
-                        className={`rounded-xl px-3 py-1.5 text-xs font-semibold transition-all ${
+                        className={`rounded-xl px-3 py-1.5 text-xs font-semibold shrink-0 transition-all ${
                           isActive
-                            ? 'bg-forest text-white shadow-sm'
+                            ? 'bg-forest text-white shadow-xs'
                             : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80 hover:text-ink'
                         }`}
                       >
@@ -242,10 +242,10 @@ export default function PenginapanClient({ initialItems = [] }) {
                 </div>
 
                 {/* Right: Kapasitas & Sorting Dropdowns */}
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-3 w-full lg:w-auto">
                   {/* Kapasitas Selector */}
-                  <div className="flex items-center gap-1.5">
-                    <label htmlFor="kapasitas-select" className="text-xs font-semibold text-stone-500 flex items-center gap-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-1.5">
+                    <label htmlFor="kapasitas-select" className="text-[11px] sm:text-xs font-semibold text-stone-500 flex items-center gap-1">
                       <Users className="w-3.5 h-3.5" aria-hidden="true" />
                       Kapasitas:
                     </label>
@@ -253,7 +253,7 @@ export default function PenginapanClient({ initialItems = [] }) {
                       id="kapasitas-select"
                       value={capacityFilter}
                       onChange={(e) => setCapacityFilter(e.target.value)}
-                      className="rounded-xl border border-stone-200 bg-surface px-3 py-1.5 text-xs font-medium text-ink focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+                      className="w-full sm:w-auto rounded-xl border border-stone-200 bg-surface px-2.5 py-1.5 text-xs font-medium text-ink focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
                     >
                       <option value="semua">Semua Kapasitas</option>
                       <option value="kecil">Pasangan / 2–4 Orang</option>
@@ -263,15 +263,15 @@ export default function PenginapanClient({ initialItems = [] }) {
                   </div>
 
                   {/* Sort Selector */}
-                  <div className="flex items-center gap-1.5">
-                    <label htmlFor="sort-select" className="text-xs font-semibold text-stone-500">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-1.5">
+                    <label htmlFor="sort-select" className="text-[11px] sm:text-xs font-semibold text-stone-500">
                       Urutan:
                     </label>
                     <select
                       id="sort-select"
                       value={sortOption}
                       onChange={(e) => setSortOption(e.target.value)}
-                      className="rounded-xl border border-stone-200 bg-surface px-3 py-1.5 text-xs font-medium text-ink focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+                      className="w-full sm:w-auto rounded-xl border border-stone-200 bg-surface px-2.5 py-1.5 text-xs font-medium text-ink focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
                     >
                       <option value="rekomendasi">Rekomendasi Host</option>
                       <option value="murah">Harga: Terendah</option>
@@ -283,7 +283,7 @@ export default function PenginapanClient({ initialItems = [] }) {
               </div>
 
               {/* Status info bar */}
-              <div className="mt-3.5 flex items-center justify-between border-t border-stone-100 pt-3 text-xs text-stone-500">
+              <div className="mt-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-t border-stone-100 pt-3 text-xs text-stone-500">
                 <p>
                   Menampilkan <strong className="text-ink font-semibold">{visibleItems.length}</strong> unit penginapan aktif di Dieng
                 </p>

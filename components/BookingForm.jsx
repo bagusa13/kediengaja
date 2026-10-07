@@ -77,30 +77,47 @@ export default function BookingForm({
         <input id="customerName" name="customerName" type="text" required autoComplete="name" className="field" placeholder="Nama pemesan" />
       </div>
 
-      <div>
-        <label htmlFor="tripDate" className="mb-1 block text-sm font-medium text-ink">
-          {kind === 'stay' ? 'Check-in' : 'Tanggal trip'}
-        </label>
-        <input
-          id="tripDate"
-          name="tripDate"
-          type="date"
-          min={today}
-          required
-          className="field"
-          value={checkIn}
-          onChange={(e) => setCheckIn(e.target.value)}
-        />
-      </div>
-
       {kind === 'stay' ? (
-        <div>
-          <label htmlFor="checkOut" className="mb-1 block text-sm font-medium text-ink">
-            Check-out
-          </label>
-          <input id="checkOut" name="checkOut" type="date" min={minOut} required className="field" />
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label htmlFor="tripDate" className="mb-1 block text-xs sm:text-sm font-medium text-ink">
+              Check-in
+            </label>
+            <input
+              id="tripDate"
+              name="tripDate"
+              type="date"
+              min={today}
+              required
+              className="field text-xs sm:text-sm"
+              value={checkIn}
+              onChange={(e) => setCheckIn(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="checkOut" className="mb-1 block text-xs sm:text-sm font-medium text-ink">
+              Check-out
+            </label>
+            <input id="checkOut" name="checkOut" type="date" min={minOut} required className="field text-xs sm:text-sm" />
+          </div>
         </div>
-      ) : null}
+      ) : (
+        <div>
+          <label htmlFor="tripDate" className="mb-1 block text-xs sm:text-sm font-medium text-ink">
+            Tanggal trip
+          </label>
+          <input
+            id="tripDate"
+            name="tripDate"
+            type="date"
+            min={today}
+            required
+            className="field text-xs sm:text-sm"
+            value={checkIn}
+            onChange={(e) => setCheckIn(e.target.value)}
+          />
+        </div>
+      )}
 
       <div>
         <label htmlFor="paxCount" className="mb-1 block text-sm font-medium text-ink">

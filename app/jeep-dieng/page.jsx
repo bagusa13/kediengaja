@@ -39,12 +39,12 @@ export default function JeepDiengPage() {
               Jelajahi kawah belerang, padang savana, dan telaga tersembunyi yang tidak bisa dijangkau mobil biasa. Didampingi sopir asli Dieng yang siap membantu mengambil foto dan video di spot terbaik.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
                 href={generalChat}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
+                className="inline-flex min-h-[46px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span>Konsultasi Rute Jeep via WhatsApp</span>
@@ -131,7 +131,7 @@ export default function JeepDiengPage() {
 
                   {/* Price & Action */}
                   <div className="mt-auto border-t border-stone-100 pt-5">
-                    <div className="flex items-end justify-between">
+                    <div className="flex flex-col xs:flex-row xs:items-end justify-between gap-3">
                       <div>
                         <p className="text-[10px] text-stone-500 uppercase tracking-wider">Harga per Mobil</p>
                         <p className="font-display text-lg font-bold text-forest">
@@ -140,15 +140,23 @@ export default function JeepDiengPage() {
                         </p>
                       </div>
 
-                      <a
-                        href={bookingHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-95 transition"
-                      >
-                        <MessageCircle className="h-3.5 w-3.5" />
-                        <span>Pesan</span>
-                      </a>
+                      <div className="grid grid-cols-2 gap-2 w-full xs:w-auto xs:flex xs:items-center">
+                        <Link
+                          href={`/jeep-dieng/${item.slug}`}
+                          className="inline-flex min-h-[40px] items-center justify-center rounded-xl border border-stone-300 bg-white px-3 text-xs font-semibold text-stone-700 hover:bg-stone-50 transition"
+                        >
+                          Detail Rute
+                        </Link>
+                        <a
+                          href={bookingHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-95 transition"
+                        >
+                          <MessageCircle className="h-3.5 w-3.5" />
+                          <span>Pesan</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

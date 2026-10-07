@@ -33,7 +33,7 @@ export default function DestinasiDetailPage({ params }) {
   const consultWa = waLink(`Halo Admin Kediengaja, saya ingin konsultasi rencana berkunjung ke ${item.nama} dan rekomendasi perjalanannya.`);
 
   return (
-    <main className="bg-[#F8F7F3] min-h-screen py-10 sm:py-16">
+    <main className="bg-[#F8F7F3] min-h-screen pt-10 pb-24 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Link
           href="/jelajahi-dieng"
@@ -165,6 +165,25 @@ export default function DestinasiDetailPage({ params }) {
               <span>Tanya Rute Wisata Ini</span>
             </a>
           </div>
+        </div>
+
+        {/* MOBILE STICKY CONVERSION BAR (sm:hidden) */}
+        <div className="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/90 px-4 py-3 sm:hidden shadow-lg flex items-center justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <span className="text-[10px] text-stone-500 uppercase font-semibold block">{item.elevasi}</span>
+            <p className="font-display text-base font-bold text-forest leading-tight truncate">
+              {item.nama}
+            </p>
+          </div>
+          <a
+            href={consultWa}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl bg-forest px-5 text-xs font-bold text-white shadow-xs active:bg-forest-light shrink-0"
+          >
+            <MessageCircle className="h-3.5 w-3.5" />
+            <span>Tanya Rute</span>
+          </a>
         </div>
       </div>
     </main>

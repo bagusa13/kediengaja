@@ -105,7 +105,7 @@ export default async function TourDetailPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    <div className="bg-[#F8F7F3] min-h-screen py-8 sm:py-12">
+    <div className="bg-[#F8F7F3] min-h-screen py-8 sm:py-12 pb-24 sm:pb-12">
       <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-xs text-stone-500 mb-6" aria-label="Breadcrumb">
@@ -199,7 +199,7 @@ export default async function TourDetailPage({ params }) {
             </div>
           </article>
 
-          <aside className="rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs lg:sticky lg:top-24">
+          <aside id="booking-form" className="rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs lg:sticky lg:top-24 scroll-mt-24">
             <p className="text-xs text-stone-500">Harga mulai dari</p>
             <p className="mb-5 text-2xl font-bold text-forest">
               {formatRupiah(item.harga)}
@@ -207,6 +207,23 @@ export default async function TourDetailPage({ params }) {
             </p>
             <BookingForm kind="tour" itemName={item.nama} defaultPax={2} />
           </aside>
+        </div>
+
+        {/* MOBILE STICKY CONVERSION BAR (sm:hidden) */}
+        <div className="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/90 px-4 py-3 sm:hidden shadow-lg flex items-center justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <span className="text-[10px] text-stone-500 uppercase font-semibold block">Mulai</span>
+            <p className="font-display text-base font-bold text-forest leading-tight truncate">
+              {formatRupiah(item.harga)}
+              <span className="text-[11px] font-normal text-stone-500">{unit}</span>
+            </p>
+          </div>
+          <a
+            href="#booking-form"
+            className="inline-flex min-h-[42px] items-center justify-center rounded-xl bg-forest px-5 text-xs font-bold text-white shadow-xs active:bg-forest-light shrink-0"
+          >
+            Pesan Sekarang
+          </a>
         </div>
       </main>
     </div>

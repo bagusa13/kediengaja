@@ -69,7 +69,7 @@ export default function TourCard(item) {
           </div>
         ) : null}
 
-        <div className="mt-auto flex items-end justify-between gap-3 border-t border-stone-100 pt-4">
+        <div className="mt-auto flex flex-col xs:flex-row xs:items-end justify-between gap-3 border-t border-stone-100 pt-4">
           <div>
             <p className="text-[10px] text-stone-500 uppercase tracking-wider">Tarif Mulai</p>
             <p className="font-display text-lg font-bold text-forest">
@@ -78,10 +78,10 @@ export default function TourCard(item) {
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="grid grid-cols-2 gap-2 w-full xs:w-auto xs:flex xs:items-center">
             <Link
               href={`/tours/${id}`}
-              className="inline-flex min-h-[38px] items-center rounded-xl border border-stone-200 bg-stone-50 px-3 text-xs font-semibold text-stone-700 hover:bg-stone-100 transition"
+              className="inline-flex min-h-[40px] items-center justify-center rounded-xl border border-stone-200 bg-stone-50 px-3 text-xs font-semibold text-stone-700 active:bg-stone-100 transition"
             >
               Detail
             </Link>
@@ -89,7 +89,7 @@ export default function TourCard(item) {
               href={bookingHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-95 transition"
+              className="inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white shadow-xs active:bg-forest-light transition"
             >
               <MessageCircle className="h-3.5 w-3.5" />
               <span>Pesan</span>

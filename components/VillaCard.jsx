@@ -91,7 +91,7 @@ export default function VillaCard(item) {
           </div>
           <Link
             href={`/penginapan/${id}`}
-            className="inline-flex min-h-[38px] items-center gap-1 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white hover:bg-forest-light active:scale-[0.98] transition-all shadow-xs hover:shadow-sm"
+            className="inline-flex min-h-[40px] items-center gap-1 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white hover:bg-forest-light active:scale-[0.98] transition-all shadow-xs hover:shadow-sm"
           >
             <span>Cek Kamar</span>
             <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />

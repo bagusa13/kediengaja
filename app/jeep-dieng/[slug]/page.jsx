@@ -35,7 +35,7 @@ export default function JeepDetailPage({ params }) {
   );
 
   return (
-    <main className="bg-[#F8F7F3] min-h-screen py-10 sm:py-16">
+    <main className="bg-[#F8F7F3] min-h-screen pt-10 pb-24 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Link
           href="/jeep-dieng"
@@ -143,7 +143,7 @@ export default function JeepDetailPage({ params }) {
           </div>
 
           {/* Booking Card Sticky Column */}
-          <div className="lg:col-span-5">
+          <div id="booking-card" className="lg:col-span-5 scroll-mt-24">
             <div className="sticky top-24 rounded-xl border border-stone-200/90 bg-white p-6 shadow-xs">
               <p className="text-xs font-semibold tracking-wider uppercase text-forest">
                 Tarif Resmi Wisata
@@ -182,6 +182,26 @@ export default function JeepDetailPage({ params }) {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* MOBILE STICKY CONVERSION BAR (sm:hidden) */}
+        <div className="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/90 px-4 py-3 sm:hidden shadow-lg flex items-center justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <span className="text-[10px] text-stone-500 uppercase font-semibold block">Tarif</span>
+            <p className="font-display text-base font-bold text-forest leading-tight truncate">
+              {formatRupiah(item.harga)}
+              <span className="text-[11px] font-normal text-stone-500"> /mobil</span>
+            </p>
+          </div>
+          <a
+            href={bookingHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl bg-forest px-5 text-xs font-bold text-white shadow-xs active:bg-forest-light shrink-0"
+          >
+            <MessageCircle className="h-3.5 w-3.5" />
+            <span>Pesan via WA</span>
+          </a>
         </div>
       </div>
     </main>

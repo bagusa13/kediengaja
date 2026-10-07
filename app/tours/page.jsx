@@ -107,12 +107,12 @@ function ToursList() {
               Pilihan trip privat rombongan, open trip sunrise Bukit Sikunir, dan petualangan fun jeep offroad keliling kawah belerang. Didampingi pemandu lokal asli Dieng.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-md sm:max-w-none">
               <a
                 href={generalChat}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
+                className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span>Konsultasi Trip via WhatsApp</span>
@@ -120,7 +120,7 @@ function ToursList() {
 
               <Link
                 href="/trip-builder"
-                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 transition"
+                className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 transition"
               >
                 <Sparkles className="h-4 w-4" aria-hidden="true" />
                 <span>Rancang Rencana Sendiri</span>

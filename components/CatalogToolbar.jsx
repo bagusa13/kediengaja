@@ -7,13 +7,13 @@ export default function CatalogToolbar({ types, type, onType, sort, onSort, resu
         {hint ? <p className="text-sm text-stone-600">{hint}</p> : null}
         <p className="mt-1 text-sm font-medium text-ink">{resultCount} listing</p>
       </div>
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <label className="text-sm text-stone-600">
+      <div className="grid grid-cols-2 gap-2.5 sm:flex sm:flex-row sm:items-center">
+        <label className="text-xs sm:text-sm font-medium text-stone-600 block">
           Tipe
           <select
             value={type}
             onChange={(e) => onType(e.target.value)}
-            className="field mt-1 min-h-[44px] sm:ml-2 sm:mt-0 sm:w-44"
+            className="field mt-1 min-h-[42px] text-xs sm:text-sm sm:ml-2 sm:mt-0 sm:w-44"
           >
             <option value="semua">Semua</option>
             {types.map((item) => (
@@ -23,12 +23,12 @@ export default function CatalogToolbar({ types, type, onType, sort, onSort, resu
             ))}
           </select>
         </label>
-        <label className="text-sm text-stone-600">
+        <label className="text-xs sm:text-sm font-medium text-stone-600 block">
           Urutkan
           <select
             value={sort}
             onChange={(e) => onSort(e.target.value)}
-            className="field mt-1 min-h-[44px] sm:ml-2 sm:mt-0 sm:w-44"
+            className="field mt-1 min-h-[42px] text-xs sm:text-sm sm:ml-2 sm:mt-0 sm:w-44"
           >
             <option value="baru">Terbaru</option>
             <option value="murah">Harga terendah</option>

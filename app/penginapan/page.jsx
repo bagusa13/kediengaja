@@ -48,12 +48,12 @@ export default async function PenginapanPage() {
               Istirahat hangat dan nyaman di tengah sejuknya udara pegunungan Dieng. Seluruh unit kami terverifikasi memiliki water heater aktif 24 jam, pemandangan Gunung Prau, dan didampingi langsung oleh host lokal tanpa biaya tersembunyi.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-md sm:max-w-none">
               <a
                 href={generalChat}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
+                className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span>Konsultasi Kamar via WhatsApp</span>
@@ -61,7 +61,7 @@ export default async function PenginapanPage() {
 
               <Link
                 href="/availability"
-                className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 transition"
+                className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 transition"
               >
                 <Calendar className="h-4 w-4" aria-hidden="true" />
                 <span>Cek Kalender Ketersediaan</span>
@@ -157,7 +157,7 @@ export default async function PenginapanPage() {
 
                   {/* Price & Action */}
                   <div className="mt-auto border-t border-stone-100 pt-5">
-                    <div className="flex items-end justify-between gap-2">
+                    <div className="flex flex-col xs:flex-row xs:items-end justify-between gap-3">
                       <div>
                         <p className="text-[10px] text-stone-500 uppercase tracking-wider">Harga per Malam</p>
                         <p className="font-display text-lg font-bold text-forest">
@@ -166,10 +166,10 @@ export default async function PenginapanPage() {
                         </p>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="grid grid-cols-2 gap-2 w-full xs:w-auto xs:flex xs:items-center">
                         <Link
                           href={`/penginapan/${item.id}`}
-                          className="inline-flex min-h-[38px] items-center rounded-xl border border-stone-200 bg-stone-50 px-3 text-xs font-semibold text-stone-700 hover:bg-stone-100 transition"
+                          className="inline-flex min-h-[40px] items-center justify-center rounded-xl border border-stone-200 bg-stone-50 px-3 text-xs font-semibold text-stone-700 active:bg-stone-100 transition"
                         >
                           Detail
                         </Link>
@@ -177,7 +177,7 @@ export default async function PenginapanPage() {
                           href={bookingHref}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-95 transition"
+                          className="inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-xl bg-forest px-3.5 text-xs font-semibold text-white shadow-xs active:bg-forest-light transition"
                         >
                           <MessageCircle className="h-3.5 w-3.5" />
                           <span>Pesan</span>
