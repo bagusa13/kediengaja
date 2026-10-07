@@ -48,13 +48,13 @@ export default function FAQSection() {
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <p className="text-xs font-semibold tracking-wider uppercase text-forest">
-            Tanya Jawab
+          <p className="text-xs font-semibold tracking-widest uppercase text-forest/90">
+            08 / Tanya Jawab
           </p>
-          <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
             Pertanyaan yang Sering Diajukan
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+          <p className="mt-2.5 text-xs sm:text-sm text-stone-600 leading-relaxed">
             Informasi penting seputar pemesanan, ketersediaan air panas, cuaca, dan armada jeep.
           </p>
         </div>

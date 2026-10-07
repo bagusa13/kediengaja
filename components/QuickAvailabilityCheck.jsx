@@ -21,14 +21,14 @@ export default function QuickAvailabilityCheck() {
     <section id="cek-ketersediaan" className="scroll-mt-20 border-b border-stone-200/80 bg-[#F8F7F3] py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-8">
-          <p className="text-xs font-semibold tracking-wider uppercase text-forest">
-            Reservasi Cepat
+          <p className="text-xs font-semibold tracking-widest uppercase text-forest/90">
+            06 / Jadwal &amp; Reservasi
           </p>
-          <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-            Cek Ketersediaan Penginapan
+          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
+            Cek Ketersediaan Kamar Real-Time
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
-            Pilih unit dan perkiraan tanggal liburan Anda untuk memeriksa slot kosong langsung bersama admin.
+          <p className="mt-2.5 text-xs sm:text-sm text-stone-600 leading-relaxed">
+            Pilih unit dan perkiraan tanggal liburan Anda untuk memeriksa slot kosong langsung bersama admin lokal.
           </p>
         </div>
 

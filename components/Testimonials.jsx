@@ -26,13 +26,13 @@ export default function Testimonials() {
     <section className="border-b border-stone-200/80 bg-[#F8F7F3] py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-10">
-          <p className="text-xs font-semibold tracking-wider uppercase text-forest">
-            Ulasan Tamu
+          <p className="text-xs font-semibold tracking-widest uppercase text-forest/90">
+            07 / Ulasan Nyata
           </p>
-          <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
             Cerita Perjalanan Tamu
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+          <p className="mt-2.5 text-xs sm:text-sm text-stone-600 leading-relaxed">
             Pengalaman nyata wisatawan yang telah menjelajahi dataran tinggi bersama Kediengaja.
           </p>
         </div>

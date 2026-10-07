@@ -33,23 +33,22 @@ export default function FinalCTA() {
           Kami bantu siapkan penginapan, armada jeep, dan perjalanan Anda. Konsultasikan rencana trip Anda langsung bersama warga lokal.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
+        <div className="mt-8 flex flex-col items-center justify-center gap-3.5 max-w-sm mx-auto">
           <a
             href={directChat}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-forest px-6 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
+            className="inline-flex min-h-[50px] w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl bg-forest px-8 text-sm font-bold text-white shadow-md hover:bg-forest-light active:scale-[0.98] transition-all"
           >
-            <MessageCircle className="h-4 w-4 text-white" aria-hidden="true" />
-            <span>Chat WhatsApp</span>
+            <MessageCircle className="h-4.5 w-4.5 text-white" aria-hidden="true" />
+            <span>Rencanakan Perjalanan via WhatsApp</span>
           </a>
 
           <Link
-            href="/penginapan"
-            className="inline-flex min-h-[44px] sm:min-h-[48px] items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-6 text-xs sm:text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 active:scale-[0.98] transition-all"
+            href="/availability"
+            className="text-xs font-medium text-stone-300 hover:text-white transition-colors"
           >
-            <span>Lihat Semua Penginapan</span>
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            Atau cek kalender ketersediaan 6 bulan ke depan →
           </Link>
         </div>
       </div>

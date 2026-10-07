@@ -8,7 +8,7 @@ export default function QuickServices() {
         {/* Editorial Heading Rhythm: Quiet eyebrow, prominent heading with intentional break, compact copy */}
         <div className="max-w-xl mb-6 sm:mb-7">
           <p className="text-xs font-semibold tracking-widest uppercase text-forest/90">
-            Layanan Utama
+            01 / Orientasi Perjalanan
           </p>
           <h2 className="mt-1.5 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[40px] leading-[1.18]">
             Mau ke Dieng<br />untuk apa?

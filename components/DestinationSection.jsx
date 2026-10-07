@@ -41,19 +41,19 @@ const secondaryDestinations = [
 
 export default function DestinationSection() {
   return (
-    <section id="destinasi" className="scroll-mt-20 border-b border-stone-200/80 bg-[#F8F7F3] py-16 sm:py-24">
+    <section id="destinasi" className="scroll-mt-20 border-b border-stone-200/90 bg-[#FAF9F6] py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        {/* Chapter Heading */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-12">
           <div>
-            <p className="text-xs font-semibold tracking-wider uppercase text-forest">
-              Wisata Alam &amp; Budaya
+            <p className="text-xs font-semibold tracking-widest uppercase text-forest/90">
+              04 / Panduan Titik Ikonik
             </p>
-            <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
-              Destinasi Pilihan di Dieng
+            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[42px] leading-[1.15]">
+              Empat Sudut Tanah Para Dewa
             </h2>
-            <p className="mt-2 max-w-xl text-sm sm:text-base text-stone-600 leading-relaxed">
-              Panduan destinasi ikonik lengkap dengan elevasi ketinggian, waktu berkunjung terbaik, dan tips langsung dari warga lokal.
+            <p className="mt-3 max-w-xl text-sm sm:text-base text-stone-600 leading-relaxed">
+              Panduan titik lanskap ikonik lengkap dengan ketinggian elevasi, waktu berkunjung terbaik, dan panduan rute langsung dari warga lokal.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export default function DestinationSection() {
             href="/jelajahi-dieng"
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-forest hover:text-forest-light transition-colors shrink-0"
           >
-            <span>Panduan Semua Destinasi</span>
+            <span>Semua Panduan Destinasi</span>
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
