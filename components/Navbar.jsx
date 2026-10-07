@@ -22,9 +22,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const chatHref = waLink('Halo Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
 
+  const isHome = pathname === '/';
+
   useEffect(() => {
     function onScroll() {
-      setIsScrolled(window.scrollY > 30);
+      const threshold = isHome ? 100 : 20;
+      setIsScrolled(window.scrollY > threshold);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -38,9 +41,8 @@ export default function Navbar() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('keydown', onKey);
     };
-  }, []);
+  }, [isHome]);
 
-  const isHome = pathname === '/';
   const showDarkBg = isScrolled || !isHome;
 
   useEffect(() => {

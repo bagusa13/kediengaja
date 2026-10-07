@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden">
       {/* 1. HERO SECTION: Full-Viewport Mountain Hospitality Landscape */}
-      <section className="relative isolate min-h-[580px] h-[92svh] sm:h-[95svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start sm:justify-center overflow-hidden bg-slate-950 border-b border-stone-300/60">
+      <section className="relative isolate min-h-[560px] h-[100svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start sm:justify-center overflow-hidden bg-slate-950 border-b border-stone-300/60">
         {/* Full-bleed Living Landscape: Untouched from top to bottom, zero white mask */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <HeroVideoBackground
@@ -29,12 +29,12 @@ export default function HomePage() {
         <div className="absolute inset-x-0 bottom-0 z-20 h-px bg-stone-300/80 shadow-[0_1px_4px_rgba(0,0,0,0.08)] pointer-events-none" />
 
         {/* Localized Readability Gradient */}
-        {/* Mobile: Gentle top mist protecting text in upper 55%, leaving lower mountain & village untouched */}
+        {/* Mobile: Gentle top mist protecting text in upper 40%, leaving mountain & village 100% untouched */}
         <div
           className="absolute inset-x-0 top-0 pointer-events-none z-[1] sm:hidden"
           style={{
-            height: '55%',
-            background: 'linear-gradient(to bottom, rgba(8, 14, 12, 0.70) 0%, rgba(8, 14, 12, 0.40) 50%, rgba(8, 14, 12, 0.08) 80%, transparent 100%)',
+            height: '42%',
+            background: 'linear-gradient(to bottom, rgba(8, 14, 12, 0.65) 0%, rgba(8, 14, 12, 0.32) 45%, rgba(8, 14, 12, 0.05) 80%, transparent 100%)',
           }}
         />
         {/* Desktop: Horizontal 105deg gradient on left side */}
@@ -45,10 +45,10 @@ export default function HomePage() {
           }}
         />
 
-        {/* Hero Content: Optically centered with refined upward lift on desktop */}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-20 xs:pt-24 sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12 sm:-translate-y-8 lg:-translate-y-12">
+        {/* Hero Content: Optically anchored in sky zone with clear breathing room above mountain */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-16 xs:pt-20 sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12 sm:-translate-y-8 lg:-translate-y-12">
           {/* Quiet Environmental Metadata: Small icon + text, secondary weight, zero pill */}
-          <div className="mb-2 sm:mb-3.5">
+          <div className="mb-1.5 xs:mb-2 sm:mb-3.5">
             <LiveWeatherDieng
               className="text-[11px] sm:text-xs text-stone-300/85 font-normal"
               iconClassName="h-3 w-3 sm:h-3.5 sm:w-3.5 text-stone-300/75"
@@ -57,7 +57,7 @@ export default function HomePage() {
 
           {/* Main Headline: Editorial Hospitality Weight (700 bold), tight line-height, controlled mobile width */}
           <h1
-            className="max-w-[300px] xs:max-w-[340px] sm:max-w-[480px] font-display text-[30px] xs:text-[34px] sm:text-5xl lg:text-[52px] font-bold tracking-tight text-white leading-[1.14] sm:leading-[1.12]"
+            className="max-w-[280px] xs:max-w-[320px] sm:max-w-[480px] font-display text-[27px] xs:text-[31px] sm:text-5xl lg:text-[52px] font-bold tracking-tight text-white leading-[1.12] sm:leading-[1.12]"
             style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.40), 0 1px 3px rgba(0, 0, 0, 0.30)' }}
           >
             Liburan ke Dieng,<br />Tanpa Ribet.
@@ -65,26 +65,26 @@ export default function HomePage() {
 
           {/* Supporting Copy: 2-3 lines, comfortable line-height */}
           <p
-            className="mt-2 sm:mt-3.5 max-w-[280px] xs:max-w-[340px] sm:max-w-lg text-[13px] sm:text-base leading-snug sm:leading-relaxed text-stone-200/90 font-normal"
+            className="mt-1.5 xs:mt-2 sm:mt-3.5 max-w-[270px] xs:max-w-[320px] sm:max-w-lg text-xs xs:text-[13px] sm:text-base leading-snug sm:leading-relaxed text-stone-200/90 font-normal"
             style={{ textShadow: '0 1px 6px rgba(0, 0, 0, 0.35)' }}
           >
             Penginapan, jeep, dan paket wisata lokal untuk perjalanan yang lebih dekat.
           </p>
 
-          {/* Restrained Hospitality CTAs: Solid Primary + Lighter Secondary action */}
-          <div className="mt-4 sm:mt-7 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5">
+          {/* Restrained Hospitality CTAs: Single compact row on mobile, spacious on desktop */}
+          <div className="mt-3.5 xs:mt-4 sm:mt-7 flex flex-row items-center gap-3 sm:gap-3.5">
             <Link
               href="#penginapan"
-              className="inline-flex min-h-[46px] sm:min-h-[48px] items-center justify-center rounded-xl bg-forest px-6 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
+              className="inline-flex min-h-[42px] xs:min-h-[46px] sm:min-h-[48px] items-center justify-center rounded-xl bg-forest px-5 xs:px-6 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all shrink-0"
             >
               <span>Cari Penginapan</span>
             </Link>
 
             <Link
               href="#paket-wisata"
-              className="inline-flex min-h-[38px] sm:min-h-[48px] items-center justify-center sm:justify-start gap-1.5 sm:gap-2 rounded-xl text-xs sm:text-sm font-medium text-stone-200 hover:text-white px-2 sm:px-6 sm:border sm:border-white/20 sm:bg-white/5 sm:hover:bg-white/10 sm:hover:border-white/35 active:scale-[0.98] transition-all group"
+              className="inline-flex items-center gap-1.5 py-2 px-1 text-xs sm:text-sm font-medium text-stone-200 hover:text-white group transition-colors sm:px-6 sm:border sm:border-white/20 sm:bg-white/5 sm:rounded-xl sm:min-h-[48px]"
             >
-              <span>Lihat Paket Wisata</span>
+              <span>Paket Wisata</span>
               <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-stone-300 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
           </div>
