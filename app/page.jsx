@@ -15,17 +15,10 @@ import FinalCTA from '@/components/FinalCTA';
 export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden">
-      {/* 1. HERO SECTION: Living Photograph Mountain Hospitality First Viewport */}
-      <section className="relative isolate h-[84dvh] min-h-[520px] max-h-[660px] sm:h-[82vh] sm:min-h-[560px] sm:max-h-[720px] lg:h-[84vh] lg:min-h-[600px] lg:max-h-[760px] flex flex-col justify-center overflow-hidden bg-[#F8F7F3]">
-        {/* Seamless Dual-Buffer Background Video with Precision Edge Dissolve */}
-        {/* 100% untouched landscape until final 24px; accelerated ramp completely eliminates milky haze */}
-        <div
-          className="absolute inset-0 pointer-events-none select-none overflow-hidden"
-          style={{
-            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black calc(100% - 24px), rgba(0, 0, 0, 0.98) calc(100% - 18px), rgba(0, 0, 0, 0.85) calc(100% - 12px), rgba(0, 0, 0, 0.40) calc(100% - 6px), transparent 100%)',
-            maskImage: 'linear-gradient(to bottom, black 0%, black calc(100% - 24px), rgba(0, 0, 0, 0.98) calc(100% - 18px), rgba(0, 0, 0, 0.85) calc(100% - 12px), rgba(0, 0, 0, 0.40) calc(100% - 6px), transparent 100%)',
-          }}
-        >
+      {/* 1. HERO SECTION: Full-Viewport Mountain Hospitality Landscape */}
+      <section className="relative isolate min-h-[580px] h-[92svh] sm:h-[95svh] lg:h-[96svh] flex flex-col justify-center overflow-hidden bg-slate-950">
+        {/* Full-bleed Living Landscape: Untouched from top to bottom, zero white mask */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <HeroVideoBackground
             videoSrc="/video/kediengajaVideo.mp4"
             posterSrc="/images/hero/hero-video-poster.webp"
