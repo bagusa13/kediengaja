@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden">
       {/* 1. HERO SECTION: Full-Viewport Mountain Hospitality Landscape */}
-      <section className="relative isolate min-h-[560px] h-[88svh] xs:h-[90svh] sm:h-[95svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start sm:justify-center overflow-hidden bg-slate-950">
+      <section className="relative isolate min-h-[560px] h-[88svh] xs:h-[90svh] sm:h-[95svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start overflow-hidden bg-slate-950">
         {/* Full-bleed Living Landscape: Untouched from top to bottom, zero white mask */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <HeroVideoBackground
@@ -42,8 +42,8 @@ export default function HomePage() {
           }}
         />
 
-        {/* Hero Content: Disciplined vertical positioning, no floating dead air */}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-[74px] xs:pt-20 sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12">
+        {/* Hero Content: Raised higher into upper sky area, freeing terraces and village below */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-20 xs:pt-22 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-36 pb-6">
           {/* Quiet Environmental Metadata: Small icon + text, secondary weight, zero pill */}
           <div className="mb-2 sm:mb-3.5">
             <LiveWeatherDieng
