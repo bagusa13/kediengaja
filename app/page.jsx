@@ -17,13 +17,13 @@ export default function HomePage() {
     <main className="relative overflow-x-hidden">
       {/* 1. HERO SECTION: Living Photograph Mountain Hospitality First Viewport */}
       <section className="relative isolate h-[84dvh] min-h-[520px] max-h-[660px] sm:h-[82vh] sm:min-h-[560px] sm:max-h-[720px] lg:h-[84vh] lg:min-h-[600px] lg:max-h-[760px] flex flex-col justify-center overflow-hidden bg-[#F8F7F3]">
-        {/* Seamless Dual-Buffer Background Video with Smoothstep Edge Dissolve */}
-        {/* 100% untouched until final 32px; smoothstep easing eliminates all Mach bands and white fog */}
+        {/* Seamless Dual-Buffer Background Video with Precision Edge Dissolve */}
+        {/* 100% untouched landscape until final 24px; accelerated ramp completely eliminates milky haze */}
         <div
           className="absolute inset-0 pointer-events-none select-none overflow-hidden"
           style={{
-            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black calc(100% - 32px), rgba(0, 0, 0, 0.95) calc(100% - 22px), rgba(0, 0, 0, 0.65) calc(100% - 12px), rgba(0, 0, 0, 0.20) calc(100% - 4px), transparent 100%)',
-            maskImage: 'linear-gradient(to bottom, black 0%, black calc(100% - 32px), rgba(0, 0, 0, 0.95) calc(100% - 22px), rgba(0, 0, 0, 0.65) calc(100% - 12px), rgba(0, 0, 0, 0.20) calc(100% - 4px), transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black calc(100% - 24px), rgba(0, 0, 0, 0.98) calc(100% - 18px), rgba(0, 0, 0, 0.85) calc(100% - 12px), rgba(0, 0, 0, 0.40) calc(100% - 6px), transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 0%, black calc(100% - 24px), rgba(0, 0, 0, 0.98) calc(100% - 18px), rgba(0, 0, 0, 0.85) calc(100% - 12px), rgba(0, 0, 0, 0.40) calc(100% - 6px), transparent 100%)',
           }}
         >
           <HeroVideoBackground
@@ -32,12 +32,12 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Localized Directional Contrast: Spans full width with organic decay, zero bounding box lines */}
-        {/* Soft, photographic vignette that preserves 100% of the Sindoro peak, golden clouds, and morning light */}
+        {/* Localized Directional Contrast: Reduced by ~25%, preserving natural golden-hour landscape */}
+        {/* Rapidly decays to 0 before the mountain slope, keeping Sindhoro peak, sky, and hills untouched */}
         <div
           className="absolute inset-0 pointer-events-none z-[1]"
           style={{
-            background: 'linear-gradient(to right, rgba(8, 14, 12, 0.72) 0%, rgba(8, 14, 12, 0.42) 28%, rgba(8, 14, 12, 0.12) 48%, rgba(8, 14, 12, 0.02) 62%, transparent 72%)',
+            background: 'linear-gradient(105deg, rgba(8, 14, 12, 0.50) 0%, rgba(8, 14, 12, 0.28) 25%, rgba(8, 14, 12, 0.08) 46%, transparent 64%)',
           }}
         />
 
@@ -48,10 +48,10 @@ export default function HomePage() {
             <LiveWeatherDieng className="text-stone-300/85" />
           </div>
 
-          {/* Main Headline: Editorial Hospitality Weight (700 bold), tight line-height, controlled max-width */}
+          {/* Main Headline: Editorial Hospitality Weight (700 bold), tight line-height, controlled max-width in quiet zone */}
           <h1
-            className="max-w-xl font-display text-3xl sm:text-5xl lg:text-[52px] font-bold tracking-tight text-white leading-[1.12]"
-            style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)' }}
+            className="max-w-[480px] font-display text-3xl sm:text-5xl lg:text-[52px] font-bold tracking-tight text-white leading-[1.12]"
+            style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.40), 0 1px 3px rgba(0, 0, 0, 0.30)' }}
           >
             Liburan ke Dieng,<br />Tanpa Ribet.
           </h1>
@@ -59,7 +59,7 @@ export default function HomePage() {
           {/* Supporting Copy */}
           <p
             className="mt-3 sm:mt-3.5 max-w-[340px] sm:max-w-lg text-xs sm:text-base leading-relaxed text-stone-200/90 font-normal"
-            style={{ textShadow: '0 1px 6px rgba(0, 0, 0, 0.25)' }}
+            style={{ textShadow: '0 1px 6px rgba(0, 0, 0, 0.35)' }}
           >
             Penginapan, jeep, dan paket wisata lokal untuk perjalanan yang lebih dekat.
           </p>
@@ -75,10 +75,10 @@ export default function HomePage() {
 
             <Link
               href="#paket-wisata"
-              className="inline-flex min-h-[44px] sm:min-h-[46px] items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/10 px-5 sm:px-6 text-xs sm:text-sm font-semibold text-white hover:bg-white/20 hover:border-white/40 active:scale-[0.98] transition-all"
+              className="inline-flex min-h-[44px] sm:min-h-[46px] items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-5 sm:px-6 text-xs sm:text-sm font-medium text-stone-200 hover:text-white hover:bg-white/10 hover:border-white/35 active:scale-[0.98] transition-all"
             >
               <span>Lihat Paket Wisata</span>
-              <ArrowRight className="h-4 w-4 text-white/80" aria-hidden="true" />
+              <ArrowRight className="h-4 w-4 text-stone-300" aria-hidden="true" />
             </Link>
           </div>
         </div>

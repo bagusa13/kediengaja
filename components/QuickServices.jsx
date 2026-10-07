@@ -3,7 +3,7 @@ import { Home, Compass, Sparkles, Calendar, ArrowRight, ArrowUpRight, CheckCircl
 
 export default function QuickServices() {
   return (
-    <section className="bg-[#F8F7F3] pt-4 sm:pt-6 lg:pt-8 pb-14 sm:pb-20 border-b border-stone-200/80">
+    <section className="bg-[#F8F7F3] pt-3 sm:pt-5 lg:pt-6 pb-14 sm:pb-20 border-b border-stone-200/80">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Editorial Heading Rhythm: Quiet eyebrow, prominent heading with intentional break, compact copy */}
         <div className="max-w-xl mb-6 sm:mb-7">
