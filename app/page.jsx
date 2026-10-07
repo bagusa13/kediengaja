@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Compass, Home } from 'lucide-react';
+import BrandLogo from '@/components/BrandLogo';
 import LiveWeatherDieng from '@/components/LiveWeatherDieng';
 import QuickServices from '@/components/QuickServices';
 import AccommodationSection from '@/components/AccommodationSection';
@@ -14,38 +15,42 @@ import FinalCTA from '@/components/FinalCTA';
 export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden">
-      {/* 1. HERO SECTION: Authentic Dieng Landscape Photography */}
+      {/* 1. HERO SECTION: Living Photograph Video Background */}
       <section className="relative isolate min-h-[90vh] sm:min-h-[92vh] flex items-center overflow-hidden bg-slate-950">
-        {/* Landscape Photography */}
-        <picture>
-          <source
-            media="(max-width: 640px)"
-            srcSet="/images/hero/dieng-hero-mobile.webp"
-            type="image/webp"
-          />
-          <source
-            srcSet="/images/hero/dieng-hero.webp"
-            type="image/webp"
-          />
+        {/* HTML5 Living Photograph Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/hero/hero-video-poster.webp"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover object-[center_35%] pointer-events-none"
+        >
+          <source src="/video/kediengajaVideo.mp4" type="video/mp4" />
+          {/* Static poster fallback for browsers that block video/autoplay */}
           <img
-            src="/images/hero/dieng-hero.jpg"
-            alt="Pemandangan fajar dan perbukitan dataran tinggi Dieng"
+            src="/images/hero/hero-video-poster.webp"
+            alt="Lanskap pegunungan dan kabut Dataran Tinggi Dieng"
             className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
-            loading="eager"
-            fetchPriority="high"
           />
-        </picture>
+        </video>
 
-        {/* Non-destructive overlay for legible typography */}
-        <div className="absolute inset-0 bg-slate-950/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-slate-950/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent sm:w-2/3" />
+        {/* Subtle, Non-Destructive Dark & Gradient Overlays: Preserves natural Dieng beauty while ensuring text contrast */}
+        <div className="absolute inset-0 bg-slate-950/35 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-transparent sm:w-3/4 max-w-4xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent pointer-events-none" />
 
         {/* Hero Content */}
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pt-24 pb-16 sm:px-6 sm:py-24 lg:px-8">
-          {/* Weather status */}
-          <div className="mb-4 inline-flex items-center rounded-full bg-slate-950/60 px-3.5 py-1.5 backdrop-blur-md border border-white/10">
-            <LiveWeatherDieng />
+          {/* Logo Ke Dieng Aja & Weather Capsule */}
+          <div className="mb-5 flex flex-wrap items-center gap-3">
+            <BrandLogo variant="light" showTagline={false} />
+            <span className="hidden sm:inline-block text-white/30">•</span>
+            <div className="inline-flex items-center rounded-full bg-slate-950/60 px-3.5 py-1.5 backdrop-blur-md border border-white/10">
+              <LiveWeatherDieng />
+            </div>
           </div>
 
           {/* Main Headline */}
@@ -53,9 +58,9 @@ export default function HomePage() {
             Liburan ke Dieng,<br />Tanpa Ribet.
           </h1>
 
-          {/* Subheadline */}
+          {/* Subheadline (Exact Requested Copy) */}
           <p className="mt-4 max-w-xl text-sm sm:text-base leading-relaxed text-stone-200">
-            Penginapan, jeep, dan paket wisata lokal untuk pengalaman Dieng yang lebih dekat.
+            Penginapan, jeep, dan paket wisata lokal untuk perjalanan yang lebih dekat.
           </p>
 
           {/* Primary & Secondary CTA */}
