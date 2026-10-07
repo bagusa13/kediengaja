@@ -43,3 +43,14 @@ Follow the anti-slop guidelines to prevent generic, repetitive, or low-quality A
 
 Before starting UI work, confirm when anti-slop applies (during creation or review).
 <!-- antislop:end -->
+
+## Dual-Experience Responsive Architecture (Mobile is Not a Shrunk Desktop)
+This project enforces intentional art direction across viewports:
+- **Core Axiom**: *Mobile is NOT a smaller desktop. Desktop and mobile are two deliberately art-directed compositions of the exact same brand.*
+- **Shared Brand DNA**:
+  - Brand identity (`Kediengaja`), typography family, warm-neutral color system (`#F8F7F3`, forest green, ink), component language, and interaction feel.
+- **Compositional Independence**:
+  - **Desktop (1024px–1920px)**: Horizontal narrative, multi-column grids, expansive landscape framing, side-by-side content, persistent navigation, generous breathing space.
+  - **Mobile (360px–430px)**: Vertical narrative rhythm, reordered content, dedicated crop and focal points (e.g. centering Sindoro peak at 38%), simplified navigation (compact header + hamburger), concise copy length, stacked/hierarchical CTA pairs, thumb-friendly safe-area controls (compact circular WhatsApp).
+- **Evaluation Question**: For every section, always ask: *“What is the most elegant, human composition for a 390px viewport?”* — never *“How do I squeeze the 1440px desktop layout down to 390px?”*
+
