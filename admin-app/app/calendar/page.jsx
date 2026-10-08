@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { collection, doc, getDocs, updateDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
+import { Save } from 'lucide-react';
 
 function toIso(year, month, day) {
   const m = String(month + 1).padStart(2, '0');
@@ -165,9 +166,10 @@ export default function CalendarManagerPage() {
           type="button"
           onClick={handleSave}
           disabled={saving}
-          className="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-semibold shadow disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-semibold shadow disabled:opacity-50"
         >
-          {saving ? 'Menyimpan...' : '💾 Simpan Perubahan Jadwal'}
+          <Save className="h-4 w-4" aria-hidden="true" />
+          <span>{saving ? 'Menyimpan...' : 'Simpan Perubahan Jadwal'}</span>
         </button>
       </div>
 

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Clock, MapPin, CheckCircle2, ChevronRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { Clock, MapPin, CheckCircle2, ChevronRight, ShieldCheck } from 'lucide-react';
 import BookingForm from '@/components/BookingForm';
 import ImageGallery from '@/components/ImageGallery';
 import { formatRupiah, tourCover } from '@/lib/covers';
@@ -153,8 +153,8 @@ export default async function TourDetailPage({ params }) {
               {destinasi.length > 0 ? (
                 <div className="mt-8 border-t border-stone-200 pt-6">
                   <h2 className="mb-3 font-display text-xl font-bold text-ink flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-forest" aria-hidden="true" />
-                    Spot & Destinasi yang Dikunjungi
+                    <MapPin className="w-5 h-5 text-forest" aria-hidden="true" />
+                    Spot &amp; Destinasi yang Dikunjungi
                   </h2>
                   <ul className="flex flex-wrap gap-2">
                     {destinasi.map((dest) => (

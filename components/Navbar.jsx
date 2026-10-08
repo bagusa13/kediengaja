@@ -164,7 +164,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between text-[11px] text-stone-400 px-1">
               <span>Dataran Tinggi Dieng, Wonosobo</span>
               <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 Respon Cepat
               </span>
             </div>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Home, Compass, Sparkles, Calendar, ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { Home, Compass, Calendar, ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export default function QuickServices() {
   return (
@@ -56,7 +56,7 @@ export default function QuickServices() {
             className="group relative md:col-span-6 flex flex-col justify-end overflow-hidden rounded-xl bg-slate-950 min-h-[230px] sm:min-h-[260px] p-6 text-white shadow-xs transition duration-300 hover:shadow-sm"
           >
             <img
-              src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=80"
+              src="/images/destinasi/kawah-sikidang.webp"
               alt="Armada Jeep 4x4 Dieng"
               className="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
             />
@@ -85,7 +85,7 @@ export default function QuickServices() {
             <div>
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-forest">
-                  <Sparkles className="h-4 w-4 text-forest" />
+                  <Compass className="h-4 w-4 text-forest" />
                   <span>Paket All-In &amp; Custom Trip</span>
                 </span>
                 <Link
@@ -129,7 +129,7 @@ export default function QuickServices() {
                   <span>Cek Ketersediaan</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-md border border-stone-200 bg-stone-100 px-2 py-0.5 text-[10px] font-semibold text-stone-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
                   Live Sync
                 </span>
               </div>
@@ -185,7 +185,7 @@ export default function QuickServices() {
               className="group relative flex flex-col justify-end overflow-hidden rounded-xl bg-slate-950 min-h-[200px] p-4 text-white shadow-xs"
             >
               <img
-                src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=80"
+                src="/images/destinasi/kawah-sikidang.webp"
                 alt="Armada Jeep 4x4 Dieng"
                 className="absolute inset-0 h-full w-full object-cover opacity-60"
               />
@@ -209,7 +209,7 @@ export default function QuickServices() {
           <div className="rounded-xl border border-stone-200/90 bg-white p-4 xs:p-5 shadow-xs">
             <div className="flex items-center justify-between mb-2">
               <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-forest">
-                <Sparkles className="h-3.5 w-3.5 text-forest" />
+                <Compass className="h-3.5 w-3.5 text-forest" />
                 <span>Paket Wisata &amp; Custom Trip</span>
               </span>
             </div>
@@ -244,7 +244,7 @@ export default function QuickServices() {
                 <span>Cek Ketersediaan</span>
               </span>
               <span className="inline-flex items-center gap-1 rounded-md border border-stone-200 bg-white px-2 py-0.5 text-[10px] font-semibold text-stone-700">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
                 Live Sync
               </span>
             </div>

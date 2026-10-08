@@ -284,7 +284,7 @@ export default function AvailabilityCalendar() {
             </p>
             {isLiveConnected && (
               <span className="inline-flex items-center gap-1.5 rounded-md border border-stone-200 bg-stone-100 px-2 py-0.5 text-[10px] font-semibold text-stone-700">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
                 Live Sync
               </span>
             )}

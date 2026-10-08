@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from 'react';
-import { Calendar, Users, Sparkles, Car, MessageCircle, Check, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Users, Compass, Car, MessageCircle, Check, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { formatRupiah } from '@/lib/covers';
 import { waLink } from '@/lib/site';
 
@@ -165,7 +165,7 @@ export default function TripBuilderPage() {
             {/* Step 3: Vibe */}
             <div className="rounded-xl border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs">
               <label className="font-display text-sm font-bold text-ink uppercase tracking-wider block mb-3 flex items-center gap-2">
-                <Sparkles className="h-4 w-4 text-forest" />
+                <Compass className="h-4 w-4 text-forest" />
                 <span>3. Fokus &amp; Gaya Liburan</span>
               </label>
               <div className="space-y-2.5">
@@ -262,7 +262,7 @@ export default function TripBuilderPage() {
                       <span>Check-in di <strong>{recommendation.stayName}</strong>, istirahat dan adaptasi udara sejuk.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Sparkles className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                      <Compass className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
                       <span>Sore hari santai: Mengunjungi Kompleks Candi Arjuna dan berburu sunset di Telaga Menjer.</span>
                     </li>
                   </ul>
@@ -477,7 +477,7 @@ export default function TripBuilderPage() {
           {activeStep === 3 && (
             <div className="rounded-2xl border border-stone-200/90 bg-white p-5 shadow-xs animate-in fade-in">
               <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="h-4 w-4 text-forest" />
+                <Compass className="h-4 w-4 text-forest" />
                 <h3 className="font-display text-base font-bold text-ink">
                   Apa prioritas suasana liburan Anda?
                 </h3>
@@ -590,7 +590,7 @@ export default function TripBuilderPage() {
                       <span>Check-in <strong>{recommendation.stayName}</strong>.</span>
                     </li>
                     <li className="flex items-start gap-1.5">
-                      <Sparkles className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
+                      <Compass className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />
                       <span>Sore: Candi Arjuna &amp; sunset Telaga Menjer.</span>
                     </li>
                   </ul>

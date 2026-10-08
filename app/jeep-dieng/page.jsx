@@ -21,7 +21,7 @@ export default function JeepDiengPage() {
       {/* Editorial Hero Header */}
       <section className="relative isolate overflow-hidden bg-slate-950 py-20 sm:py-28 text-white">
         <img
-          src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1920&q=80"
+          src="/images/destinasi/kawah-sikidang.webp"
           alt="Armada Jeep 4x4 melintasi savana Dieng"
           className="absolute inset-0 h-full w-full object-cover opacity-35 object-center"
         />

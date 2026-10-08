@@ -193,8 +193,8 @@ export default function ImageUploader({
               </span>
               <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200/60 mt-0.5">
                 {folder === 'gallery'
-                  ? '📐 Rasio Ideal: Persegi 1:1 atau 4:5 (Min. 1080×1080 px)'
-                  : '📐 Rasio Ideal: Landscape 16:9 (Horizontal, Min. 1200×675 px)'}
+                  ? 'Rasio Ideal: Persegi 1:1 atau 4:5 (Min. 1080×1080 px)'
+                  : 'Rasio Ideal: Landscape 16:9 (Horizontal, Min. 1200×675 px)'}
               </span>
               <span className="text-[10px] text-stone-400">
                 Otomatis dikonversi ke WebP tajam &amp; ringan (Maks. 15MB)

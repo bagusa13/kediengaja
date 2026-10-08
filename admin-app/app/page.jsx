@@ -9,7 +9,7 @@ import {
   Calendar,
   Plus,
   ArrowRight,
-  Sparkles,
+  BookOpen,
   CheckCircle2,
   ExternalLink,
   Layers,
@@ -57,7 +57,7 @@ export default function AdminDashboard() {
               Dashboard Admin
             </h1>
             <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
               Live System
             </span>
           </div>
@@ -242,7 +242,7 @@ export default function AdminDashboard() {
       {/* Guide Section */}
       <div className="bg-white rounded-2xl shadow-xs border border-stone-200/80 p-5 sm:p-6">
         <div className="flex items-center gap-2 mb-2">
-          <Sparkles className="h-4 w-4 text-amber-500" />
+          <BookOpen className="h-4 w-4 text-emerald-600" />
           <h2 className="text-sm sm:text-base font-bold text-stone-900">
             Panduan Pengelolaan Cepat
           </h2>

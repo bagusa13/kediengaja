@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Users, Flame, MapPin, BedDouble, Check, Sparkles } from 'lucide-react';
+import { ArrowRight, Users, Flame, MapPin, BedDouble, Check, ShieldCheck } from 'lucide-react';
 import { FALLBACK_PENGINAPAN } from '@/lib/mockData';
 import { fetchCollection, orFallback } from '@/lib/listings';
 import { formatRupiah, villaCover } from '@/lib/covers';
@@ -88,7 +88,7 @@ export default function AccommodationSection() {
           <div className="md:col-span-5 flex flex-col justify-between rounded-2xl bg-white/70 border border-stone-300/80 p-6 sm:p-7 shadow-xs">
             <div>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-forest">
-                <Sparkles className="w-3.5 h-3.5" />
+                <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Unit Terkurasi</span>
               </span>
               <h3 className="mt-1 font-display text-2xl font-bold text-ink">

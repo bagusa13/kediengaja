@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { uploadToCloudinary } from '@/lib/uploader';
+import { Save, RotateCcw, Camera, Loader2 } from 'lucide-react';
 
 const DEFAULT_SLIDES = [
   { id: '1', title: 'Sunrise Sikunir', image: '/images/destinasi/bukit-sikunir.webp' },
@@ -162,17 +163,19 @@ export default function GalleryManagerPage() {
             type="button"
             onClick={handleReset}
             disabled={saving}
-            className="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 rounded-lg text-sm font-semibold transition"
+            className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 rounded-lg text-sm font-semibold transition"
           >
-            🔄 Reset Standar
+            <RotateCcw className="h-4 w-4" aria-hidden="true" />
+            <span>Reset Standar</span>
           </button>
           <button
             type="button"
             onClick={handleSave}
             disabled={saving}
-            className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-semibold shadow transition disabled:opacity-50"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-semibold shadow transition disabled:opacity-50"
           >
-            {saving ? 'Menyimpan...' : '💾 Simpan Perubahan'}
+            <Save className="h-4 w-4" aria-hidden="true" />
+            <span>{saving ? 'Menyimpan...' : 'Simpan Perubahan'}</span>
           </button>
         </div>
       </div>
@@ -274,9 +277,15 @@ export default function GalleryManagerPage() {
                         className="hidden"
                       />
                       {uploadingIdx === idx ? (
-                        <span className="text-emerald-600 font-bold animate-pulse">⏳ Mengompresi &amp; Mengunggah...</span>
+                        <span className="inline-flex items-center gap-1.5 text-emerald-600 font-semibold">
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
+                          <span>Mengompresi &amp; Mengunggah...</span>
+                        </span>
                       ) : (
-                        <span>📷 Pilih Foto dari HP / PC</span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <Camera className="h-3.5 w-3.5" aria-hidden="true" />
+                          <span>Pilih Foto dari HP / PC</span>
+                        </span>
                       )}
                     </label>
                     <span className="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
@@ -333,9 +342,10 @@ export default function GalleryManagerPage() {
           type="button"
           onClick={handleSave}
           disabled={saving}
-          className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold shadow-md transition disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold shadow-md transition disabled:opacity-50"
         >
-          {saving ? 'Menyimpan ke Sistem...' : '💾 Simpan Perubahan 10 Foto Polaroid'}
+          <Save className="h-4 w-4" aria-hidden="true" />
+          <span>{saving ? 'Menyimpan ke Sistem...' : 'Simpan Perubahan 10 Foto Polaroid'}</span>
         </button>
       </div>
     </div>

@@ -3,7 +3,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { MessageCircle, Calendar, Sparkles } from 'lucide-react';
+import { MessageCircle, Calendar, Compass } from 'lucide-react';
 import TourCard from '@/components/TourCard';
 import ListingStatus from '@/components/ListingStatus';
 import CatalogToolbar from '@/components/CatalogToolbar';
@@ -89,7 +89,7 @@ function ToursList() {
       {/* Editorial Hero Header */}
       <section className="relative isolate overflow-hidden bg-slate-950 py-20 sm:py-28 text-white">
         <img
-          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80"
+          src="/images/destinasi/telaga-warna.webp"
           alt="Lanskap Dataran Tinggi Dieng"
           className="absolute inset-0 h-full w-full object-cover opacity-35 object-center"
         />
@@ -122,7 +122,7 @@ function ToursList() {
                 href="/trip-builder"
                 className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 transition"
               >
-                <Sparkles className="h-4 w-4" aria-hidden="true" />
+                <Compass className="h-4 w-4" aria-hidden="true" />
                 <span>Rancang Rencana Sendiri</span>
               </Link>
             </div>
