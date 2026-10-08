@@ -26,7 +26,7 @@ export default function Navbar() {
 
   useEffect(() => {
     function onScroll() {
-      const threshold = isHome ? 100 : 20;
+      const threshold = isHome ? 250 : 20;
       setIsScrolled(window.scrollY > threshold);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -60,7 +60,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-250 ${
         showDarkBg || open
-          ? 'bg-slate-950/95 backdrop-blur-md border-b border-stone-800 text-white shadow-xs'
+          ? 'bg-slate-950/95 backdrop-blur-md border-b border-white/10 text-white shadow-xs'
           : 'bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent text-white border-b border-transparent'
       }`}
     >
