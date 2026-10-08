@@ -170,21 +170,23 @@ export default function ToursSection() {
               </article>
             ))}
 
-            {/* Custom Trip Builder Quick Callout */}
+            {/* Custom Itinerary / Konsultasi Rombongan Callout */}
             <div className="rounded-2xl border border-dashed border-stone-700 bg-stone-900/40 p-5 text-center">
               <p className="text-xs font-semibold text-stone-200">
                 Punya rencana atau rombongan khusus?
               </p>
               <p className="mt-1 text-[11px] text-stone-400">
-                Gunakan Trip Builder untuk mengombinasikan jeep, cabin, dan durasi sesuai preferensi Anda.
+                Konsultasikan jadwal, kombinasi jeep, dan penginapan sesuai jumlah peserta dan budget Anda.
               </p>
-              <Link
-                href="/trip-builder"
+              <a
+                href={waLink('Halo Kediengaja, saya ingin konsultasi rencana perjalanan rombongan khusus ke Dieng.')}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-3 inline-flex min-h-[38px] items-center gap-1.5 rounded-xl border border-emerald-400/30 bg-emerald-950/40 px-4 text-xs font-semibold text-emerald-300 hover:bg-emerald-900/50 transition"
               >
-                <span>Buka Trip Builder</span>
-                <ArrowRight className="h-3 w-3" />
-              </Link>
+                <MessageCircle className="h-3.5 w-3.5" />
+                <span>Konsultasi Rombongan</span>
+              </a>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ import {
   Menu,
   X,
   Home,
+  BedDouble,
   Compass,
   Mountain,
   MapPin,
@@ -19,7 +20,8 @@ import { waLink } from '@/lib/site';
 import BrandLogo from './BrandLogo';
 
 const navLinks = [
-  { href: '/penginapan', label: 'Penginapan', icon: Home },
+  { href: '/', label: 'Beranda', icon: Home },
+  { href: '/penginapan', label: 'Penginapan', icon: BedDouble },
   { href: '/tours', label: 'Paket Wisata', icon: Compass },
   { href: '/jeep-dieng', label: 'Jeep 4x4', icon: Mountain },
   { href: '/jelajahi-dieng', label: 'Destinasi', icon: MapPin },
@@ -37,8 +39,8 @@ export default function Navbar() {
 
   useEffect(() => {
     function onScroll() {
-      const threshold = isHome ? 200 : 20;
-      setIsScrolled(window.scrollY > threshold);
+      // Aktifkan solid dark header segera setelah pengguna scroll > 15px agar kontras selalu 100% terbaca
+      setIsScrolled(window.scrollY > 15);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -52,7 +54,7 @@ export default function Navbar() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('keydown', onKey);
     };
-  }, [isHome]);
+  }, []);
 
   const showDarkBg = isScrolled || !isHome;
 
@@ -69,10 +71,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-all duration-200 ${
         showDarkBg || open
-          ? 'bg-slate-950/92 backdrop-blur-md border-b border-white/10 text-white shadow-sm py-2.5 sm:py-3'
-          : 'bg-gradient-to-b from-slate-950/80 via-slate-950/30 to-transparent text-white border-b border-transparent py-3 sm:py-4'
+          ? 'bg-slate-950/98 backdrop-blur-md border-b border-stone-800/90 text-white shadow-md py-2.5 sm:py-3'
+          : 'bg-gradient-to-b from-slate-950/90 via-slate-950/40 to-transparent text-white border-b border-transparent py-3 sm:py-4'
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -86,22 +88,22 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <nav className="hidden items-center gap-1 xl:gap-1.5 lg:flex" aria-label="Navigasi Utama">
+        <nav className="hidden items-center gap-0.5 xl:gap-1.5 lg:flex" aria-label="Navigasi Utama">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
             return (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`relative px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+                className={`relative px-2.5 xl:px-3 py-1.5 rounded-lg text-[11.5px] xl:text-xs font-semibold tracking-wide transition-all ${
                   isActive
-                    ? 'text-white bg-white/15 shadow-xs'
+                    ? 'text-white bg-white/15 shadow-xs font-bold'
                     : 'text-stone-300 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0.5 left-3 right-3 h-0.5 bg-emerald-400 rounded-full" />
+                  <span className="absolute bottom-0.5 left-2.5 right-2.5 xl:left-3 xl:right-3 h-0.5 bg-emerald-400 rounded-full" />
                 )}
               </Link>
             );
@@ -143,7 +145,7 @@ export default function Navbar() {
             </p>
             <nav className="flex flex-col space-y-1.5">
               {navLinks.map((link) => {
-                const isActive = pathname === link.href;
+                const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
                 const Icon = link.icon;
                 return (
                   <Link

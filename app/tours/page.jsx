@@ -3,7 +3,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { MessageCircle, Calendar, Compass } from 'lucide-react';
+import { MessageCircle, Calendar, Compass, Mountain } from 'lucide-react';
 import TourCard from '@/components/TourCard';
 import ListingStatus from '@/components/ListingStatus';
 import CatalogToolbar from '@/components/CatalogToolbar';
@@ -119,11 +119,11 @@ function ToursList() {
               </a>
 
               <Link
-                href="/trip-builder"
+                href="/jeep-dieng"
                 className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur-xs hover:bg-white/20 transition"
               >
-                <Compass className="h-4 w-4" aria-hidden="true" />
-                <span>Rancang Rencana Sendiri</span>
+                <Mountain className="h-4 w-4" aria-hidden="true" />
+                <span>Sewa Jeep 4x4 Dieng</span>
               </Link>
             </div>
           </div>

@@ -25,6 +25,9 @@ export default function Footer() {
             Layanan Wisata
           </h3>
           <div className="mt-3 flex flex-col gap-2.5 text-xs sm:text-sm text-stone-300">
+            <Link href="/" className="hover:text-white transition-colors">
+              Beranda
+            </Link>
             <Link href="/penginapan" className="hover:text-white transition-colors">
               Penginapan &amp; Villa
             </Link>
@@ -115,12 +118,14 @@ export default function Footer() {
             Navigasi Cepat
           </p>
           <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-xs text-stone-300">
-            <Link href="/penginapan" className="hover:text-white">Penginapan</Link>
-            <Link href="/jelajahi-dieng" className="hover:text-white">Destinasi</Link>
-            <Link href="/jeep-dieng" className="hover:text-white">Jeep 4x4</Link>
+            <Link href="/" className="hover:text-white">Beranda</Link>
             <Link href="/tentang" className="hover:text-white">Tentang Kami</Link>
+            <Link href="/penginapan" className="hover:text-white">Penginapan</Link>
+            <Link href="/jeep-dieng" className="hover:text-white">Jeep 4x4</Link>
             <Link href="/tours" className="hover:text-white">Paket Wisata</Link>
+            <Link href="/jelajahi-dieng" className="hover:text-white">Destinasi</Link>
             <Link href="/availability" className="hover:text-white">Cek Jadwal</Link>
+            <Link href="/kontak" className="hover:text-white">Kontak</Link>
           </div>
         </div>
       </div>

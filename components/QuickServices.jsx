@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Home, Compass, Calendar, ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { Home, Compass, Calendar, ArrowRight, ArrowUpRight, CheckCircle2, MessageCircle } from 'lucide-react';
+import { waLink } from '@/lib/site';
 
 export default function QuickServices() {
   return (
@@ -80,43 +81,46 @@ export default function QuickServices() {
             </div>
           </Link>
 
-          {/* 3. Editorial Service Card: Paket Wisata & Trip Builder */}
+          {/* 3. Editorial Service Card: Paket Wisata & Custom Trip */}
           <div className="md:col-span-7 flex flex-col justify-between rounded-xl border border-stone-200/80 bg-white p-6 sm:p-7 shadow-xs">
             <div>
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-forest">
                   <Compass className="h-4 w-4 text-forest" />
-                  <span>Paket All-In &amp; Custom Trip</span>
+                  <span>Paket All-In &amp; Privat Rombongan</span>
                 </span>
                 <Link
-                  href="/trip-builder"
+                  href="/tours"
                   className="text-xs font-semibold text-forest hover:underline inline-flex items-center gap-1"
                 >
-                  <span>Trip Builder</span>
+                  <span>Lihat Semua Paket</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
               <h3 className="mt-3 font-display text-lg sm:text-xl font-bold text-ink">
-                Paket Wisata Terpadu atau Rancang Sendiri
+                Paket Wisata All-In &amp; Rute Pilihan
               </h3>
               <p className="mt-1.5 text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Pilih paket open trip sunrise, privat rombongan 2D1N all-in dengan antar-jemput, atau gunakan Trip Builder untuk menyusun rencana perjalanan mandiri sesuai budget.
+                Pilih paket open trip sunrise, liburan keluarga 2D1N all-in dengan antar-jemput stasiun/bandara, atau konsultasikan rute privat kustom langsung bersama tim lokal.
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-stone-100 flex flex-wrap items-center gap-3">
               <Link
                 href="/tours"
-                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-stone-100 px-3.5 text-xs font-semibold text-ink hover:bg-stone-200 transition"
+                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-forest px-4 text-xs font-semibold text-white hover:bg-forest-light transition shadow-xs"
               >
                 <span>Lihat Paket Wisata</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
-              <Link
-                href="/trip-builder"
-                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl border border-forest/30 bg-forest/5 px-3.5 text-xs font-semibold text-forest hover:bg-forest/10 transition"
+              <a
+                href={waLink('Halo Kediengaja, saya ingin konsultasi rencana paket trip wisata ke Dieng.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl border border-stone-200 bg-stone-50 px-3.5 text-xs font-semibold text-stone-700 hover:bg-stone-100 transition"
               >
-                <span>Coba Trip Builder</span>
-              </Link>
+                <MessageCircle className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Konsultasi Rute</span>
+              </a>
             </div>
           </div>
 
@@ -205,34 +209,37 @@ export default function QuickServices() {
             </Link>
           </div>
 
-          {/* Quick Action Card 1: Paket Wisata & Trip Builder */}
+          {/* Quick Action Card 1: Paket Wisata All-In */}
           <div className="rounded-xl border border-stone-200/90 bg-white p-4 xs:p-5 shadow-xs">
             <div className="flex items-center justify-between mb-2">
               <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-forest">
                 <Compass className="h-3.5 w-3.5 text-forest" />
-                <span>Paket Wisata &amp; Custom Trip</span>
+                <span>Paket Wisata &amp; Privat Rombongan</span>
               </span>
             </div>
             <h3 className="font-display text-base font-bold text-ink">
-              Paket Terpadu atau Rancang Sendiri
+              Paket Wisata All-In &amp; Rute Pilihan
             </h3>
             <p className="mt-1 text-xs text-stone-600 leading-snug">
-              Open trip, privat 2D1N all-in, atau estimasikan biaya sendiri dengan Trip Builder.
+              Open trip sunrise, liburan keluarga 2D1N all-in, atau konsultasikan rute privat kustom langsung bersama tim lokal.
             </p>
             <div className="mt-3.5 pt-3 border-t border-stone-100 grid grid-cols-2 gap-2">
               <Link
                 href="/tours"
-                className="inline-flex min-h-[38px] items-center justify-center gap-1 rounded-xl bg-stone-100 px-3 text-xs font-semibold text-ink active:bg-stone-200 transition"
+                className="inline-flex min-h-[38px] items-center justify-center gap-1 rounded-xl bg-forest px-3 text-xs font-semibold text-white active:bg-forest-light transition shadow-xs"
               >
                 <span>Paket Wisata</span>
                 <ArrowRight className="h-3 w-3" />
               </Link>
-              <Link
-                href="/trip-builder"
-                className="inline-flex min-h-[38px] items-center justify-center gap-1 rounded-xl border border-forest/30 bg-forest/5 px-3 text-xs font-semibold text-forest active:bg-forest/10 transition"
+              <a
+                href={waLink('Halo Kediengaja, saya ingin konsultasi rencana paket trip wisata ke Dieng.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[38px] items-center justify-center gap-1 rounded-xl border border-stone-200 bg-stone-50 px-3 text-xs font-semibold text-stone-700 active:bg-stone-100 transition"
               >
-                <span>Trip Builder</span>
-              </Link>
+                <MessageCircle className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Konsultasi</span>
+              </a>
             </div>
           </div>
 
