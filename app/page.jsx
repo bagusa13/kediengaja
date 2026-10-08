@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden">
       {/* 1. HERO SECTION: Dedicated Art-Directed Multi-Viewport Mountain Landscape */}
-      <section className="relative isolate min-h-[540px] max-h-[840px] sm:max-h-none h-[100svh] sm:h-[95svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start sm:justify-center overflow-hidden bg-slate-950 border-b border-stone-300/60">
+      <section className="relative isolate min-h-[540px] max-h-[840px] sm:min-h-0 sm:max-h-none h-[100svh] lg:h-[100svh] flex flex-col justify-start sm:justify-center overflow-hidden bg-slate-950 border-b border-stone-300/60">
         {/* Full-bleed Living Landscape: Untouched from top to bottom, zero white mask */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <HeroVideoBackground
@@ -46,7 +46,7 @@ export default function HomePage() {
         />
 
         {/* Hero Content: Layered composition on mobile, optically centered on desktop */}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 xs:px-5 sm:px-6 lg:px-8 pt-[calc(env(safe-area-inset-top,0px)+4.25rem)] xs:pt-[calc(env(safe-area-inset-top,0px)+4.75rem)] sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12 sm:-translate-y-8 lg:-translate-y-12">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 xs:px-5 sm:px-6 lg:px-8 pt-[calc(env(safe-area-inset-top,0px)+4.25rem)] xs:pt-[calc(env(safe-area-inset-top,0px)+4.75rem)] sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12 sm:-translate-y-6 lg:-translate-y-8">
           {/* Quiet Environmental Metadata: Small icon + text, secondary weight, zero pill */}
           <div className="mb-2 xs:mb-2.5 sm:mb-3.5">
             <LiveWeatherDieng

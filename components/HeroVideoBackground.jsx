@@ -217,7 +217,7 @@ export default function HeroVideoBackground({
           src={posterSrc}
           alt="Lanskap Dataran Tinggi Dieng"
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-[38%_center] sm:object-[center_35%] pointer-events-none"
+          className="absolute inset-0 h-full w-full object-cover object-[38%_center] sm:object-[center_bottom] sm:scale-[1.15] sm:origin-bottom pointer-events-none"
         />
       </picture>
 
@@ -230,7 +230,7 @@ export default function HeroVideoBackground({
         loop
         preload="auto"
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-[38%_center] sm:object-[center_35%] pointer-events-none"
+        className="absolute inset-0 h-full w-full object-cover object-[38%_center] sm:object-[center_bottom] sm:scale-[1.15] sm:origin-bottom pointer-events-none"
         style={{
           transition: 'opacity 550ms ease-in-out',
         }}
@@ -247,7 +247,7 @@ export default function HeroVideoBackground({
         loop
         preload="auto"
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-[38%_center] sm:object-[center_35%] pointer-events-none"
+        className="absolute inset-0 h-full w-full object-cover object-[38%_center] sm:object-[center_bottom] sm:scale-[1.15] sm:origin-bottom pointer-events-none"
         style={{
           transition: 'opacity 550ms ease-in-out',
         }}
