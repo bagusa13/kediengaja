@@ -71,7 +71,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-all duration-300 ${
         isTopGlass
-          ? 'bg-white/50 backdrop-blur-md border-b border-white/40 shadow-xs text-stone-900 py-3 sm:py-3.5'
+          ? 'bg-white/25 backdrop-blur-md border-b border-white/20 shadow-xs text-stone-900 py-3 sm:py-3.5'
           : 'bg-[#0A120E] border-b border-stone-800/90 text-white shadow-md shadow-black/30 py-2.5 sm:py-3'
       }`}
     >
@@ -97,7 +97,7 @@ export default function Navbar() {
                   isTopGlass
                     ? isActive
                       ? 'text-black bg-black/10 border border-black/15 shadow-xs font-bold'
-                      : 'text-stone-900 hover:text-black hover:bg-black/5 font-semibold'
+                      : 'text-stone-900 hover:text-black hover:bg-black/5 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]'
                     : isActive
                       ? 'text-white bg-white/15 border border-white/10 shadow-xs font-bold'
                       : 'text-stone-200 hover:text-white hover:bg-white/10'
