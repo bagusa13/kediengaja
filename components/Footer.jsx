@@ -37,8 +37,8 @@ export default function Footer() {
             <Link href="/jelajahi-dieng" className="hover:text-white transition-colors">
               Destinasi Populer
             </Link>
-            <Link href="/trip-builder" className="hover:text-white transition-colors">
-              Rancang Trip Sendiri
+            <Link href="/tentang" className="hover:text-white transition-colors">
+              Tentang Kami
             </Link>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function Footer() {
             <Link href="/penginapan" className="hover:text-white">Penginapan</Link>
             <Link href="/jelajahi-dieng" className="hover:text-white">Destinasi</Link>
             <Link href="/jeep-dieng" className="hover:text-white">Jeep 4x4</Link>
-            <Link href="/trip-builder" className="hover:text-white">Trip Builder</Link>
+            <Link href="/tentang" className="hover:text-white">Tentang Kami</Link>
             <Link href="/tours" className="hover:text-white">Paket Wisata</Link>
             <Link href="/availability" className="hover:text-white">Cek Jadwal</Link>
           </div>
