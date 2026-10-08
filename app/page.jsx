@@ -5,7 +5,6 @@ import HeroVideoBackground from '@/components/HeroVideoBackground';
 import QuickServices from '@/components/QuickServices';
 import AccommodationSection from '@/components/AccommodationSection';
 import ToursSection from '@/components/ToursSection';
-import DestinationSection from '@/components/DestinationSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import QuickAvailabilityCheck from '@/components/QuickAvailabilityCheck';
 import FAQSection from '@/components/FAQSection';
@@ -96,13 +95,10 @@ export default function HomePage() {
       {/* 3. PENGINAPAN PILIHAN DI DIENG: Listing Nyata */}
       <AccommodationSection />
 
-      {/* 4. PAKET WISATA DIENG: Photo-Led Tour & Jeep Listings */}
+      {/* 4. PAKET WISATA & RUTE IKONIK DIENG: Pilihan Tour & Destinasi */}
       <ToursSection />
 
-      {/* 5. DESTINASI POPULER: Sikunir, Telaga Warna, Sikidang, Arjuna */}
-      <DestinationSection />
-
-      {/* 6. KENAPA KEDIENGAJA?: Local Proof & Differentiation */}
+      {/* 5. KENAPA KEDIENGAJA?: Local Proof & Differentiation */}
       <WhyChooseUs />
 
       {/* 7. AVAILABILITY / CEK KETERSEDIAAN: Simple Booking Checker */}

@@ -11,7 +11,6 @@ import {
   BedDouble,
   Compass,
   Mountain,
-  MapPin,
   Calendar,
   Info,
   ChevronRight,
@@ -24,39 +23,22 @@ const navLinks = [
   { href: '/penginapan', label: 'Penginapan', icon: BedDouble },
   { href: '/tours', label: 'Paket Wisata', icon: Compass },
   { href: '/jeep-dieng', label: 'Jeep 4x4', icon: Mountain },
-  { href: '/jelajahi-dieng', label: 'Destinasi', icon: MapPin },
   { href: '/availability', label: 'Cek Jadwal', icon: Calendar },
   { href: '/tentang', label: 'Tentang Kami', icon: Info },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const chatHref = waLink('Halo Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
 
-  const isHome = pathname === '/';
-
   useEffect(() => {
-    function onScroll() {
-      // Aktifkan solid dark header segera setelah pengguna scroll > 15px agar kontras selalu 100% terbaca
-      setIsScrolled(window.scrollY > 15);
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
     function onKey(e) {
       if (e.key === 'Escape') setOpen(false);
     }
     window.addEventListener('keydown', onKey);
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('keydown', onKey);
-    };
+    return () => window.removeEventListener('keydown', onKey);
   }, []);
-
-  const showDarkBg = isScrolled || !isHome;
 
   useEffect(() => {
     if (open) {
@@ -71,11 +53,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-all duration-200 ${
-        showDarkBg || open
-          ? 'bg-slate-950/98 backdrop-blur-md border-b border-stone-800/90 text-white shadow-md py-2.5 sm:py-3'
-          : 'bg-gradient-to-b from-slate-950/90 via-slate-950/40 to-transparent text-white border-b border-transparent py-3 sm:py-4'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] bg-[#0A120E] border-b border-stone-800/90 text-white shadow-md shadow-black/30 py-2.5 sm:py-3 transition-colors duration-200"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand identity */}
@@ -88,22 +66,22 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <nav className="hidden items-center gap-0.5 xl:gap-1.5 lg:flex" aria-label="Navigasi Utama">
+        <nav className="hidden items-center gap-1 xl:gap-2 lg:flex" aria-label="Navigasi Utama">
           {navLinks.map((link) => {
             const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
             return (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`relative px-2.5 xl:px-3 py-1.5 rounded-lg text-[11.5px] xl:text-xs font-semibold tracking-wide transition-all ${
+                className={`relative px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                   isActive
-                    ? 'text-white bg-white/15 shadow-xs font-bold'
-                    : 'text-stone-300 hover:text-white hover:bg-white/10'
+                    ? 'text-white bg-white/15 border border-white/10 shadow-xs font-bold'
+                    : 'text-stone-200 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0.5 left-2.5 right-2.5 xl:left-3 xl:right-3 h-0.5 bg-emerald-400 rounded-full" />
+                  <span className="absolute bottom-0.5 left-3 right-3 h-0.5 bg-emerald-400 rounded-full" />
                 )}
               </Link>
             );
@@ -138,7 +116,7 @@ export default function Navbar() {
 
       {/* Art-Directed Mobile Nav Drawer */}
       {open && (
-        <div className="fixed inset-x-0 top-[calc(env(safe-area-inset-top,0px)+56px)] bottom-0 z-50 bg-slate-950/98 backdrop-blur-2xl px-5 sm:px-6 py-6 lg:hidden flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
+        <div className="fixed inset-x-0 top-[calc(env(safe-area-inset-top,0px)+56px)] bottom-0 z-50 bg-[#0A120E] border-t border-stone-800/80 px-5 sm:px-6 py-6 lg:hidden flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-3 px-1">
               Navigasi Utama

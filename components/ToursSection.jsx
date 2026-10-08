@@ -1,193 +1,312 @@
 "use client";
 
 import Link from 'next/link';
-import { ArrowRight, Clock, Users, Compass, Check, MessageCircle, ShieldCheck, Flame } from 'lucide-react';
-import { FALLBACK_TOURS, FALLBACK_JEEP } from '@/lib/mockData';
+import { ArrowRight, ArrowUpRight, MessageCircle, Clock, ShieldCheck, Compass } from 'lucide-react';
 import { formatRupiah } from '@/lib/covers';
 import { waLink } from '@/lib/site';
 
-export default function ToursSection() {
-  const featuredJeep = FALLBACK_JEEP[1] || FALLBACK_JEEP[0]; // Jeep Medium Savana
-  const secondaryTours = FALLBACK_TOURS.slice(0, 2);
+const featuredTour = {
+  slug: 'open-trip-sunrise-sikunir',
+  title: 'Paket Golden Sunrise Sikunir',
+  elevation: '2.263 mdpl',
+  category: 'Open Trip & Privat',
+  timing: '03.00 – 09.00 WIB',
+  harga: 175000,
+  unit: '/ orang',
+  description:
+    'Menyaksikan momen terbitnya matahari emas berbalut lautan awan dari puncak tertinggi Desa Sembungan. Didampingi pemandu lokal asli Dieng, sudah termasuk tiket masuk dan transportasi lokal.',
+  image: '/images/destinasi/bukit-sikunir.webp',
+};
 
-  const featuredWa = waLink(
-    `Halo Admin Kediengaja,\nSaya ingin booking paket Jeep 4x4:\n\nPaket: ${featuredJeep.nama}\nHarga: ${formatRupiah(featuredJeep.harga)} / mobil\n\nMohon konfirmasi jadwal dan jam penjemputan. Terima kasih.`
+const secondaryTours = [
+  {
+    slug: 'fun-jeep-kawah-savana',
+    title: 'Fun Jeep Wisata Kawah & Savana',
+    elevation: '2.050 mdpl',
+    category: 'Jeep 4x4 Offroad',
+    harga: 450000,
+    unit: '/ armada (maks. 4 org)',
+    description: 'Menjelajah kawah vulkanik aktif Sikidang, jembatan kayu estetik, dan padang savana Pangonan bersama armada 4x4 & driver pemandu.',
+    image: '/images/destinasi/kawah-sikidang.webp',
+  },
+  {
+    slug: 'private-trip-dieng-2d1n',
+    title: 'Private Trip Dieng 2D1N All-In',
+    elevation: '2.000 mdpl',
+    category: 'Paket Keluarga 2D1N',
+    harga: 650000,
+    unit: '/ orang (all-in)',
+    description: 'Liburan santai tanpa ribet lengkap dengan penginapan, mobil privat antar-jemput stasiun/bandara, keliling Telaga Warna, dan kuliner khas.',
+    image: '/images/destinasi/telaga-warna.webp',
+  },
+  {
+    slug: '',
+    href: '/tours',
+    title: 'Wisata Candi Arjuna & Budaya',
+    elevation: '2.093 mdpl',
+    category: 'Heritage & Alam',
+    harga: null,
+    unit: 'Guide & Tiket Masuk',
+    description: 'Gugusan candi Hindu tertua abad ke-7 di tengah lembah berkabut, titik utama fenomena embun upas dan sejarah tanah para dewa.',
+    image: '/images/destinasi/candi-arjuna.webp',
+  },
+];
+
+export default function ToursSection() {
+  const sikunirWa = waLink(
+    'Halo Admin Kediengaja,\nSaya ingin booking Paket Golden Sunrise Sikunir (Rp 175.000/orang).\nMohon info ketersediaan slot tanggal perjalanan. Terima kasih.'
   );
 
   return (
-    <section id="paket-wisata" className="scroll-mt-20 border-b border-stone-800 bg-[#0B120F] text-white py-16 sm:py-24">
+    <section id="paket-wisata" className="scroll-mt-20 border-b border-stone-200/90 bg-[#FAF9F6] py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Chapter Header */}
+        {/* Chapter Heading */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-12">
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-widest uppercase text-emerald-400">
-              03 / Jelajah Alam &amp; Offroad
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase text-forest/90">
+              03 / Paket Wisata Pilihan
             </p>
-            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[42px] leading-[1.15]">
-              Menembus Medan Ekstrem Bersama Sopir Asli Dieng
+            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[42px] leading-[1.15]">
+              Pilihan Paket Wisata &amp; Rute Ikonik
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-stone-300 leading-relaxed">
-              Kawah belerang, padang savana sunyi, dan lautan awan Sikunir. Armada 4x4 tangguh siap melibas tanjakan terjal yang tak terjangkau kendaraan biasa.
+            <p className="mt-3 max-w-xl text-sm sm:text-base text-stone-600 leading-relaxed">
+              Jelajahi lanskap terbaik Dieng dalam paket terpadu—dari golden sunrise Sikunir, petualangan jeep kawah, hingga private trip keluarga bersama pemandu lokal.
             </p>
           </div>
 
           <Link
-            href="/jeep-dieng"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors shrink-0"
+            href="/tours"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-forest hover:text-forest-light transition-colors shrink-0"
           >
-            <span>Semua Rute Jeep &amp; Tur</span>
+            <span>Semua Paket Wisata</span>
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
 
-        {/* VISUAL HIERARCHY GRID: 1 DOMINANT FEATURED EXPERIENCE + 2 SUPPORTING EXPERIENCES */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* 1. DOMINANT FEATURED JEEP EXPERIENCE (7 cols) */}
-          <article className="lg:col-span-7 flex flex-col overflow-hidden rounded-2xl bg-stone-900/90 border border-stone-800 shadow-md">
-            {/* Large Photography Banner */}
-            <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-950">
-              <img
-                src={featuredJeep.gambar}
-                alt={featuredJeep.nama}
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent pointer-events-none" />
+        {/* DESKTOP EDITORIAL LAYOUT (lg:grid) */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-6 items-stretch">
+          {/* 1. Large Featured Card: Paket Golden Sunrise Sikunir */}
+          <div className="group relative lg:col-span-7 flex flex-col justify-between overflow-hidden rounded-xl bg-slate-950 min-h-[420px] p-6 sm:p-8 text-white shadow-xs">
+            <img
+              src={featuredTour.image}
+              alt={featuredTour.title}
+              className="absolute inset-0 h-full w-full object-cover opacity-75 transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent pointer-events-none" />
 
-              <span className="absolute top-4 left-4 rounded-lg bg-emerald-600/90 backdrop-blur-xs px-3 py-1 text-xs font-bold text-white shadow-xs">
-                Rute Paling Populer
+            {/* Top Badges */}
+            <div className="relative z-10 flex flex-wrap items-center gap-2">
+              <span className="rounded-lg bg-white/20 backdrop-blur-xs px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
+                {featuredTour.category}
               </span>
-
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-white">
-                <div>
-                  <span className="text-[10px] text-stone-300 uppercase tracking-wider block">Tarif All-in</span>
-                  <p className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
-                    {formatRupiah(featuredJeep.harga)}
-                    <span className="text-xs font-normal text-stone-300"> / armada</span>
-                  </p>
-                </div>
-                <span className="text-xs font-medium text-emerald-300">
-                  Maks. 4 Orang
-                </span>
-              </div>
+              <span className="rounded-lg bg-emerald-600/90 px-2.5 py-1 text-[11px] font-semibold text-white">
+                {featuredTour.elevation}
+              </span>
+              <span className="text-xs text-stone-300 ml-auto">
+                Waktu: {featuredTour.timing}
+              </span>
             </div>
 
-            {/* Featured Details */}
-            <div className="flex flex-1 flex-col p-6 sm:p-7 justify-between">
-              <div>
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-                  {featuredJeep.nama}
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm text-stone-300 leading-relaxed">
-                  {featuredJeep.deskripsi}
-                </p>
-
-                {/* Key Points */}
-                <div className="mt-4 grid grid-cols-2 gap-3 border-y border-stone-800 py-3 text-xs text-stone-300">
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-emerald-400 shrink-0" />
-                    <span>Durasi {featuredJeep.durasi}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
-                    <span>Sopir Merangkap Fotografer</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="mt-6 pt-2 flex flex-col xs:flex-row items-center gap-3">
-                <a
-                  href={featuredWa}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-[46px] w-full xs:w-auto flex-1 items-center justify-center gap-2 rounded-xl bg-forest px-5 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  <span>Pesan Jeep via WhatsApp</span>
-                </a>
+            {/* Bottom Content & CTAs */}
+            <div className="relative z-10 mt-16">
+              <div className="flex items-baseline justify-between gap-4 mb-1">
                 <Link
-                  href={`/jeep-dieng/${featuredJeep.slug}`}
-                  className="inline-flex min-h-[46px] w-full xs:w-auto items-center justify-center rounded-xl border border-stone-700 bg-stone-800/80 px-4 text-xs font-semibold text-stone-200 hover:bg-stone-700 transition-all"
+                  href={`/tours/${featuredTour.slug}`}
+                  className="font-display text-2xl sm:text-3xl font-bold text-white hover:text-emerald-300 transition-colors"
                 >
-                  Detail Rute
+                  {featuredTour.title}
                 </Link>
               </div>
+
+              <p className="font-display text-xl sm:text-2xl font-bold text-emerald-400 mt-1">
+                {formatRupiah(featuredTour.harga)}
+                <span className="text-xs font-normal text-stone-300"> {featuredTour.unit}</span>
+              </p>
+
+              <p className="mt-2 text-xs sm:text-sm text-stone-200 leading-relaxed max-w-xl">
+                {featuredTour.description}
+              </p>
+
+              <div className="mt-5 pt-4 border-t border-white/15 flex items-center gap-3">
+                <Link
+                  href={`/tours/${featuredTour.slug}`}
+                  className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-white px-4 text-xs font-semibold text-ink hover:bg-stone-100 transition shadow-xs"
+                >
+                  <span>Detail Paket</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+                <a
+                  href={sikunirWa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[38px] items-center gap-1.5 rounded-xl bg-forest px-4 text-xs font-semibold text-white hover:bg-forest-light transition shadow-xs border border-emerald-500/30"
+                >
+                  <MessageCircle className="h-3.5 w-3.5 text-emerald-300" />
+                  <span>Booking via WhatsApp</span>
+                </a>
+              </div>
             </div>
-          </article>
+          </div>
 
-          {/* 2. SECONDARY EXPERIENCES (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-5">
-            {secondaryTours.map((item) => (
-              <article
-                key={item.id}
-                className="group flex flex-col sm:flex-row lg:flex-col overflow-hidden rounded-2xl bg-stone-900/70 border border-stone-800/80 p-5 gap-4 transition hover:border-emerald-500/40"
-              >
-                <div className="relative h-44 sm:h-auto sm:w-48 lg:w-full lg:h-40 shrink-0 overflow-hidden rounded-xl bg-slate-950">
-                  <img
-                    src={item.gambar}
-                    alt={item.nama}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <span className="absolute top-2.5 left-2.5 rounded bg-slate-950/80 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
-                    {item.tipe || 'Tur Pilihan'}
-                  </span>
-                  <div className="absolute bottom-2.5 left-2.5 text-white">
-                    <span className="font-display text-base font-bold text-white">
-                      {formatRupiah(item.harga)}
+          {/* 2. Secondary Stacked Cards (3 items) */}
+          <div className="lg:col-span-5 flex flex-col gap-4 justify-between">
+            {secondaryTours.map((item) => {
+              const href = item.href || `/tours/${item.slug}`;
+              return (
+                <Link
+                  key={item.title}
+                  href={href}
+                  className="group flex gap-4 overflow-hidden rounded-xl border border-stone-200/90 bg-white p-3.5 sm:p-4 transition hover:border-forest/50 hover:shadow-sm"
+                >
+                  <div className="relative h-24 w-28 sm:h-28 sm:w-32 shrink-0 overflow-hidden rounded-lg bg-stone-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    />
+                    <span className="absolute bottom-1 left-1 rounded bg-slate-950/70 px-1.5 py-0.5 text-[9px] font-bold text-white">
+                      {item.elevation}
                     </span>
-                    <span className="text-[10px] text-stone-300"> / pax</span>
                   </div>
-                </div>
 
-                <div className="flex flex-1 flex-col justify-between">
-                  <div>
-                    <h4 className="font-display text-base font-bold text-white group-hover:text-emerald-300 transition-colors">
-                      <Link href={`/tours/${item.id}`}>
-                        {item.nama}
-                      </Link>
+                  <div className="flex flex-1 flex-col justify-center">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-forest">
+                        {item.category}
+                      </span>
+                    </div>
+                    <h4 className="font-display text-sm sm:text-base font-bold text-ink group-hover:text-forest transition-colors mt-0.5">
+                      {item.title}
                     </h4>
-                    <p className="mt-1.5 text-xs text-stone-400 line-clamp-2 leading-relaxed">
-                      {item.ringkasan || item.deskripsi}
+                    {item.harga ? (
+                      <p className="text-xs font-bold text-forest mt-0.5">
+                        {formatRupiah(item.harga)}
+                        <span className="text-[10px] font-normal text-stone-500"> {item.unit}</span>
+                      </p>
+                    ) : (
+                      <p className="text-xs font-medium text-stone-500 mt-0.5">{item.unit}</p>
+                    )}
+                    <p className="mt-1 text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                      {item.description}
                     </p>
                   </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
 
-                  <div className="mt-4 pt-3 border-t border-stone-800/80 flex items-center justify-between">
-                    <span className="text-[11px] text-stone-400 flex items-center gap-1">
-                      <Clock className="h-3 w-3 text-emerald-400" />
-                      {item.durasi}
-                    </span>
-                    <Link
-                      href={`/tours/${item.id}`}
-                      className="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1"
-                    >
-                      <span>Lihat Rute</span>
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
+        {/* MOBILE EDITORIAL TOURS COMPOSITION (lg:hidden) */}
+        <div className="lg:hidden flex flex-col space-y-4">
+          {/* Featured Spotlight: Sikunir */}
+          <div className="group relative flex flex-col justify-end overflow-hidden rounded-2xl bg-slate-950 min-h-[320px] p-5 text-white shadow-xs">
+            <img
+              src={featuredTour.image}
+              alt={featuredTour.title}
+              className="absolute inset-0 h-full w-full object-cover opacity-75"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent pointer-events-none" />
 
-            {/* Custom Itinerary / Konsultasi Rombongan Callout */}
-            <div className="rounded-2xl border border-dashed border-stone-700 bg-stone-900/40 p-5 text-center">
-              <p className="text-xs font-semibold text-stone-200">
-                Punya rencana atau rombongan khusus?
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="rounded-md bg-white/20 backdrop-blur-xs px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
+                  {featuredTour.category}
+                </span>
+                <span className="rounded-md bg-emerald-600/80 px-2 py-0.5 text-[10px] font-semibold text-white">
+                  {featuredTour.elevation}
+                </span>
+              </div>
+
+              <h3 className="font-display text-xl font-bold text-white">
+                {featuredTour.title}
+              </h3>
+              <p className="text-base font-bold text-emerald-400 mt-0.5">
+                {formatRupiah(featuredTour.harga)}
+                <span className="text-xs font-normal text-stone-300"> {featuredTour.unit}</span>
               </p>
-              <p className="mt-1 text-[11px] text-stone-400">
-                Konsultasikan jadwal, kombinasi jeep, dan penginapan sesuai jumlah peserta dan budget Anda.
+
+              <p className="mt-1.5 text-xs text-stone-200 line-clamp-2 leading-relaxed">
+                {featuredTour.description}
               </p>
-              <a
-                href={waLink('Halo Kediengaja, saya ingin konsultasi rencana perjalanan rombongan khusus ke Dieng.')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex min-h-[38px] items-center gap-1.5 rounded-xl border border-emerald-400/30 bg-emerald-950/40 px-4 text-xs font-semibold text-emerald-300 hover:bg-emerald-900/50 transition"
-              >
-                <MessageCircle className="h-3.5 w-3.5" />
-                <span>Konsultasi Rombongan</span>
-              </a>
+
+              <div className="mt-4 pt-3 border-t border-white/15 grid grid-cols-2 gap-2">
+                <Link
+                  href={`/tours/${featuredTour.slug}`}
+                  className="inline-flex min-h-[38px] items-center justify-center gap-1 rounded-xl bg-white px-3 text-xs font-semibold text-ink active:bg-stone-100 transition"
+                >
+                  <span>Detail Paket</span>
+                  <ArrowRight className="h-3 w-3" />
+                </Link>
+                <a
+                  href={sikunirWa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-xl bg-forest px-3 text-xs font-semibold text-white active:bg-forest-light transition border border-emerald-500/30"
+                >
+                  <MessageCircle className="h-3.5 w-3.5 text-emerald-300" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
+          </div>
+
+          {/* Secondary Editorial Cards Carousel */}
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-2 -mx-4 px-4 scrollbar-none">
+            {secondaryTours.map((item) => {
+              const href = item.href || `/tours/${item.slug}`;
+              return (
+                <Link
+                  key={item.title}
+                  href={href}
+                  className="w-[82vw] max-w-[320px] shrink-0 snap-center rounded-2xl border border-stone-200/90 bg-white overflow-hidden shadow-xs flex flex-col"
+                >
+                  <div className="relative aspect-16/10 w-full overflow-hidden bg-stone-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                    <span className="absolute left-2.5 top-2.5 rounded bg-slate-950/75 backdrop-blur-xs px-2 py-0.5 text-[10px] font-bold text-white">
+                      {item.elevation}
+                    </span>
+                    <span className="absolute left-2.5 bottom-2.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-300">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <div className="p-4 flex flex-1 flex-col justify-between">
+                    <div>
+                      <h4 className="font-display text-base font-bold text-ink">
+                        {item.title}
+                      </h4>
+                      {item.harga ? (
+                        <p className="text-xs font-bold text-forest mt-0.5">
+                          {formatRupiah(item.harga)}
+                          <span className="text-[10px] font-normal text-stone-500"> {item.unit}</span>
+                        </p>
+                      ) : (
+                        <p className="text-xs font-medium text-stone-500 mt-0.5">{item.unit}</p>
+                      )}
+                      <p className="mt-1 text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="mt-3 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-forest">
+                      <span>Lihat Rute &amp; Paket</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center justify-between text-xs text-stone-500 px-1">
+            <span>← Geser untuk paket lain →</span>
+            <Link href="/tours" className="font-semibold text-forest">
+              Semua Paket
+            </Link>
           </div>
         </div>
       </div>
