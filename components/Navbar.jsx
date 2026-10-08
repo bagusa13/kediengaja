@@ -29,15 +29,28 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const chatHref = waLink('Halo Kediengaja, saya ingin konsultasi rencana liburan ke Dieng.');
 
+  const isHome = pathname === '/';
+
   useEffect(() => {
+    function onScroll() {
+      setIsScrolled(window.scrollY > 20);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
     function onKey(e) {
       if (e.key === 'Escape') setOpen(false);
     }
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('keydown', onKey);
+    };
   }, []);
 
   useEffect(() => {
@@ -51,9 +64,16 @@ export default function Navbar() {
     };
   }, [open]);
 
+  // Transparan & font hitam HANYA saat di paling atas beranda (saat hero aktif) dan drawer tertutup
+  const isTransparent = isHome && !isScrolled && !open;
+
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] bg-[#0A120E] border-b border-stone-800/90 text-white shadow-md shadow-black/30 py-2.5 sm:py-3 transition-colors duration-200"
+      className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-all duration-300 ${
+        isTransparent
+          ? 'bg-transparent text-stone-900 border-b border-transparent py-3 sm:py-4'
+          : 'bg-[#0A120E] border-b border-stone-800/90 text-white shadow-md shadow-black/30 py-2.5 sm:py-3'
+      }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand identity */}
@@ -62,7 +82,7 @@ export default function Navbar() {
           className="transition-opacity hover:opacity-95 shrink-0"
           onClick={() => setOpen(false)}
         >
-          <BrandLogo variant="light" showTagline={false} />
+          <BrandLogo variant={isTransparent ? 'dark' : 'light'} showTagline={false} />
         </Link>
 
         {/* Desktop links */}
@@ -74,14 +94,22 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`relative px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
-                  isActive
-                    ? 'text-white bg-white/15 border border-white/10 shadow-xs font-bold'
-                    : 'text-stone-200 hover:text-white hover:bg-white/10'
+                  isTransparent
+                    ? isActive
+                      ? 'text-black bg-black/10 border border-black/15 shadow-xs font-bold'
+                      : 'text-stone-900 hover:text-black hover:bg-black/5 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]'
+                    : isActive
+                      ? 'text-white bg-white/15 border border-white/10 shadow-xs font-bold'
+                      : 'text-stone-200 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0.5 left-3 right-3 h-0.5 bg-emerald-400 rounded-full" />
+                  <span
+                    className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full ${
+                      isTransparent ? 'bg-forest' : 'bg-emerald-400'
+                    }`}
+                  />
                 )}
               </Link>
             );
@@ -94,7 +122,9 @@ export default function Navbar() {
             href={chatHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[38px] items-center gap-2 rounded-xl border border-emerald-500/30 bg-forest px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all"
+            className={`inline-flex min-h-[38px] items-center gap-2 rounded-xl bg-forest px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all ${
+              isTransparent ? 'border border-emerald-950/20 shadow-sm' : 'border border-emerald-500/30'
+            }`}
             aria-label="Hubungi Kediengaja via WhatsApp"
           >
             <MessageCircle className="h-3.5 w-3.5 text-emerald-300" aria-hidden="true" />
@@ -105,7 +135,11 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-xl text-white hover:bg-white/10 active:scale-95 transition-all lg:hidden"
+          className={`flex h-10 w-10 items-center justify-center rounded-xl active:scale-95 transition-all lg:hidden ${
+            isTransparent
+              ? 'text-stone-900 hover:bg-black/5'
+              : 'text-white hover:bg-white/10'
+          }`}
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? 'Tutup menu' : 'Buka menu'}

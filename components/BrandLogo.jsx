@@ -38,7 +38,7 @@ export default function BrandLogo({
         ) : (
           <span
             className={`text-[9px] sm:text-[10px] font-medium tracking-wide mt-0.5 leading-none ${
-              variant === 'light' ? 'text-stone-300' : 'text-stone-500'
+              variant === 'light' ? 'text-stone-300' : 'text-stone-700'
             }`}
           >
             Wisata &amp; Penginapan Dieng
