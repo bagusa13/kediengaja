@@ -205,15 +205,21 @@ export default function HeroVideoBackground({
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none bg-slate-950">
-      {/* 1. Seamless Poster Image Fallback (No layout shift, pure visual landscape) */}
-      <img
-        src={posterSrc}
-        alt="Lanskap Dataran Tinggi Dieng"
-        fetchPriority="high"
-        className={`absolute inset-0 h-full w-full object-cover object-[38%_center] sm:object-[center_35%] transition-opacity duration-700 pointer-events-none ${
+      {/* 1. Seamless Responsive Poster Image Fallback (No layout shift, pure visual landscape) */}
+      <picture
+        className={`absolute inset-0 h-full w-full pointer-events-none transition-opacity duration-700 ${
           videoReady ? 'opacity-0' : 'opacity-100'
         }`}
-      />
+      >
+        <source media="(max-width: 639px)" srcSet="/images/hero/dieng-hero-mobile.webp" type="image/webp" />
+        <source media="(max-width: 1023px)" srcSet="/images/hero/dieng-hero.webp" type="image/webp" />
+        <img
+          src={posterSrc}
+          alt="Lanskap Dataran Tinggi Dieng"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-[38%_center] sm:object-[center_35%] pointer-events-none"
+        />
+      </picture>
 
       {/* 2. Buffer A: Primary Video Layer */}
       <video

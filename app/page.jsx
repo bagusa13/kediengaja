@@ -15,8 +15,8 @@ import FinalCTA from '@/components/FinalCTA';
 export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden">
-      {/* 1. HERO SECTION: Full-Viewport Mountain Hospitality Landscape */}
-      <section className="relative isolate min-h-[560px] h-[100svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start sm:justify-center overflow-hidden bg-slate-950 border-b border-stone-300/60">
+      {/* 1. HERO SECTION: Dedicated Art-Directed Multi-Viewport Mountain Landscape */}
+      <section className="relative isolate min-h-[540px] max-h-[840px] sm:max-h-none h-[100svh] sm:h-[95svh] lg:h-[100svh] lg:min-h-[720px] flex flex-col justify-start sm:justify-center overflow-hidden bg-slate-950 border-b border-stone-300/60">
         {/* Full-bleed Living Landscape: Untouched from top to bottom, zero white mask */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <HeroVideoBackground
@@ -29,15 +29,15 @@ export default function HomePage() {
         <div className="absolute inset-x-0 bottom-0 z-20 h-px bg-stone-300/80 shadow-[0_1px_4px_rgba(0,0,0,0.08)] pointer-events-none" />
 
         {/* Localized Readability Gradient */}
-        {/* Mobile: Gentle top mist protecting text in upper 46%, leaving mountain & village 100% untouched */}
+        {/* Mobile: Gentle top sky mist protecting text in upper zone, leaving mountain & village 100% untouched */}
         <div
           className="absolute inset-x-0 top-0 pointer-events-none z-[1] sm:hidden"
           style={{
-            height: '46%',
-            background: 'linear-gradient(to bottom, rgba(8, 14, 12, 0.65) 0%, rgba(8, 14, 12, 0.32) 50%, rgba(8, 14, 12, 0.05) 85%, transparent 100%)',
+            height: 'clamp(260px, 44svh, 360px)',
+            background: 'linear-gradient(to bottom, rgba(7, 13, 11, 0.68) 0%, rgba(7, 13, 11, 0.32) 48%, rgba(7, 13, 11, 0.05) 82%, transparent 100%)',
           }}
         />
-        {/* Desktop: Horizontal 105deg gradient on left side */}
+        {/* Desktop: Horizontal 105deg gradient on left side - PRESERVED EXACTLY AS APPROVED */}
         <div
           className="absolute inset-0 pointer-events-none z-[1] hidden sm:block"
           style={{
@@ -45,44 +45,44 @@ export default function HomePage() {
           }}
         />
 
-        {/* Hero Content: Optically anchored in sky zone with clear breathing room above mountain */}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 pt-20 xs:pt-24 sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12 sm:-translate-y-8 lg:-translate-y-12">
+        {/* Hero Content: Layered composition on mobile, optically centered on desktop */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 xs:px-5 sm:px-6 lg:px-8 pt-[calc(env(safe-area-inset-top,0px)+4.25rem)] xs:pt-[calc(env(safe-area-inset-top,0px)+4.75rem)] sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-12 sm:-translate-y-8 lg:-translate-y-12">
           {/* Quiet Environmental Metadata: Small icon + text, secondary weight, zero pill */}
-          <div className="mb-2 sm:mb-3.5">
+          <div className="mb-2 xs:mb-2.5 sm:mb-3.5">
             <LiveWeatherDieng
-              className="text-[11px] sm:text-xs text-stone-300/85 font-normal"
-              iconClassName="h-3 w-3 sm:h-3.5 sm:w-3.5 text-stone-300/75"
+              className="text-[11px] xs:text-xs text-stone-200/90 font-normal tracking-wide drop-shadow-xs"
+              iconClassName="h-3 w-3 xs:h-3.5 xs:w-3.5 text-stone-300/80"
             />
           </div>
 
-          {/* Main Headline: Editorial Hospitality Weight (700 bold), tight line-height, controlled mobile width */}
+          {/* Main Headline: Fluid confident typography with clamp(), no awkward breaks, strict break at comma */}
           <h1
-            className="max-w-[320px] xs:max-w-[360px] sm:max-w-[480px] font-display text-[29px] xs:text-[33px] sm:text-5xl lg:text-[52px] font-bold tracking-tight text-white leading-[1.14] sm:leading-[1.12]"
-            style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.40), 0 1px 3px rgba(0, 0, 0, 0.30)' }}
+            className="max-w-[14ch] sm:max-w-[480px] font-display text-[clamp(1.75rem,6.8vw,2.35rem)] sm:text-5xl lg:text-[52px] font-bold tracking-tight text-white leading-[1.12] sm:leading-[1.12]"
+            style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.35)' }}
           >
             Liburan ke Dieng,<br />Tanpa Ribet.
           </h1>
 
-          {/* Supporting Copy: 2-3 lines, comfortable line-height */}
+          {/* Supporting Copy: Controlled visual width, does not dominate the hero */}
           <p
-            className="mt-2.5 sm:mt-3.5 max-w-[300px] xs:max-w-[340px] sm:max-w-lg text-[13px] xs:text-sm sm:text-base leading-snug sm:leading-relaxed text-stone-200/90 font-normal"
+            className="mt-2 xs:mt-2.5 sm:mt-3.5 max-w-[260px] xs:max-w-[300px] sm:max-w-lg text-[clamp(0.8125rem,2.8vw,0.9375rem)] sm:text-base leading-snug sm:leading-relaxed text-stone-200/90 font-normal"
             style={{ textShadow: '0 1px 6px rgba(0, 0, 0, 0.35)' }}
           >
             Penginapan, jeep, dan paket wisata lokal untuk perjalanan yang lebih dekat.
           </p>
 
-          {/* Restrained Hospitality CTAs: Cohesive, balanced button pair on mobile and desktop */}
-          <div className="mt-4 xs:mt-5 sm:mt-7 flex flex-row items-center gap-2.5 sm:gap-3.5">
+          {/* Restrained Hospitality CTAs: Solid Primary + Frosted Secondary, thumb-friendly 44-48px touch targets */}
+          <div className="mt-3.5 xs:mt-4 sm:mt-7 flex flex-row items-center gap-2 xs:gap-2.5 sm:gap-3.5">
             <Link
               href="#penginapan"
-              className="inline-flex h-11 sm:h-12 items-center justify-center rounded-xl bg-forest px-4.5 xs:px-5 sm:px-6 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all shrink-0"
+              className="inline-flex h-11 sm:h-12 items-center justify-center rounded-xl bg-forest px-3.5 xs:px-5 sm:px-6 text-[11px] xs:text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-forest-light active:scale-[0.98] transition-all shrink-0"
             >
               <span>Cari Penginapan</span>
             </Link>
 
             <Link
               href="#paket-wisata"
-              className="inline-flex h-11 sm:h-12 items-center justify-center gap-1.5 rounded-xl border border-white/25 bg-white/10 sm:bg-white/5 backdrop-blur-xs px-4 xs:px-5 sm:px-6 text-xs sm:text-sm font-medium text-white hover:bg-white/15 hover:border-white/35 active:scale-[0.98] transition-all group shrink-0"
+              className="inline-flex h-11 sm:h-12 items-center justify-center gap-1.5 rounded-xl border border-white/25 bg-white/12 sm:bg-white/5 backdrop-blur-xs px-3 xs:px-4.5 sm:px-6 text-[11px] xs:text-xs sm:text-sm font-medium text-white hover:bg-white/18 hover:border-white/35 active:scale-[0.98] transition-all group shrink-0"
             >
               <span>Lihat Paket Wisata</span>
               <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-stone-200 group-hover:translate-x-1 transition-transform" aria-hidden="true" />

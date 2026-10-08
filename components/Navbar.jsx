@@ -58,7 +58,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-250 ${
+      className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-colors duration-250 ${
         showDarkBg || open
           ? 'bg-slate-950/95 backdrop-blur-md border-b border-white/10 text-white shadow-xs'
           : 'bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent text-white border-b border-transparent'
@@ -122,7 +122,7 @@ export default function Navbar() {
 
       {/* Art-Directed Mobile Nav Drawer */}
       {open && (
-        <div className="fixed inset-x-0 top-[61px] bottom-0 z-50 bg-slate-950/98 backdrop-blur-2xl px-6 py-6 lg:hidden flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
+        <div className="fixed inset-x-0 top-[calc(env(safe-area-inset-top,0px)+61px)] bottom-0 z-50 bg-slate-950/98 backdrop-blur-2xl px-6 py-6 lg:hidden flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-3">
               Eksplorasi Dieng
