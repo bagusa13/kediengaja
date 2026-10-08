@@ -64,14 +64,14 @@ export default function Navbar() {
     };
   }, [open]);
 
-  // Transparan & font hitam HANYA saat di paling atas beranda (saat hero aktif) dan drawer tertutup
-  const isTransparent = isHome && !isScrolled && !open;
+  // Transparan dengan efek glass & font hitam HANYA saat di paling atas beranda (saat hero aktif) dan drawer tertutup
+  const isTopGlass = isHome && !isScrolled && !open;
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-all duration-300 ${
-        isTransparent
-          ? 'bg-transparent text-stone-900 border-b border-transparent py-3 sm:py-4'
+        isTopGlass
+          ? 'bg-white/50 backdrop-blur-md border-b border-white/40 shadow-xs text-stone-900 py-3 sm:py-3.5'
           : 'bg-[#0A120E] border-b border-stone-800/90 text-white shadow-md shadow-black/30 py-2.5 sm:py-3'
       }`}
     >
@@ -82,7 +82,7 @@ export default function Navbar() {
           className="transition-opacity hover:opacity-95 shrink-0"
           onClick={() => setOpen(false)}
         >
-          <BrandLogo variant={isTransparent ? 'dark' : 'light'} showTagline={false} />
+          <BrandLogo variant={isTopGlass ? 'dark' : 'light'} showTagline={false} />
         </Link>
 
         {/* Desktop links */}
@@ -94,10 +94,10 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`relative px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
-                  isTransparent
+                  isTopGlass
                     ? isActive
                       ? 'text-black bg-black/10 border border-black/15 shadow-xs font-bold'
-                      : 'text-stone-900 hover:text-black hover:bg-black/5 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]'
+                      : 'text-stone-900 hover:text-black hover:bg-black/5 font-semibold'
                     : isActive
                       ? 'text-white bg-white/15 border border-white/10 shadow-xs font-bold'
                       : 'text-stone-200 hover:text-white hover:bg-white/10'
@@ -107,7 +107,7 @@ export default function Navbar() {
                 {isActive && (
                   <span
                     className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full ${
-                      isTransparent ? 'bg-forest' : 'bg-emerald-400'
+                      isTopGlass ? 'bg-forest' : 'bg-emerald-400'
                     }`}
                   />
                 )}
@@ -123,7 +123,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex min-h-[38px] items-center gap-2 rounded-xl bg-forest px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-forest-light active:scale-[0.98] transition-all ${
-              isTransparent ? 'border border-emerald-950/20 shadow-sm' : 'border border-emerald-500/30'
+              isTopGlass ? 'border border-emerald-950/20 shadow-sm' : 'border border-emerald-500/30'
             }`}
             aria-label="Hubungi Kediengaja via WhatsApp"
           >
@@ -136,7 +136,7 @@ export default function Navbar() {
         <button
           type="button"
           className={`flex h-10 w-10 items-center justify-center rounded-xl active:scale-95 transition-all lg:hidden ${
-            isTransparent
+            isTopGlass
               ? 'text-stone-900 hover:bg-black/5'
               : 'text-white hover:bg-white/10'
           }`}
