@@ -8,7 +8,6 @@ import ToursSection from '@/components/ToursSection';
 import DestinationSection from '@/components/DestinationSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import QuickAvailabilityCheck from '@/components/QuickAvailabilityCheck';
-import Testimonials from '@/components/Testimonials';
 import FAQSection from '@/components/FAQSection';
 import FinalCTA from '@/components/FinalCTA';
 
@@ -109,10 +108,7 @@ export default function HomePage() {
       {/* 7. AVAILABILITY / CEK KETERSEDIAAN: Simple Booking Checker */}
       <QuickAvailabilityCheck />
 
-      {/* 8. TESTIMONI: Cerita Perjalanan Tamu */}
-      <Testimonials />
-
-      {/* 9. FAQ: Compact Accordion */}
+      {/* 8. FAQ: Compact Accordion */}
       <FAQSection />
 
       {/* 10. FINAL CTA: Siap Berangkat ke Dieng? */}
